@@ -7,6 +7,10 @@
 
 final class HomeViewModel: ViewModelType {
 
+    // MARK: - init/deinit
+
+    deinit {}
+
     // MARK: - methods
 
     func transform(input: Input) -> Output {

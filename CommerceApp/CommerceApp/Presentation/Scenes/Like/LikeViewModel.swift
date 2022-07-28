@@ -7,6 +7,10 @@
 
 final class LikeViewModel: ViewModelType {
 
+    // MARK: - init/deinit
+
+    deinit {}
+
     // MARK: - methods
 
     func transform(input: Input) -> Output {
