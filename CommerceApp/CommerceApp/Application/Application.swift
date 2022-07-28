@@ -21,28 +21,35 @@ final class Application {
 
     /// window에 main 인터페이스를 설정합니다
     func setMainInterface(in window: UIWindow) {
-        let homeVC = HomeViewController()
+        let homeNavigationController = UINavigationController()
         let homeButton = UITabBarItem(
             title: "홈",
             image: UIImage(systemName: "house"),
             selectedImage: UIImage(systemName: "house.fill")
         )
-        homeVC.tabBarItem = homeButton
-        let homeNavigator = DefaultHomeNavigator()
+        homeNavigationController.tabBarItem = homeButton
+        let homeNavigator = DefaultHomeNavigator(
+            navigationController: homeNavigationController
+        )
 
-        let likeVC = LikeViewController()
+        let likeNavigationController = UINavigationController()
         let likeButton = UITabBarItem(
             title: "좋아요",
             image: UIImage(systemName: "heart"),
             selectedImage: UIImage(systemName: "heart.fill")
         )
-        likeVC.tabBarItem = likeButton
-        let likeNavigator = DefaultLikeNavigator()
+        likeNavigationController.tabBarItem = likeButton
+        let likeNavigator = DefaultLikeNavigator(
+            navigationController: likeNavigationController
+        )
 
         let tapBarController = UITabBarController()
-        tapBarController.viewControllers = [homeVC, likeVC]
+        tapBarController.viewControllers = [
+            homeNavigationController, likeNavigationController
+        ]
         homeNavigator.toHome()
         likeNavigator.toLike()
+
         window.rootViewController = tapBarController
         window.makeKeyAndVisible()
     }

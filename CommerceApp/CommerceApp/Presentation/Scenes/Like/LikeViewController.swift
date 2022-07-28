@@ -9,9 +9,15 @@ import UIKit
 
 final class LikeViewController: UIViewController {
 
+    // MARK: - properties
+
+    var viewModel: LikeViewModel!
+
     // MARK: - init/deinit
 
-    deinit {}
+    deinit {
+        print("🗑", Self.description())
+    }
 
     // MARK: - methods
 

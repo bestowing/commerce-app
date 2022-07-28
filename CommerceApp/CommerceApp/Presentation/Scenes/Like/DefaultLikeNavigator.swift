@@ -5,14 +5,28 @@
 //  Created by 이청수 on 2022/07/28.
 //
 
+import UIKit
+
 final class DefaultLikeNavigator: LikeNavigator {
+
+    private let navigationController: UINavigationController
 
     // MARK: - init/deinit
 
-    deinit {}
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+
+    deinit {
+        print("🗑", self)
+    }
 
     // MARK: - methods
 
-    func toLike() {}
+    func toLike() {
+        let viewController = LikeViewController()
+        viewController.viewModel = LikeViewModel(navigator: self)
+        self.navigationController.pushViewController(viewController, animated: false)
+    }
 
 }

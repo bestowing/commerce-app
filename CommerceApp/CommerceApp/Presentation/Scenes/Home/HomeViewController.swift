@@ -9,9 +9,15 @@ import UIKit
 
 final class HomeViewController: UIViewController {
 
+    // MARK: - properties
+
+    var viewModel: HomeViewModel!
+
     // MARK: - init/deinit
 
-    deinit {}
+    deinit {
+        print("🗑", Self.description())
+    }
 
     // MARK: - methods
 

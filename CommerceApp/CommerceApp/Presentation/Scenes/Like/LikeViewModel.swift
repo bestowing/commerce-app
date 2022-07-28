@@ -7,9 +7,19 @@
 
 final class LikeViewModel: ViewModelType {
 
+    // MARK: - properties
+
+    private let navigator: LikeNavigator
+
     // MARK: - init/deinit
 
-    deinit {}
+    init(navigator: LikeNavigator) {
+        self.navigator = navigator
+    }
+
+    deinit {
+        print("🗑", self)
+    }
 
     // MARK: - methods
 

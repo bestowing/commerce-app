@@ -7,9 +7,19 @@
 
 final class HomeViewModel: ViewModelType {
 
+    // MARK: - properties
+
+    private let navigator: HomeNavigator
+
     // MARK: - init/deinit
 
-    deinit {}
+    init(navigator: HomeNavigator) {
+        self.navigator = navigator
+    }
+
+    deinit {
+        print("🗑", self)
+    }
 
     // MARK: - methods
 
