@@ -35,6 +35,7 @@
 		3F91487A28927ABA0050A02F /* AbstractRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91487928927ABA0050A02F /* AbstractRepository.swift */; };
 		3F91487D28927C540050A02F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3F91487C28927C540050A02F /* SnapKit */; };
 		3F9148902892829B0050A02F /* RxRealm in Frameworks */ = {isa = PBXBuildFile; productRef = 3F91488F2892829B0050A02F /* RxRealm */; };
+		3F914893289285AB0050A02F /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3F914892289285AB0050A02F /* RxAlamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F914893289285AB0050A02F /* RxAlamofire in Frameworks */,
 				3F9148902892829B0050A02F /* RxRealm in Frameworks */,
 				3F91487D28927C540050A02F /* SnapKit in Frameworks */,
 			);
@@ -286,6 +288,7 @@
 			packageProductDependencies = (
 				3F91487C28927C540050A02F /* SnapKit */,
 				3F91488F2892829B0050A02F /* RxRealm */,
+				3F914892289285AB0050A02F /* RxAlamofire */,
 			);
 			productName = CommerceApp;
 			productReference = 3F0F335928923BE600A1C514 /* CommerceApp.app */;
@@ -318,6 +321,7 @@
 			packageReferences = (
 				3F91487B28927C540050A02F /* XCRemoteSwiftPackageReference "SnapKit" */,
 				3F91488E2892829B0050A02F /* XCRemoteSwiftPackageReference "RxRealm" */,
+				3F914891289285AB0050A02F /* XCRemoteSwiftPackageReference "RxAlamofire" */,
 			);
 			productRefGroup = 3F0F335A28923BE600A1C514 /* Products */;
 			projectDirPath = "";
@@ -594,6 +598,14 @@
 				kind = branch;
 			};
 		};
+		3F914891289285AB0050A02F /* XCRemoteSwiftPackageReference "RxAlamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxAlamofire.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -606,6 +618,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3F91488E2892829B0050A02F /* XCRemoteSwiftPackageReference "RxRealm" */;
 			productName = RxRealm;
+		};
+		3F914892289285AB0050A02F /* RxAlamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F914891289285AB0050A02F /* XCRemoteSwiftPackageReference "RxAlamofire" */;
+			productName = RxAlamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
