@@ -33,6 +33,8 @@
 		3F91487528927A3D0050A02F /* GoodsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91487428927A3D0050A02F /* GoodsNetwork.swift */; };
 		3F91487828927AAE0050A02F /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91487728927AAE0050A02F /* RealmRepository.swift */; };
 		3F91487A28927ABA0050A02F /* AbstractRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91487928927ABA0050A02F /* AbstractRepository.swift */; };
+		3F91487D28927C540050A02F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3F91487C28927C540050A02F /* SnapKit */; };
+		3F91488A28927DA30050A02F /* RxRealm in Frameworks */ = {isa = PBXBuildFile; productRef = 3F91488928927DA30050A02F /* RxRealm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F91488A28927DA30050A02F /* RxRealm in Frameworks */,
+				3F91487D28927C540050A02F /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +283,10 @@
 			dependencies = (
 			);
 			name = CommerceApp;
+			packageProductDependencies = (
+				3F91487C28927C540050A02F /* SnapKit */,
+				3F91488928927DA30050A02F /* RxRealm */,
+			);
 			productName = CommerceApp;
 			productReference = 3F0F335928923BE600A1C514 /* CommerceApp.app */;
 			productType = "com.apple.product-type.application";
@@ -307,6 +315,10 @@
 				Base,
 			);
 			mainGroup = 3F0F335028923BE500A1C514;
+			packageReferences = (
+				3F91487B28927C540050A02F /* XCRemoteSwiftPackageReference "SnapKit" */,
+				3F91488828927DA30050A02F /* XCRemoteSwiftPackageReference "RxRealm" */,
+			);
 			productRefGroup = 3F0F335A28923BE600A1C514 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -564,6 +576,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3F91487B28927C540050A02F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		3F91488828927DA30050A02F /* XCRemoteSwiftPackageReference "RxRealm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxRealm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3F91487C28927C540050A02F /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F91487B28927C540050A02F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		3F91488928927DA30050A02F /* RxRealm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F91488828927DA30050A02F /* XCRemoteSwiftPackageReference "RxRealm" */;
+			productName = RxRealm;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3F0F335128923BE500A1C514 /* Project object */;
 }
