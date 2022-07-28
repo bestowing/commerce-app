@@ -36,7 +36,19 @@
 		3F91487D28927C540050A02F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3F91487C28927C540050A02F /* SnapKit */; };
 		3F9148902892829B0050A02F /* RxRealm in Frameworks */ = {isa = PBXBuildFile; productRef = 3F91488F2892829B0050A02F /* RxRealm */; };
 		3F914893289285AB0050A02F /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3F914892289285AB0050A02F /* RxAlamofire */; };
+		3F9148B428928A470050A02F /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148B328928A470050A02F /* HomeViewModelTests.swift */; };
+		3F9148B628928A660050A02F /* LikeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148B528928A660050A02F /* LikeViewModelTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3F9148AE28928A1D0050A02F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F0F335128923BE500A1C514 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F0F335828923BE600A1C514;
+			remoteInfo = CommerceApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3F0F335928923BE600A1C514 /* CommerceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommerceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +79,9 @@
 		3F91487428927A3D0050A02F /* GoodsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsNetwork.swift; sourceTree = "<group>"; };
 		3F91487728927AAE0050A02F /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		3F91487928927ABA0050A02F /* AbstractRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractRepository.swift; sourceTree = "<group>"; };
+		3F9148AA28928A1D0050A02F /* CommerceAppViewModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommerceAppViewModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F9148B328928A470050A02F /* HomeViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		3F9148B528928A660050A02F /* LikeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +95,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3F9148A728928A1D0050A02F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -87,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				3F0F335B28923BE600A1C514 /* CommerceApp */,
+				3F9148AB28928A1D0050A02F /* CommerceAppViewModelTests */,
 				3F0F335A28923BE600A1C514 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				3F0F335928923BE600A1C514 /* CommerceApp.app */,
+				3F9148AA28928A1D0050A02F /* CommerceAppViewModelTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -269,6 +293,15 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		3F9148AB28928A1D0050A02F /* CommerceAppViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				3F9148B328928A470050A02F /* HomeViewModelTests.swift */,
+				3F9148B528928A660050A02F /* LikeViewModelTests.swift */,
+			);
+			path = CommerceAppViewModelTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -294,6 +327,24 @@
 			productReference = 3F0F335928923BE600A1C514 /* CommerceApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3F9148A928928A1D0050A02F /* CommerceAppViewModelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F9148B228928A1D0050A02F /* Build configuration list for PBXNativeTarget "CommerceAppViewModelTests" */;
+			buildPhases = (
+				3F9148A628928A1D0050A02F /* Sources */,
+				3F9148A728928A1D0050A02F /* Frameworks */,
+				3F9148A828928A1D0050A02F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F9148AF28928A1D0050A02F /* PBXTargetDependency */,
+			);
+			name = CommerceAppViewModelTests;
+			productName = CommerceAppViewModelTests;
+			productReference = 3F9148AA28928A1D0050A02F /* CommerceAppViewModelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -306,6 +357,10 @@
 				TargetAttributes = {
 					3F0F335828923BE600A1C514 = {
 						CreatedOnToolsVersion = 13.3;
+					};
+					3F9148A928928A1D0050A02F = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = 3F0F335828923BE600A1C514;
 					};
 				};
 			};
@@ -328,6 +383,7 @@
 			projectRoot = "";
 			targets = (
 				3F0F335828923BE600A1C514 /* CommerceApp */,
+				3F9148A928928A1D0050A02F /* CommerceAppViewModelTests */,
 			);
 		};
 /* End PBXProject section */
@@ -339,6 +395,13 @@
 			files = (
 				3F0F336928923BE700A1C514 /* LaunchScreen.storyboard in Resources */,
 				3F0F336628923BE700A1C514 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F9148A828928A1D0050A02F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +439,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3F9148A628928A1D0050A02F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F9148B428928A470050A02F /* HomeViewModelTests.swift in Sources */,
+				3F9148B628928A660050A02F /* LikeViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3F9148AF28928A1D0050A02F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F0F335828923BE600A1C514 /* CommerceApp */;
+			targetProxy = 3F9148AE28928A1D0050A02F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3F0F336728923BE700A1C514 /* LaunchScreen.storyboard */ = {
@@ -558,6 +638,44 @@
 			};
 			name = Release;
 		};
+		3F9148B028928A1D0050A02F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4PL3T83JJM;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bestowing.CommerceAppViewModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CommerceApp.app/CommerceApp";
+			};
+			name = Debug;
+		};
+		3F9148B128928A1D0050A02F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4PL3T83JJM;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bestowing.CommerceAppViewModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CommerceApp.app/CommerceApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -575,6 +693,15 @@
 			buildConfigurations = (
 				3F0F336E28923BE700A1C514 /* Debug */,
 				3F0F336F28923BE700A1C514 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F9148B228928A1D0050A02F /* Build configuration list for PBXNativeTarget "CommerceAppViewModelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F9148B028928A1D0050A02F /* Debug */,
+				3F9148B128928A1D0050A02F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
