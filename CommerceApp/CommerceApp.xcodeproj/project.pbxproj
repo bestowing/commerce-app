@@ -41,6 +41,7 @@
 		3F9148BE28928AE50050A02F /* GoodsUsecaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148BD28928AE50050A02F /* GoodsUsecaseTests.swift */; };
 		3F9148C52892A3820050A02F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148C42892A3820050A02F /* BaseViewController.swift */; };
 		3F9148C82892FF720050A02F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148C72892FF720050A02F /* UIColor+.swift */; };
+		3F9148CB289300AD0050A02F /* GoodsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148CA289300AD0050A02F /* GoodsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		3F9148BD28928AE50050A02F /* GoodsUsecaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsUsecaseTests.swift; sourceTree = "<group>"; };
 		3F9148C42892A3820050A02F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3F9148C72892FF720050A02F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		3F9148CA289300AD0050A02F /* GoodsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 		3F91484628926AA70050A02F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				3F9148C92893007A0050A02F /* View */,
 				3F91485528926D6E0050A02F /* DefaultHomeNavigator.swift */,
 				3F91485128926CFC0050A02F /* HomeNavigator.swift */,
 				3F0F336028923BE600A1C514 /* HomeViewController.swift */,
@@ -341,6 +344,14 @@
 				3F9148C72892FF720050A02F /* UIColor+.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		3F9148C92893007A0050A02F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F9148CA289300AD0050A02F /* GoodsCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -494,6 +505,7 @@
 				3F91485228926CFC0050A02F /* HomeNavigator.swift in Sources */,
 				3F91487828927AAE0050A02F /* RealmRepository.swift in Sources */,
 				3F91487528927A3D0050A02F /* GoodsNetwork.swift in Sources */,
+				3F9148CB289300AD0050A02F /* GoodsCell.swift in Sources */,
 				3F91485028926BE70050A02F /* ViewModelType.swift in Sources */,
 				3F9148712892799D0050A02F /* Network.swift in Sources */,
 				3F91486B289279460050A02F /* Cache.swift in Sources */,
