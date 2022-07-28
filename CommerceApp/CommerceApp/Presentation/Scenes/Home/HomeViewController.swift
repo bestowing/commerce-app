@@ -17,6 +17,7 @@ final class HomeViewController: BaseViewController {
     private let goodsCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.register(GoodsCell.self, forCellWithReuseIdentifier: GoodsCell.identifier)
         return collectionView
     }()
 
