@@ -19,6 +19,7 @@ final class Application {
 
     // MARK: - methods
 
+    /// window에 main 인터페이스를 설정합니다
     func setMainInterface(in window: UIWindow) {
         let homeVC = HomeViewController()
         let homeButton = UITabBarItem(
