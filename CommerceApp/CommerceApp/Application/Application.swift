@@ -7,7 +7,7 @@
 
 final class Application {
 
-    // MARK: properties
+    // MARK: - properties
 
     static let shared = Application()
 
