@@ -38,10 +38,18 @@
 		3F914893289285AB0050A02F /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3F914892289285AB0050A02F /* RxAlamofire */; };
 		3F9148B428928A470050A02F /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148B328928A470050A02F /* HomeViewModelTests.swift */; };
 		3F9148B628928A660050A02F /* LikeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148B528928A660050A02F /* LikeViewModelTests.swift */; };
+		3F9148BE28928AE50050A02F /* GoodsUsecaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148BD28928AE50050A02F /* GoodsUsecaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		3F9148AE28928A1D0050A02F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F0F335128923BE500A1C514 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F0F335828923BE600A1C514;
+			remoteInfo = CommerceApp;
+		};
+		3F9148BF28928AE50050A02F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3F0F335128923BE500A1C514 /* Project object */;
 			proxyType = 1;
@@ -82,6 +90,8 @@
 		3F9148AA28928A1D0050A02F /* CommerceAppViewModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommerceAppViewModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F9148B328928A470050A02F /* HomeViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		3F9148B528928A660050A02F /* LikeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewModelTests.swift; sourceTree = "<group>"; };
+		3F9148BB28928AE50050A02F /* CommerceAppUsecaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommerceAppUsecaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F9148BD28928AE50050A02F /* GoodsUsecaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsUsecaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +112,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3F9148B828928AE50050A02F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -110,6 +127,7 @@
 			children = (
 				3F0F335B28923BE600A1C514 /* CommerceApp */,
 				3F9148AB28928A1D0050A02F /* CommerceAppViewModelTests */,
+				3F9148BC28928AE50050A02F /* CommerceAppUsecaseTests */,
 				3F0F335A28923BE600A1C514 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,6 +137,7 @@
 			children = (
 				3F0F335928923BE600A1C514 /* CommerceApp.app */,
 				3F9148AA28928A1D0050A02F /* CommerceAppViewModelTests.xctest */,
+				3F9148BB28928AE50050A02F /* CommerceAppUsecaseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -302,6 +321,14 @@
 			path = CommerceAppViewModelTests;
 			sourceTree = "<group>";
 		};
+		3F9148BC28928AE50050A02F /* CommerceAppUsecaseTests */ = {
+			isa = PBXGroup;
+			children = (
+				3F9148BD28928AE50050A02F /* GoodsUsecaseTests.swift */,
+			);
+			path = CommerceAppUsecaseTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -345,6 +372,24 @@
 			productReference = 3F9148AA28928A1D0050A02F /* CommerceAppViewModelTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		3F9148BA28928AE50050A02F /* CommerceAppUsecaseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F9148C128928AE50050A02F /* Build configuration list for PBXNativeTarget "CommerceAppUsecaseTests" */;
+			buildPhases = (
+				3F9148B728928AE50050A02F /* Sources */,
+				3F9148B828928AE50050A02F /* Frameworks */,
+				3F9148B928928AE50050A02F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F9148C028928AE50050A02F /* PBXTargetDependency */,
+			);
+			name = CommerceAppUsecaseTests;
+			productName = CommerceAppUsecaseTests;
+			productReference = 3F9148BB28928AE50050A02F /* CommerceAppUsecaseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -359,6 +404,10 @@
 						CreatedOnToolsVersion = 13.3;
 					};
 					3F9148A928928A1D0050A02F = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = 3F0F335828923BE600A1C514;
+					};
+					3F9148BA28928AE50050A02F = {
 						CreatedOnToolsVersion = 13.3;
 						TestTargetID = 3F0F335828923BE600A1C514;
 					};
@@ -384,6 +433,7 @@
 			targets = (
 				3F0F335828923BE600A1C514 /* CommerceApp */,
 				3F9148A928928A1D0050A02F /* CommerceAppViewModelTests */,
+				3F9148BA28928AE50050A02F /* CommerceAppUsecaseTests */,
 			);
 		};
 /* End PBXProject section */
@@ -399,6 +449,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3F9148A828928A1D0050A02F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F9148B928928AE50050A02F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -448,6 +505,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3F9148B728928AE50050A02F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F9148BE28928AE50050A02F /* GoodsUsecaseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -455,6 +520,11 @@
 			isa = PBXTargetDependency;
 			target = 3F0F335828923BE600A1C514 /* CommerceApp */;
 			targetProxy = 3F9148AE28928A1D0050A02F /* PBXContainerItemProxy */;
+		};
+		3F9148C028928AE50050A02F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F0F335828923BE600A1C514 /* CommerceApp */;
+			targetProxy = 3F9148BF28928AE50050A02F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -676,6 +746,44 @@
 			};
 			name = Release;
 		};
+		3F9148C228928AE50050A02F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4PL3T83JJM;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bestowing.CommerceAppUsecaseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CommerceApp.app/CommerceApp";
+			};
+			name = Debug;
+		};
+		3F9148C328928AE50050A02F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4PL3T83JJM;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bestowing.CommerceAppUsecaseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CommerceApp.app/CommerceApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -702,6 +810,15 @@
 			buildConfigurations = (
 				3F9148B028928A1D0050A02F /* Debug */,
 				3F9148B128928A1D0050A02F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F9148C128928AE50050A02F /* Build configuration list for PBXNativeTarget "CommerceAppUsecaseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F9148C228928AE50050A02F /* Debug */,
+				3F9148C328928AE50050A02F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
