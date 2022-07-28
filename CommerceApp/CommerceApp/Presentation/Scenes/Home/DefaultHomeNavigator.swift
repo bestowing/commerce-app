@@ -10,11 +10,13 @@ import UIKit
 final class DefaultHomeNavigator: HomeNavigator {
 
     private let navigationController: UINavigationController
+    private let services: UsecaseProvider
 
     // MARK: - init/deinit
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, services: UsecaseProvider) {
         self.navigationController = navigationController
+        self.services = services
     }
 
     deinit {
@@ -25,7 +27,9 @@ final class DefaultHomeNavigator: HomeNavigator {
 
     func toHome() {
         let viewController = HomeViewController()
-        viewController.viewModel = HomeViewModel(navigator: self)
+        viewController.viewModel = HomeViewModel(
+            navigator: self, goodsUsecase: self.services.makeGoodsUsecase()
+        )
         self.navigationController.pushViewController(viewController, animated: false)
     }
 

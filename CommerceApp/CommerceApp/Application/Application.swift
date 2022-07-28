@@ -13,9 +13,13 @@ final class Application {
 
     static let shared = Application()
 
+    private let usecaseProvider: UsecaseProvider
+
     // MARK: - init/deinit
 
-    private init() {}
+    private init() {
+        self.usecaseProvider = DefaultUsecaseProvider()
+    }
 
     // MARK: - methods
 
@@ -29,7 +33,8 @@ final class Application {
         )
         homeNavigationController.tabBarItem = homeButton
         let homeNavigator = DefaultHomeNavigator(
-            navigationController: homeNavigationController
+            navigationController: homeNavigationController,
+            services: self.usecaseProvider
         )
 
         let likeNavigationController = UINavigationController()

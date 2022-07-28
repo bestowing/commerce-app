@@ -36,4 +36,15 @@ final class HomeViewController: BaseViewController {
         }
     }
 
+    private func bindViewModel() {
+        assert(self.viewModel != nil)
+
+        let input = HomeViewModel.Input(
+            viewWillAppear: rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
+                .mapToVoid()
+                .asDriverOnErrorJustComplete()
+        )
+        let _ = self.viewModel.transform(input: input)
+    }
+
 }
