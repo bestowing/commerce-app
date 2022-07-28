@@ -9,6 +9,14 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
+    // MARK: - init/deinit
+
+    deinit {
+        print("🗑", Self.description())
+    }
+
+    // MARK: - methods
+
     override func loadView() {
         super.loadView()
         self.view.backgroundColor = .systemBackground

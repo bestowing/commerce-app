@@ -21,12 +21,6 @@ final class HomeViewController: BaseViewController {
         return collectionView
     }()
 
-    // MARK: - init/deinit
-
-    deinit {
-        print("🗑", Self.description())
-    }
-
     // MARK: - methods
 
     override func viewDidLoad() {

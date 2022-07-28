@@ -13,12 +13,6 @@ final class LikeViewController: BaseViewController {
 
     var viewModel: LikeViewModel!
 
-    // MARK: - init/deinit
-
-    deinit {
-        print("🗑", Self.description())
-    }
-
     // MARK: - methods
 
     override func viewDidLoad() {
