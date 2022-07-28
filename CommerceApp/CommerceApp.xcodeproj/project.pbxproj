@@ -24,6 +24,8 @@
 		3F91485C28926E9A0050A02F /* GoodsUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91485B28926E9A0050A02F /* GoodsUsecase.swift */; };
 		3F91485F28926EDE0050A02F /* Goods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91485E28926EDE0050A02F /* Goods.swift */; };
 		3F914865289277810050A02F /* DefaultGoodsUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914864289277810050A02F /* DefaultGoodsUsecase.swift */; };
+		3F914867289278C10050A02F /* UsecaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914866289278C10050A02F /* UsecaseProvider.swift */; };
+		3F914869289278E90050A02F /* DefaultUsecaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914868289278E90050A02F /* DefaultUsecaseProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		3F91485B28926E9A0050A02F /* GoodsUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsUsecase.swift; sourceTree = "<group>"; };
 		3F91485E28926EDE0050A02F /* Goods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goods.swift; sourceTree = "<group>"; };
 		3F914864289277810050A02F /* DefaultGoodsUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultGoodsUsecase.swift; sourceTree = "<group>"; };
+		3F914866289278C10050A02F /* UsecaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsecaseProvider.swift; sourceTree = "<group>"; };
+		3F914868289278E90050A02F /* DefaultUsecaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUsecaseProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				3F91485B28926E9A0050A02F /* GoodsUsecase.swift */,
+				3F914866289278C10050A02F /* UsecaseProvider.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				3F914864289277810050A02F /* DefaultGoodsUsecase.swift */,
+				3F914868289278E90050A02F /* DefaultUsecaseProvider.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -284,8 +290,10 @@
 			files = (
 				3F91485F28926EDE0050A02F /* Goods.swift in Sources */,
 				3F91484D28926BCB0050A02F /* LikeViewModel.swift in Sources */,
+				3F914869289278E90050A02F /* DefaultUsecaseProvider.swift in Sources */,
 				3F914843289268CE0050A02F /* Application.swift in Sources */,
 				3F91485428926D170050A02F /* LikeNavigator.swift in Sources */,
+				3F914867289278C10050A02F /* UsecaseProvider.swift in Sources */,
 				3F91484B28926BAF0050A02F /* HomeViewModel.swift in Sources */,
 				3F0F336128923BE600A1C514 /* HomeViewController.swift in Sources */,
 				3F91485228926CFC0050A02F /* HomeNavigator.swift in Sources */,
