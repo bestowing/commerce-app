@@ -14,7 +14,7 @@ final class HomeViewController: BaseViewController {
 
     var viewModel: HomeViewModel!
 
-    private let collectionView: UICollectionView = {
+    private let goodsCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         return collectionView
@@ -35,8 +35,8 @@ final class HomeViewController: BaseViewController {
     }
 
     private func setSubViews() {
-        self.view.addSubview(self.collectionView)
-        self.collectionView.snp.makeConstraints {
+        self.view.addSubview(self.goodsCollectionView)
+        self.goodsCollectionView.snp.makeConstraints {
             $0.edges.equalTo(self.view.safeAreaLayoutGuide)
         }
     }
