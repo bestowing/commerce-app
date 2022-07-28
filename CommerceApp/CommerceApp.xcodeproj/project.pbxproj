@@ -26,6 +26,11 @@
 		3F914865289277810050A02F /* DefaultGoodsUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914864289277810050A02F /* DefaultGoodsUsecase.swift */; };
 		3F914867289278C10050A02F /* UsecaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914866289278C10050A02F /* UsecaseProvider.swift */; };
 		3F914869289278E90050A02F /* DefaultUsecaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914868289278E90050A02F /* DefaultUsecaseProvider.swift */; };
+		3F91486B289279460050A02F /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91486A289279460050A02F /* Cache.swift */; };
+		3F91486E2892795F0050A02F /* AbstractCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91486D2892795F0050A02F /* AbstractCache.swift */; };
+		3F9148712892799D0050A02F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148702892799D0050A02F /* Network.swift */; };
+		3F914873289279B80050A02F /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914872289279B80050A02F /* NetworkProvider.swift */; };
+		3F91487528927A3D0050A02F /* GoodsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91487428927A3D0050A02F /* GoodsNetwork.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +55,11 @@
 		3F914864289277810050A02F /* DefaultGoodsUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultGoodsUsecase.swift; sourceTree = "<group>"; };
 		3F914866289278C10050A02F /* UsecaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsecaseProvider.swift; sourceTree = "<group>"; };
 		3F914868289278E90050A02F /* DefaultUsecaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUsecaseProvider.swift; sourceTree = "<group>"; };
+		3F91486A289279460050A02F /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		3F91486D2892795F0050A02F /* AbstractCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractCache.swift; sourceTree = "<group>"; };
+		3F9148702892799D0050A02F /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		3F914872289279B80050A02F /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		3F91487428927A3D0050A02F /* GoodsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsNetwork.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				3F914863289277730050A02F /* Usecases */,
-				3F914862289272F40050A02F /* Network */,
+				3F914862289272F40050A02F /* NetworkPlatform */,
 				3F914861289272E20050A02F /* Repository */,
 			);
 			path = Data;
@@ -202,11 +212,13 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		3F914862289272F40050A02F /* Network */ = {
+		3F914862289272F40050A02F /* NetworkPlatform */ = {
 			isa = PBXGroup;
 			children = (
+				3F91486C2892794C0050A02F /* Cache */,
+				3F91486F2892798D0050A02F /* Network */,
 			);
-			path = Network;
+			path = NetworkPlatform;
 			sourceTree = "<group>";
 		};
 		3F914863289277730050A02F /* Usecases */ = {
@@ -216,6 +228,25 @@
 				3F914868289278E90050A02F /* DefaultUsecaseProvider.swift */,
 			);
 			path = Usecases;
+			sourceTree = "<group>";
+		};
+		3F91486C2892794C0050A02F /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				3F91486D2892795F0050A02F /* AbstractCache.swift */,
+				3F91486A289279460050A02F /* Cache.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		3F91486F2892798D0050A02F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3F91487428927A3D0050A02F /* GoodsNetwork.swift */,
+				3F9148702892799D0050A02F /* Network.swift */,
+				3F914872289279B80050A02F /* NetworkProvider.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,11 +328,16 @@
 				3F91484B28926BAF0050A02F /* HomeViewModel.swift in Sources */,
 				3F0F336128923BE600A1C514 /* HomeViewController.swift in Sources */,
 				3F91485228926CFC0050A02F /* HomeNavigator.swift in Sources */,
+				3F91487528927A3D0050A02F /* GoodsNetwork.swift in Sources */,
 				3F91485028926BE70050A02F /* ViewModelType.swift in Sources */,
+				3F9148712892799D0050A02F /* Network.swift in Sources */,
+				3F91486B289279460050A02F /* Cache.swift in Sources */,
 				3F91485628926D6E0050A02F /* DefaultHomeNavigator.swift in Sources */,
 				3F914865289277810050A02F /* DefaultGoodsUsecase.swift in Sources */,
+				3F914873289279B80050A02F /* NetworkProvider.swift in Sources */,
 				3F0F335D28923BE600A1C514 /* AppDelegate.swift in Sources */,
 				3F0F335F28923BE600A1C514 /* SceneDelegate.swift in Sources */,
+				3F91486E2892795F0050A02F /* AbstractCache.swift in Sources */,
 				3F91485828926D930050A02F /* DefaultLikeNavigator.swift in Sources */,
 				3F91485C28926E9A0050A02F /* GoodsUsecase.swift in Sources */,
 				3F91484928926B740050A02F /* LikeViewController.swift in Sources */,
