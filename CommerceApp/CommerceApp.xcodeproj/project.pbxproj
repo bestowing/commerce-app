@@ -31,6 +31,8 @@
 		3F9148712892799D0050A02F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148702892799D0050A02F /* Network.swift */; };
 		3F914873289279B80050A02F /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914872289279B80050A02F /* NetworkProvider.swift */; };
 		3F91487528927A3D0050A02F /* GoodsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91487428927A3D0050A02F /* GoodsNetwork.swift */; };
+		3F91487828927AAE0050A02F /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91487728927AAE0050A02F /* RealmRepository.swift */; };
+		3F91487A28927ABA0050A02F /* AbstractRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91487928927ABA0050A02F /* AbstractRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		3F9148702892799D0050A02F /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		3F914872289279B80050A02F /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		3F91487428927A3D0050A02F /* GoodsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsNetwork.swift; sourceTree = "<group>"; };
+		3F91487728927AAE0050A02F /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
+		3F91487928927ABA0050A02F /* AbstractRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,16 +204,17 @@
 			children = (
 				3F914863289277730050A02F /* Usecases */,
 				3F914862289272F40050A02F /* NetworkPlatform */,
-				3F914861289272E20050A02F /* Repository */,
+				3F914861289272E20050A02F /* RealmPlatform */,
 			);
 			path = Data;
 			sourceTree = "<group>";
 		};
-		3F914861289272E20050A02F /* Repository */ = {
+		3F914861289272E20050A02F /* RealmPlatform */ = {
 			isa = PBXGroup;
 			children = (
+				3F91487628927AA50050A02F /* Repository */,
 			);
-			path = Repository;
+			path = RealmPlatform;
 			sourceTree = "<group>";
 		};
 		3F914862289272F40050A02F /* NetworkPlatform */ = {
@@ -247,6 +252,15 @@
 				3F914872289279B80050A02F /* NetworkProvider.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		3F91487628927AA50050A02F /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				3F91487928927ABA0050A02F /* AbstractRepository.swift */,
+				3F91487728927AAE0050A02F /* RealmRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,11 +342,13 @@
 				3F91484B28926BAF0050A02F /* HomeViewModel.swift in Sources */,
 				3F0F336128923BE600A1C514 /* HomeViewController.swift in Sources */,
 				3F91485228926CFC0050A02F /* HomeNavigator.swift in Sources */,
+				3F91487828927AAE0050A02F /* RealmRepository.swift in Sources */,
 				3F91487528927A3D0050A02F /* GoodsNetwork.swift in Sources */,
 				3F91485028926BE70050A02F /* ViewModelType.swift in Sources */,
 				3F9148712892799D0050A02F /* Network.swift in Sources */,
 				3F91486B289279460050A02F /* Cache.swift in Sources */,
 				3F91485628926D6E0050A02F /* DefaultHomeNavigator.swift in Sources */,
+				3F91487A28927ABA0050A02F /* AbstractRepository.swift in Sources */,
 				3F914865289277810050A02F /* DefaultGoodsUsecase.swift in Sources */,
 				3F914873289279B80050A02F /* NetworkProvider.swift in Sources */,
 				3F0F335D28923BE600A1C514 /* AppDelegate.swift in Sources */,
