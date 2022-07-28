@@ -17,6 +17,8 @@
 		3F91484B28926BAF0050A02F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91484A28926BAF0050A02F /* HomeViewModel.swift */; };
 		3F91484D28926BCB0050A02F /* LikeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91484C28926BCB0050A02F /* LikeViewModel.swift */; };
 		3F91485028926BE70050A02F /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91484F28926BE70050A02F /* ViewModelType.swift */; };
+		3F91485228926CFC0050A02F /* HomeNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91485128926CFC0050A02F /* HomeNavigator.swift */; };
+		3F91485428926D170050A02F /* LikeNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91485328926D170050A02F /* LikeNavigator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		3F91484A28926BAF0050A02F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		3F91484C28926BCB0050A02F /* LikeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewModel.swift; sourceTree = "<group>"; };
 		3F91484F28926BE70050A02F /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		3F91485128926CFC0050A02F /* HomeNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigator.swift; sourceTree = "<group>"; };
+		3F91485328926D170050A02F /* LikeNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeNavigator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 		3F91484628926AA70050A02F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				3F91485128926CFC0050A02F /* HomeNavigator.swift */,
 				3F0F336028923BE600A1C514 /* HomeViewController.swift */,
 				3F91484A28926BAF0050A02F /* HomeViewModel.swift */,
 			);
@@ -121,6 +126,7 @@
 		3F91484728926AAC0050A02F /* Like */ = {
 			isa = PBXGroup;
 			children = (
+				3F91485328926D170050A02F /* LikeNavigator.swift */,
 				3F91484828926B740050A02F /* LikeViewController.swift */,
 				3F91484C28926BCB0050A02F /* LikeViewModel.swift */,
 			);
@@ -207,8 +213,10 @@
 			files = (
 				3F91484D28926BCB0050A02F /* LikeViewModel.swift in Sources */,
 				3F914843289268CE0050A02F /* Application.swift in Sources */,
+				3F91485428926D170050A02F /* LikeNavigator.swift in Sources */,
 				3F91484B28926BAF0050A02F /* HomeViewModel.swift in Sources */,
 				3F0F336128923BE600A1C514 /* HomeViewController.swift in Sources */,
+				3F91485228926CFC0050A02F /* HomeNavigator.swift in Sources */,
 				3F91485028926BE70050A02F /* ViewModelType.swift in Sources */,
 				3F0F335D28923BE600A1C514 /* AppDelegate.swift in Sources */,
 				3F0F335F28923BE600A1C514 /* SceneDelegate.swift in Sources */,
