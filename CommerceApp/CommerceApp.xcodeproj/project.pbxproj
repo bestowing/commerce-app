@@ -39,6 +39,7 @@
 		3F9148B428928A470050A02F /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148B328928A470050A02F /* HomeViewModelTests.swift */; };
 		3F9148B628928A660050A02F /* LikeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148B528928A660050A02F /* LikeViewModelTests.swift */; };
 		3F9148BE28928AE50050A02F /* GoodsUsecaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148BD28928AE50050A02F /* GoodsUsecaseTests.swift */; };
+		3F9148C52892A3820050A02F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148C42892A3820050A02F /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		3F9148B528928A660050A02F /* LikeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewModelTests.swift; sourceTree = "<group>"; };
 		3F9148BB28928AE50050A02F /* CommerceAppUsecaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommerceAppUsecaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F9148BD28928AE50050A02F /* GoodsUsecaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsUsecaseTests.swift; sourceTree = "<group>"; };
+		3F9148C42892A3820050A02F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				3F91484F28926BE70050A02F /* ViewModelType.swift */,
+				3F9148C42892A3820050A02F /* BaseViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				3F914873289279B80050A02F /* NetworkProvider.swift in Sources */,
 				3F0F335D28923BE600A1C514 /* AppDelegate.swift in Sources */,
 				3F0F335F28923BE600A1C514 /* SceneDelegate.swift in Sources */,
+				3F9148C52892A3820050A02F /* BaseViewController.swift in Sources */,
 				3F91486E2892795F0050A02F /* AbstractCache.swift in Sources */,
 				3F91485828926D930050A02F /* DefaultLikeNavigator.swift in Sources */,
 				3F91485C28926E9A0050A02F /* GoodsUsecase.swift in Sources */,

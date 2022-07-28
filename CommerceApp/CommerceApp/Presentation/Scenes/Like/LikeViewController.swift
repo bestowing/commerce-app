@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class LikeViewController: UIViewController {
+final class LikeViewController: BaseViewController {
 
     // MARK: - properties
 
