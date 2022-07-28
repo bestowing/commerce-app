@@ -40,6 +40,7 @@
 		3F9148B628928A660050A02F /* LikeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148B528928A660050A02F /* LikeViewModelTests.swift */; };
 		3F9148BE28928AE50050A02F /* GoodsUsecaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148BD28928AE50050A02F /* GoodsUsecaseTests.swift */; };
 		3F9148C52892A3820050A02F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148C42892A3820050A02F /* BaseViewController.swift */; };
+		3F9148C82892FF720050A02F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148C72892FF720050A02F /* UIColor+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		3F9148BB28928AE50050A02F /* CommerceAppUsecaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommerceAppUsecaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F9148BD28928AE50050A02F /* GoodsUsecaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsUsecaseTests.swift; sourceTree = "<group>"; };
 		3F9148C42892A3820050A02F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		3F9148C72892FF720050A02F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 		3F0F33732892666A00A1C514 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				3F9148C62892FF5C0050A02F /* Utility */,
 				3F91484E28926BDE0050A02F /* Common */,
 				3F91484528926AA00050A02F /* Scenes */,
 			);
@@ -330,6 +333,14 @@
 				3F9148BD28928AE50050A02F /* GoodsUsecaseTests.swift */,
 			);
 			path = CommerceAppUsecaseTests;
+			sourceTree = "<group>";
+		};
+		3F9148C62892FF5C0050A02F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				3F9148C72892FF720050A02F /* UIColor+.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -495,6 +506,7 @@
 				3F9148C52892A3820050A02F /* BaseViewController.swift in Sources */,
 				3F91486E2892795F0050A02F /* AbstractCache.swift in Sources */,
 				3F91485828926D930050A02F /* DefaultLikeNavigator.swift in Sources */,
+				3F9148C82892FF720050A02F /* UIColor+.swift in Sources */,
 				3F91485C28926E9A0050A02F /* GoodsUsecase.swift in Sources */,
 				3F91484928926B740050A02F /* LikeViewController.swift in Sources */,
 			);

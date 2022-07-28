@@ -43,14 +43,15 @@ final class Application {
             navigationController: likeNavigationController
         )
 
-        let tapBarController = UITabBarController()
-        tapBarController.viewControllers = [
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [
             homeNavigationController, likeNavigationController
         ]
+        tabBarController.tabBar.tintColor = UIColor.accentColor
         homeNavigator.toHome()
         likeNavigator.toLike()
 
-        window.rootViewController = tapBarController
+        window.rootViewController = tabBarController
         window.makeKeyAndVisible()
     }
 
