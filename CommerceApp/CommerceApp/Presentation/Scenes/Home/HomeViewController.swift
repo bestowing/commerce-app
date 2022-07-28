@@ -5,6 +5,7 @@
 //  Created by 이청수 on 2022/07/28.
 //
 
+import RxSwift
 import SnapKit
 import UIKit
 
@@ -20,6 +21,8 @@ final class HomeViewController: BaseViewController {
         collectionView.register(GoodsCell.self, forCellWithReuseIdentifier: GoodsCell.identifier)
         return collectionView
     }()
+
+    private let disposeBag = DisposeBag()
 
     // MARK: - methods
 
@@ -44,7 +47,15 @@ final class HomeViewController: BaseViewController {
                 .mapToVoid()
                 .asDriverOnErrorJustComplete()
         )
-        let _ = self.viewModel.transform(input: input)
+        let output = self.viewModel.transform(input: input)
+
+        output.goodsItems.drive(self.goodsCollectionView.rx.items) { collectionView, index, viewModel in
+            let indexPath = IndexPath(item: index, section: 0)
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GoodsCell.identifier, for: indexPath) as? GoodsCell
+            else { return UICollectionViewCell() }
+            cell.bind(viewModel)
+            return cell
+        }.disposed(by: self.disposeBag)
     }
 
 }

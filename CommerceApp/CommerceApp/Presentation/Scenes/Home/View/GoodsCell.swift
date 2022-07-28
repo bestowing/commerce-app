@@ -100,4 +100,8 @@ final class GoodsCell: UICollectionViewCell {
         }
     }
 
+    // MARK: - methods
+
+    func bind(_ viewModel: GoodsItemViewModel) {}
+
 }
