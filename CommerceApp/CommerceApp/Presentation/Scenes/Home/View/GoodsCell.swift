@@ -14,11 +14,14 @@ final class GoodsCell: UICollectionViewCell {
 
     private let goodsImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.layer.cornerRadius = 7.0
+        imageView.layer.masksToBounds = true
         return imageView
     }()
 
     private let likeImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.tintColor = .white
         return imageView
     }()
 
@@ -110,8 +113,8 @@ final class GoodsCell: UICollectionViewCell {
             $0.size.equalTo(30)
         }
         self.goodsPriceStack.snp.makeConstraints {
-            $0.top.equalTo(self.goodsImageView).offset(7)
-            $0.leading.equalTo(self.goodsImageView.snp.trailing).offset(10)
+            $0.top.equalTo(self.goodsImageView).offset(5)
+            $0.leading.equalTo(self.goodsImageView.snp.trailing).offset(13)
             $0.trailing.lessThanOrEqualToSuperview().offset(-10)
         }
         self.goodsNameLabel.snp.makeConstraints {
@@ -151,6 +154,7 @@ final class GoodsCell: UICollectionViewCell {
 
     func bind(_ viewModel: GoodsItemViewModel) {
         self.goodsImageView.setGoodsImage(with: viewModel.goods.image)
+        self.likeImageView.tintColor = viewModel.isLiked ? UIColor.accentColor : .white
         self.likeImageView.setLikeImage(isLiked: viewModel.isLiked)
         if let discountRateString = viewModel.discountRateString {
             self.discountRateLabel.text = discountRateString
