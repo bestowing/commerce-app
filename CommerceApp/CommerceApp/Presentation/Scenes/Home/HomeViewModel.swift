@@ -35,11 +35,8 @@ final class HomeViewModel: ViewModelType {
         let isEnd = BehaviorSubject<Bool>(value: false)
         let goodsItems = BehaviorSubject<[GoodsItemViewModel]>(value: [])
 
-        let initialization = input.viewWillAppear
-            .flatMapFirst { [unowned self] in
-                self.homeUsecase.initialization()
-                    .asDriverOnErrorJustComplete()
-            }
+        let initialization = self.homeUsecase.initialization()
+            .asDriverOnErrorJustComplete()
 
         let intialGoodsItemsEvent = initialization
             .map { $0.1.map { GoodsItemViewModel(with: $0) } }
@@ -99,7 +96,6 @@ final class HomeViewModel: ViewModelType {
 extension HomeViewModel {
 
     struct Input {
-        let viewWillAppear: Driver<Void>
         let loadMore: Driver<Void>
         let refresh: Driver<Void>
     }

@@ -50,9 +50,6 @@ final class HomeViewController: BaseViewController {
         assert(self.viewModel != nil)
 
         let input = HomeViewModel.Input(
-            viewWillAppear: rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
-                .mapToVoid()
-                .asDriverOnErrorJustComplete(),
             loadMore: self.goodsCollectionView
                 .loadMore()
                 .asDriverOnErrorJustComplete(),
