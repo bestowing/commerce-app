@@ -45,6 +45,8 @@
 		3F9148CD2893053F0050A02F /* UICollectionViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148CC2893053F0050A02F /* UICollectionViewCell+.swift */; };
 		3F9148CF289308C10050A02F /* Observable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148CE289308C10050A02F /* Observable+.swift */; };
 		3F9148D128930D7C0050A02F /* GoodsItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148D028930D7C0050A02F /* GoodsItemViewModel.swift */; };
+		3F9148D42893C6790050A02F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3F9148D32893C6790050A02F /* SDWebImage */; };
+		3F9148D62893C6E20050A02F /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148D52893C6E20050A02F /* UIImageView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,7 @@
 		3F9148CC2893053F0050A02F /* UICollectionViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+.swift"; sourceTree = "<group>"; };
 		3F9148CE289308C10050A02F /* Observable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+.swift"; sourceTree = "<group>"; };
 		3F9148D028930D7C0050A02F /* GoodsItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsItemViewModel.swift; sourceTree = "<group>"; };
+		3F9148D52893C6E20050A02F /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,7 @@
 			files = (
 				3F914893289285AB0050A02F /* RxAlamofire in Frameworks */,
 				3F9148902892829B0050A02F /* RxRealm in Frameworks */,
+				3F9148D42893C6790050A02F /* SDWebImage in Frameworks */,
 				3F91487D28927C540050A02F /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +355,7 @@
 				3F9148CE289308C10050A02F /* Observable+.swift */,
 				3F9148CC2893053F0050A02F /* UICollectionViewCell+.swift */,
 				3F9148C72892FF720050A02F /* UIColor+.swift */,
+				3F9148D52893C6E20050A02F /* UIImageView+.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -383,6 +388,7 @@
 				3F91487C28927C540050A02F /* SnapKit */,
 				3F91488F2892829B0050A02F /* RxRealm */,
 				3F914892289285AB0050A02F /* RxAlamofire */,
+				3F9148D32893C6790050A02F /* SDWebImage */,
 			);
 			productName = CommerceApp;
 			productReference = 3F0F335928923BE600A1C514 /* CommerceApp.app */;
@@ -460,6 +466,7 @@
 				3F91487B28927C540050A02F /* XCRemoteSwiftPackageReference "SnapKit" */,
 				3F91488E2892829B0050A02F /* XCRemoteSwiftPackageReference "RxRealm" */,
 				3F914891289285AB0050A02F /* XCRemoteSwiftPackageReference "RxAlamofire" */,
+				3F9148D22893C6780050A02F /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 3F0F335A28923BE600A1C514 /* Products */;
 			projectDirPath = "";
@@ -511,6 +518,7 @@
 				3F91485428926D170050A02F /* LikeNavigator.swift in Sources */,
 				3F914867289278C10050A02F /* UsecaseProvider.swift in Sources */,
 				3F91484B28926BAF0050A02F /* HomeViewModel.swift in Sources */,
+				3F9148D62893C6E20050A02F /* UIImageView+.swift in Sources */,
 				3F0F336128923BE600A1C514 /* HomeViewController.swift in Sources */,
 				3F91485228926CFC0050A02F /* HomeNavigator.swift in Sources */,
 				3F91487828927AAE0050A02F /* RealmRepository.swift in Sources */,
@@ -890,6 +898,14 @@
 				kind = branch;
 			};
 		};
+		3F9148D22893C6780050A02F /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -907,6 +923,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3F914891289285AB0050A02F /* XCRemoteSwiftPackageReference "RxAlamofire" */;
 			productName = RxAlamofire;
+		};
+		3F9148D32893C6790050A02F /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F9148D22893C6780050A02F /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
