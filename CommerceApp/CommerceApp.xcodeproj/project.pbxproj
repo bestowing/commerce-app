@@ -47,6 +47,7 @@
 		3F9148D128930D7C0050A02F /* GoodsItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148D028930D7C0050A02F /* GoodsItemViewModel.swift */; };
 		3F9148D42893C6790050A02F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3F9148D32893C6790050A02F /* SDWebImage */; };
 		3F9148D62893C6E20050A02F /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148D52893C6E20050A02F /* UIImageView+.swift */; };
+		3F9148DA2894066E0050A02F /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148D92894066E0050A02F /* Int+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		3F9148CE289308C10050A02F /* Observable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+.swift"; sourceTree = "<group>"; };
 		3F9148D028930D7C0050A02F /* GoodsItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsItemViewModel.swift; sourceTree = "<group>"; };
 		3F9148D52893C6E20050A02F /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		3F9148D92894066E0050A02F /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,6 +358,7 @@
 				3F9148CC2893053F0050A02F /* UICollectionViewCell+.swift */,
 				3F9148C72892FF720050A02F /* UIColor+.swift */,
 				3F9148D52893C6E20050A02F /* UIImageView+.swift */,
+				3F9148D92894066E0050A02F /* Int+.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				3F9148CD2893053F0050A02F /* UICollectionViewCell+.swift in Sources */,
 				3F91486E2892795F0050A02F /* AbstractCache.swift in Sources */,
 				3F91485828926D930050A02F /* DefaultLikeNavigator.swift in Sources */,
+				3F9148DA2894066E0050A02F /* Int+.swift in Sources */,
 				3F9148D128930D7C0050A02F /* GoodsItemViewModel.swift in Sources */,
 				3F9148C82892FF720050A02F /* UIColor+.swift in Sources */,
 				3F91485C28926E9A0050A02F /* GoodsUsecase.swift in Sources */,

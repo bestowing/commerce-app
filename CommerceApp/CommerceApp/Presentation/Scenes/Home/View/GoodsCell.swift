@@ -127,9 +127,9 @@ final class GoodsCell: UICollectionViewCell {
     func bind(_ viewModel: GoodsItemViewModel) {
         self.goodsImageView.setGoodsImage(with: viewModel.goods.image)
         self.likeImageView.setLikeImage(isLiked: viewModel.isLiked)
-        self.discountRateLabel.text = viewModel.discountRate > 0 ? "\(viewModel.discountRate)%" : ""
+        self.discountRateLabel.text = viewModel.discountRateString
         self.goodsPriceStack.spacing = viewModel.discountRate > 0 ? 5 : 0
-        self.priceLabel.text = String(viewModel.goods.price)
+        self.priceLabel.text = viewModel.priceString
         self.goodsNameLabel.text = viewModel.goods.name
         self.badgeLabel.text = viewModel.goods.isNew ? "NEW" : ""
         self.secondaryInfoStack.spacing = viewModel.secondaryInfoCount >= 2 ? 5 : 0
