@@ -49,6 +49,7 @@
 		3F9148D62893C6E20050A02F /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148D52893C6E20050A02F /* UIImageView+.swift */; };
 		3F9148DA2894066E0050A02F /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148D92894066E0050A02F /* Int+.swift */; };
 		3F9148DC28940BFD0050A02F /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148DB28940BFD0050A02F /* UIFont+.swift */; };
+		3F9148DE28941A4D0050A02F /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148DD28941A4D0050A02F /* PaddingLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		3F9148D52893C6E20050A02F /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		3F9148D92894066E0050A02F /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 		3F9148DB28940BFD0050A02F /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		3F9148DD28941A4D0050A02F /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,8 +242,9 @@
 		3F91484E28926BDE0050A02F /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				3F91484F28926BE70050A02F /* ViewModelType.swift */,
 				3F9148C42892A3820050A02F /* BaseViewController.swift */,
+				3F9148DD28941A4D0050A02F /* PaddingLabel.swift */,
+				3F91484F28926BE70050A02F /* ViewModelType.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				3F9148CD2893053F0050A02F /* UICollectionViewCell+.swift in Sources */,
 				3F91486E2892795F0050A02F /* AbstractCache.swift in Sources */,
 				3F91485828926D930050A02F /* DefaultLikeNavigator.swift in Sources */,
+				3F9148DE28941A4D0050A02F /* PaddingLabel.swift in Sources */,
 				3F9148DA2894066E0050A02F /* Int+.swift in Sources */,
 				3F9148D128930D7C0050A02F /* GoodsItemViewModel.swift in Sources */,
 				3F9148C82892FF720050A02F /* UIColor+.swift in Sources */,
