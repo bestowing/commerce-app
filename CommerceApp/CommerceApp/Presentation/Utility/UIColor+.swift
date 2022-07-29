@@ -10,5 +10,7 @@ import UIKit
 extension UIColor {
 
     static var accentColor: UIColor? = UIColor(named: "AccentColor")
+    static var textPrimary: UIColor? = UIColor(named: "TextPrimary")
+    static var textSecondary: UIColor? = UIColor(named: "TextSecondary")
 
 }
