@@ -69,12 +69,13 @@ final class GoodsCell: UICollectionViewCell {
         self.addSubview(self.sellCountLabel)
         self.goodsImageView.snp.makeConstraints {
             $0.top.leading.equalToSuperview().offset(10)
-            $0.size.equalTo(100)
+            $0.bottom.lessThanOrEqualToSuperview().offset(-10)
+            $0.size.equalTo(80)
         }
         self.likeImageView.snp.makeConstraints {
             $0.top.equalTo(self.goodsImageView).offset(5)
             $0.trailing.equalTo(self.goodsImageView).offset(-5)
-            $0.size.equalTo(40)
+            $0.size.equalTo(30)
         }
         self.discountRateLabel.snp.makeConstraints {
             $0.top.equalTo(self.goodsImageView)
