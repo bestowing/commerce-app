@@ -9,7 +9,7 @@ final class GoodsItemViewModel {
 
     // MARK: - properties
 
-    private var isLiked: Bool
+    var isLiked: Bool
 
     let goods: Goods
 

@@ -102,6 +102,28 @@ final class GoodsCell: UICollectionViewCell {
 
     // MARK: - methods
 
-    func bind(_ viewModel: GoodsItemViewModel) {}
+    func bind(_ viewModel: GoodsItemViewModel) {
+        self.goodsImageView.setGoodsImage(with: viewModel.goods.image)
+        self.likeImageView.setLikeImage(isLiked: viewModel.isLiked)
+        self.goodsNameLabel.text = viewModel.goods.name
+    }
+
+}
+
+// MARK: - EX: UIImageView
+
+fileprivate extension UIImageView {
+
+    func setGoodsImage(with urlString: String) {
+        let url = URL(string: urlString)
+        self.setImage(
+            with: url,
+            placeholderImage: UIImage(systemName: "questionmark")
+        )
+    }
+
+    func setLikeImage(isLiked: Bool) {
+        self.image = isLiked ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+    }
 
 }
