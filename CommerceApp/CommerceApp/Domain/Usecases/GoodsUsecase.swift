@@ -10,5 +10,6 @@ import RxSwift
 protocol GoodsUsecase {
 
     func goods() -> Observable<[Goods]>
+    func goods(after lastGoodsID: Int) -> Observable<[Goods]>
 
 }

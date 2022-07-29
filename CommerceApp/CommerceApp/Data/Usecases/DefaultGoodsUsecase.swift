@@ -13,4 +13,8 @@ final class DefaultGoodsUsecase: GoodsUsecase {
         Observable.create { _ in Disposables.create() }
     }
 
+    func goods(after lastGoodsID: Int) -> Observable<[Goods]> {
+        Observable.create { _ in Disposables.create() }
+    }
+
 }
