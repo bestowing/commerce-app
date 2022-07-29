@@ -22,6 +22,15 @@ final class GoodsCell: UICollectionViewCell {
         return imageView
     }()
 
+    private lazy var goodsPriceStack: UIStackView = {
+        let stackView = UIStackView(
+            arrangedSubviews: [self.discountRateLabel, self.priceLabel]
+        )
+        stackView.axis = .horizontal
+        stackView.spacing = 5.0
+        return stackView
+    }()
+
     private let discountRateLabel: UILabel = {
         let label = UILabel()
         return label
@@ -34,7 +43,17 @@ final class GoodsCell: UICollectionViewCell {
 
     private let goodsNameLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         return label
+    }()
+
+    private lazy var secondaryInfoStack: UIStackView = {
+        let stackView = UIStackView(
+            arrangedSubviews: [self.badgeLabel, self.sellCountLabel]
+        )
+        stackView.axis = .horizontal
+        stackView.spacing = 5.0
+        return stackView
     }()
 
     private let badgeLabel: UILabel = {
@@ -60,13 +79,11 @@ final class GoodsCell: UICollectionViewCell {
     }
 
     private func layoutViews() {
-        self.addSubview(self.goodsImageView)
-        self.addSubview(self.likeImageView)
-        self.addSubview(self.discountRateLabel)
-        self.addSubview(self.priceLabel)
-        self.addSubview(self.goodsNameLabel)
-        self.addSubview(self.badgeLabel)
-        self.addSubview(self.sellCountLabel)
+        self.contentView.addSubview(self.goodsImageView)
+        self.contentView.addSubview(self.likeImageView)
+        self.contentView.addSubview(self.goodsPriceStack)
+        self.contentView.addSubview(self.goodsNameLabel)
+        self.contentView.addSubview(self.secondaryInfoStack)
         self.goodsImageView.snp.makeConstraints {
             $0.top.leading.equalToSuperview().offset(10)
             $0.bottom.lessThanOrEqualToSuperview().offset(-10)
@@ -77,36 +94,46 @@ final class GoodsCell: UICollectionViewCell {
             $0.trailing.equalTo(self.goodsImageView).offset(-5)
             $0.size.equalTo(30)
         }
-        self.discountRateLabel.snp.makeConstraints {
+        self.goodsPriceStack.snp.makeConstraints {
             $0.top.equalTo(self.goodsImageView)
             $0.leading.equalTo(self.goodsImageView.snp.trailing).offset(5)
-        }
-        self.priceLabel.snp.makeConstraints {
-            $0.top.equalTo(self.discountRateLabel)
-            $0.leading.equalTo(self.discountRateLabel.snp.trailing).offset(5)
+            $0.trailing.lessThanOrEqualToSuperview().offset(-10)
         }
         self.goodsNameLabel.snp.makeConstraints {
-            $0.top.equalTo(self.discountRateLabel.snp.bottom).offset(5)
-            $0.leading.equalTo(self.discountRateLabel)
+            $0.top.equalTo(self.goodsPriceStack.snp.bottom).offset(5)
+            $0.leading.equalTo(self.goodsPriceStack)
+            $0.trailing.lessThanOrEqualToSuperview().offset(-10)
         }
-        self.badgeLabel.snp.makeConstraints {
+        self.secondaryInfoStack.snp.makeConstraints {
             $0.top.equalTo(self.goodsNameLabel.snp.bottom).offset(10)
-            $0.leading.equalTo(self.discountRateLabel)
             $0.bottom.equalToSuperview().offset(-10)
-        }
-        self.sellCountLabel.snp.makeConstraints {
-            $0.top.equalTo(self.badgeLabel)
-            $0.leading.equalTo(self.badgeLabel.snp.trailing).offset(5)
-            $0.bottom.equalToSuperview().offset(-10)
+            $0.leading.equalTo(self.goodsNameLabel)
+            $0.trailing.lessThanOrEqualToSuperview().offset(-10)
         }
     }
 
     // MARK: - methods
 
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        super.preferredLayoutAttributesFitting(layoutAttributes)
+        self.layoutIfNeeded()
+        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+        var frame = layoutAttributes.frame
+        frame.size.height = ceil(size.height)
+        layoutAttributes.frame = frame
+        return layoutAttributes
+    }
+
     func bind(_ viewModel: GoodsItemViewModel) {
         self.goodsImageView.setGoodsImage(with: viewModel.goods.image)
         self.likeImageView.setLikeImage(isLiked: viewModel.isLiked)
+        self.discountRateLabel.text = viewModel.discountRate > 0 ? "\(viewModel.discountRate)%" : ""
+        self.goodsPriceStack.spacing = viewModel.discountRate > 0 ? 5 : 0
+        self.priceLabel.text = String(viewModel.goods.price)
         self.goodsNameLabel.text = viewModel.goods.name
+        self.badgeLabel.text = viewModel.goods.isNew ? "NEW" : ""
+        self.secondaryInfoStack.spacing = viewModel.secondaryInfoCount >= 2 ? 5 : 0
+        self.sellCountLabel.text = viewModel.sellCountInfo
     }
 
 }

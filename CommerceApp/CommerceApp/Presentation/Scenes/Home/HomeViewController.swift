@@ -17,9 +17,9 @@ final class HomeViewController: BaseViewController {
 
     private lazy var goodsCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.estimatedItemSize = CGSize(width: self.view.frame.width, height: 200)
+        flowLayout.estimatedItemSize = CGSize(width: self.view.frame.width, height: 120)
         flowLayout.minimumInteritemSpacing = 0
-        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumLineSpacing = 20
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.register(GoodsCell.self, forCellWithReuseIdentifier: GoodsCell.identifier)
         return collectionView
