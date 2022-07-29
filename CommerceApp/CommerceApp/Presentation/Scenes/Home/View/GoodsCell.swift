@@ -13,6 +13,7 @@ final class GoodsCell: UICollectionViewCell {
     // MARK: - properties
 
     private let goodsImageView: UIImageView = {
+        // TODO: placeholder 이미지 바꾸기
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 7.0
         imageView.layer.masksToBounds = true

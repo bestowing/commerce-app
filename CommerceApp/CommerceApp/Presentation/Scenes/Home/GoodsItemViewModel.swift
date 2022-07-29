@@ -44,6 +44,8 @@ final class GoodsItemViewModel {
 
 }
 
+// MARK: - EX: Equatable
+
 extension GoodsItemViewModel: Equatable {
 
     static func ==(lhs: GoodsItemViewModel, rhs: GoodsItemViewModel) -> Bool {

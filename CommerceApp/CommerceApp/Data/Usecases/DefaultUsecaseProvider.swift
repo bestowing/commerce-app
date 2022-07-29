@@ -7,10 +7,22 @@
 
 final class DefaultUsecaseProvider: UsecaseProvider {
 
+    // MARK: - properties
+
+    private let networkProvider: NetworkProvider
+
+    // MARK: - init/deinit
+
+    init() {
+        self.networkProvider = NetworkProvider()
+    }
+
     // MARK: - methods
 
-    func makeGoodsUsecase() -> GoodsUsecase {
-        return DefaultGoodsUsecase()
+    func makeHomeUsecase() -> HomeUsecase {
+        return DefaultHomeUsecase(
+            network: self.networkProvider.makeHomeNetwork()
+        )
     }
 
 }

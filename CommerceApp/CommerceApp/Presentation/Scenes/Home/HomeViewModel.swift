@@ -14,13 +14,13 @@ final class HomeViewModel: ViewModelType {
     // MARK: - properties
 
     private let navigator: HomeNavigator
-    private let goodsUsecase: GoodsUsecase
+    private let homeUsecase: HomeUsecase
 
     // MARK: - init/deinit
 
-    init(navigator: HomeNavigator, goodsUsecase: GoodsUsecase) {
+    init(navigator: HomeNavigator, homeUsecase: HomeUsecase) {
         self.navigator = navigator
-        self.goodsUsecase = goodsUsecase
+        self.homeUsecase = homeUsecase
     }
 
     deinit {
@@ -33,12 +33,15 @@ final class HomeViewModel: ViewModelType {
         let isEnd = BehaviorSubject<Bool>(value: false)
         let goodsItems = BehaviorSubject<[GoodsItemViewModel]>(value: [])
 
-        let intialGoodsItems = input.viewWillAppear
+        let initialization = input.viewWillAppear
             .flatMapFirst { [unowned self] in
-                self.goodsUsecase.goods()
+                self.homeUsecase.initialization()
                     .asDriverOnErrorJustComplete()
-                    .map { $0.map { GoodsItemViewModel(with: $0) } }
             }
+        
+
+        let intialGoodsItemsEvent = initialization
+            .map { $0.1.map { GoodsItemViewModel(with: $0) } }
             .do(onNext: {
                 isEnd.onNext($0.isEmpty)
                 goodsItems.onNext($0)
@@ -51,7 +54,7 @@ final class HomeViewModel: ViewModelType {
             .withLatestFrom(goodsItems.asDriverOnErrorJustComplete())
             .compactMap { $0.last?.goods.id }
             .flatMapLatest { [unowned self] id in
-                self.goodsUsecase.goods(after: id)
+                self.homeUsecase.pagination(after: id)
                     .asDriverOnErrorJustComplete()
                     .map { $0.map { GoodsItemViewModel(with: $0) } }
             }
@@ -62,7 +65,9 @@ final class HomeViewModel: ViewModelType {
             })
             .mapToVoid()
 
-        let events = Driver.from([intialGoodsItems, moreLoadedGoodsItems]).merge()
+        let events = Driver.from([
+            intialGoodsItemsEvent, moreLoadedGoodsItems
+        ]).merge()
 
         return Output(
             goodsItems: goodsItems

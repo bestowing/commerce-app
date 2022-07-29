@@ -7,6 +7,6 @@
 
 protocol UsecaseProvider {
 
-    func makeGoodsUsecase() -> GoodsUsecase
+    func makeHomeUsecase() -> HomeUsecase
 
 }

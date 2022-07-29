@@ -28,7 +28,7 @@ final class DefaultHomeNavigator: HomeNavigator {
     func toHome() {
         let viewController = HomeViewController()
         viewController.viewModel = HomeViewModel(
-            navigator: self, goodsUsecase: self.services.makeGoodsUsecase()
+            navigator: self, homeUsecase: self.services.makeHomeUsecase()
         )
         self.navigationController.pushViewController(viewController, animated: false)
     }
