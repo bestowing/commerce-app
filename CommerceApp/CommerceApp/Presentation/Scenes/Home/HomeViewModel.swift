@@ -30,6 +30,8 @@ final class HomeViewModel: ViewModelType {
     // MARK: - methods
 
     func transform(input: Input) -> Output {
+        let refreshIndicator = ActivityIndicator()
+
         let isEnd = BehaviorSubject<Bool>(value: false)
         let goodsItems = BehaviorSubject<[GoodsItemViewModel]>(value: [])
 
@@ -38,7 +40,6 @@ final class HomeViewModel: ViewModelType {
                 self.homeUsecase.initialization()
                     .asDriverOnErrorJustComplete()
             }
-        
 
         let intialGoodsItemsEvent = initialization
             .map { $0.1.map { GoodsItemViewModel(with: $0) } }
@@ -65,14 +66,28 @@ final class HomeViewModel: ViewModelType {
             })
             .mapToVoid()
 
+        let refreshEvent = input.refresh
+            .flatMap { [unowned self] in
+                self.homeUsecase.initialization()
+                    .trackActivity(refreshIndicator)
+                    .asDriverOnErrorJustComplete()
+            }
+            .map { $0.1.map { GoodsItemViewModel(with: $0) } }
+            .do(onNext: {
+                isEnd.onNext($0.isEmpty)
+                goodsItems.onNext($0)
+            })
+            .mapToVoid()
+
         let events = Driver.from([
-            intialGoodsItemsEvent, moreLoadedGoodsItems
+            intialGoodsItemsEvent, moreLoadedGoodsItems, refreshEvent
         ]).merge()
 
         return Output(
             goodsItems: goodsItems
                 .distinctUntilChanged()
                 .asDriverOnErrorJustComplete(),
+            refreshing: refreshIndicator.asDriver(),
             events: events
         )
     }
@@ -86,10 +101,12 @@ extension HomeViewModel {
     struct Input {
         let viewWillAppear: Driver<Void>
         let loadMore: Driver<Void>
+        let refresh: Driver<Void>
     }
 
     struct Output {
         let goodsItems: Driver<[GoodsItemViewModel]>
+        let refreshing: Driver<Bool>
         let events: Driver<Void>
     }
 

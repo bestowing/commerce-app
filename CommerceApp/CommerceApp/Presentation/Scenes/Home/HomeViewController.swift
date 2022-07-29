@@ -15,12 +15,15 @@ final class HomeViewController: BaseViewController {
 
     var viewModel: HomeViewModel!
 
+    private let refreshControl = UIRefreshControl()
+
     private lazy var goodsCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.estimatedItemSize = CGSize(width: self.view.frame.width, height: 120)
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = 20
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.refreshControl = self.refreshControl
         collectionView.register(GoodsCell.self, forCellWithReuseIdentifier: GoodsCell.identifier)
         return collectionView
     }()
@@ -52,7 +55,10 @@ final class HomeViewController: BaseViewController {
                 .asDriverOnErrorJustComplete(),
             loadMore: self.goodsCollectionView
                 .loadMore()
+                .asDriverOnErrorJustComplete(),
+            refresh: self.refreshControl.rx.controlEvent(.valueChanged)
                 .asDriverOnErrorJustComplete()
+                .debug()
         )
         let output = self.viewModel.transform(input: input)
 
@@ -62,6 +68,12 @@ final class HomeViewController: BaseViewController {
             else { return UICollectionViewCell() }
             cell.bind(viewModel)
             return cell
+        }.disposed(by: self.disposeBag)
+
+        output.refreshing.drive { [unowned self] isRefreshing in
+            if !isRefreshing {
+                self.goodsCollectionView.refreshControl?.endRefreshing()
+            }
         }.disposed(by: self.disposeBag)
 
         output.events.drive()
