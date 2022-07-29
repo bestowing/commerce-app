@@ -49,6 +49,9 @@ final class HomeViewController: BaseViewController {
         let input = HomeViewModel.Input(
             viewWillAppear: rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
                 .mapToVoid()
+                .asDriverOnErrorJustComplete(),
+            loadMore: self.goodsCollectionView
+                .loadMore()
                 .asDriverOnErrorJustComplete()
         )
         let output = self.viewModel.transform(input: input)
@@ -60,6 +63,9 @@ final class HomeViewController: BaseViewController {
             cell.bind(viewModel)
             return cell
         }.disposed(by: self.disposeBag)
+
+        output.events.drive()
+            .disposed(by: self.disposeBag)
     }
 
 }

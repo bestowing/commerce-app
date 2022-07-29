@@ -16,3 +16,11 @@ struct Goods {
     let sellCount: Int
 
 }
+
+extension Goods: Equatable {
+
+    static func ==(lhs: Self, rhs: Self) -> Bool {
+        return lhs.id == rhs.id
+    }
+
+}
