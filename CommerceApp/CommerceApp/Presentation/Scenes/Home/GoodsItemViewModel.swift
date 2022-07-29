@@ -11,7 +11,7 @@ final class GoodsItemViewModel {
 
     var isLiked: Bool
     var discountRateString: String {
-        return self.discountRate != 0 ? String(self.discountRate) : ""
+        return self.discountRate != 0 ? "\(self.discountRate)%" : ""
     }
     var discountRate: Int {
         return 100 - Int(Float(self.goods.price) / Float(self.goods.actualPrice) * 100)

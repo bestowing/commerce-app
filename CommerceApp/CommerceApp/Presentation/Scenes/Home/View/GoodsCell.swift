@@ -33,11 +33,14 @@ final class GoodsCell: UICollectionViewCell {
 
     private let discountRateLabel: UILabel = {
         let label = UILabel()
+        label.textColor = UIColor.accentColor
+        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         return label
     }()
 
     private let priceLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         return label
     }()
 
@@ -95,12 +98,12 @@ final class GoodsCell: UICollectionViewCell {
             $0.size.equalTo(30)
         }
         self.goodsPriceStack.snp.makeConstraints {
-            $0.top.equalTo(self.goodsImageView)
-            $0.leading.equalTo(self.goodsImageView.snp.trailing).offset(5)
+            $0.top.equalTo(self.goodsImageView).offset(7)
+            $0.leading.equalTo(self.goodsImageView.snp.trailing).offset(10)
             $0.trailing.lessThanOrEqualToSuperview().offset(-10)
         }
         self.goodsNameLabel.snp.makeConstraints {
-            $0.top.equalTo(self.goodsPriceStack.snp.bottom).offset(5)
+            $0.top.equalTo(self.goodsPriceStack.snp.bottom).offset(10)
             $0.leading.equalTo(self.goodsPriceStack)
             $0.trailing.lessThanOrEqualToSuperview().offset(-10)
         }
