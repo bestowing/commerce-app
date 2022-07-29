@@ -34,18 +34,21 @@ final class GoodsCell: UICollectionViewCell {
     private let discountRateLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.accentColor
-        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        label.font = UIFont.defaultFont(ofSize: .large, weight: .semibold)
         return label
     }()
 
     private let priceLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        label.textColor = UIColor.textPrimary
+        label.font = UIFont.defaultFont(ofSize: .large, weight: .semibold)
         return label
     }()
 
     private let goodsNameLabel: UILabel = {
         let label = UILabel()
+        label.textColor = UIColor.textSecondary
+        label.font = UIFont.defaultFont(ofSize: .medium)
         label.numberOfLines = 0
         return label
     }()
@@ -66,6 +69,8 @@ final class GoodsCell: UICollectionViewCell {
 
     private let sellCountLabel: UILabel = {
         let label = UILabel()
+        label.textColor = UIColor.textSecondary
+        label.font = UIFont.defaultFont(ofSize: .small)
         return label
     }()
 
