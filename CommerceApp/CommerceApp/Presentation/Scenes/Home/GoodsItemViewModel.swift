@@ -10,16 +10,13 @@ final class GoodsItemViewModel {
     // MARK: - properties
 
     var isLiked: Bool
-    var discountRateString: String {
-        return self.discountRate != 0 ? "\(self.discountRate)%" : ""
-    }
-    var discountRate: Int {
-        return 100 - Int(Float(self.goods.price) / Float(self.goods.actualPrice) * 100)
+    var discountRateString: String? {
+        return self.discountRate != 0 ? "\(self.discountRate)%" : nil
     }
     var priceString: String {
         return self.goods.price.formattedString() ?? ""
     }
-    var sellCountInfo: String {
+    var sellCountString: String {
         let sellCount = self.goods.sellCount
         if sellCount >= 10,
            let formattedString = sellCount.formattedString() {
@@ -27,15 +24,12 @@ final class GoodsItemViewModel {
         }
         return ""
     }
-    var secondaryInfoCount: Int {
-        let secondaryInfos: [Bool] = [
-            self.goods.sellCount >= 10,
-            self.goods.isNew
-        ]
-        return secondaryInfos.reduce(0) { $0 + ($1 ? 1 : 0) }
-    }
 
     let goods: Goods
+
+    private var discountRate: Int {
+        return 100 - Int(Float(self.goods.price) / Float(self.goods.actualPrice) * 100)
+    }
 
     // MARK: - init/deinit
 

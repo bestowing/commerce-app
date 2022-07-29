@@ -63,7 +63,14 @@ final class GoodsCell: UICollectionViewCell {
     }()
 
     private let badgeLabel: UILabel = {
-        let label = UILabel()
+        let label = PaddingLabel(
+            padding: UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 8.0)
+        )
+        label.text = "NEW"
+        label.layer.cornerRadius = 5.0
+        label.layer.borderWidth = 1.0
+        label.layer.borderColor = UIColor.textSecondary?.cgColor
+        label.font = UIFont.defaultFont(ofSize: .verySmall)
         return label
     }()
 
@@ -113,7 +120,7 @@ final class GoodsCell: UICollectionViewCell {
             $0.trailing.lessThanOrEqualToSuperview().offset(-10)
         }
         self.secondaryInfoStack.snp.makeConstraints {
-            $0.top.equalTo(self.goodsNameLabel.snp.bottom).offset(10)
+            $0.top.equalTo(self.goodsNameLabel.snp.bottom).offset(20)
             $0.bottom.equalToSuperview().offset(-10)
             $0.leading.equalTo(self.goodsNameLabel)
             $0.trailing.lessThanOrEqualToSuperview().offset(-10)
@@ -132,16 +139,30 @@ final class GoodsCell: UICollectionViewCell {
         return layoutAttributes
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        if self.discountRateLabel.superview == nil {
+            self.goodsPriceStack.insertArrangedSubview(self.discountRateLabel, at: 0)
+        }
+        if self.badgeLabel.superview == nil {
+            self.secondaryInfoStack.insertArrangedSubview(self.badgeLabel, at: 0)
+        }
+    }
+
     func bind(_ viewModel: GoodsItemViewModel) {
         self.goodsImageView.setGoodsImage(with: viewModel.goods.image)
         self.likeImageView.setLikeImage(isLiked: viewModel.isLiked)
-        self.discountRateLabel.text = viewModel.discountRateString
-        self.goodsPriceStack.spacing = viewModel.discountRate > 0 ? 5 : 0
+        if let discountRateString = viewModel.discountRateString {
+            self.discountRateLabel.text = discountRateString
+        } else {
+            self.discountRateLabel.removeFromSuperview()
+        }
         self.priceLabel.text = viewModel.priceString
         self.goodsNameLabel.text = viewModel.goods.name
-        self.badgeLabel.text = viewModel.goods.isNew ? "NEW" : ""
-        self.secondaryInfoStack.spacing = viewModel.secondaryInfoCount >= 2 ? 5 : 0
-        self.sellCountLabel.text = viewModel.sellCountInfo
+        if !viewModel.goods.isNew {
+            self.badgeLabel.removeFromSuperview()
+        }
+        self.sellCountLabel.text = viewModel.sellCountString
     }
 
 }
