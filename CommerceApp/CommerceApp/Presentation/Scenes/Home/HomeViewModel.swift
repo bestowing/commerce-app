@@ -7,12 +7,6 @@
 
 import RxCocoa
 
-final class GoodsItemViewModel {
-
-    init(with goods: Goods) {}
-
-}
-
 final class HomeViewModel: ViewModelType {
 
     // MARK: - properties
@@ -53,6 +47,7 @@ extension HomeViewModel {
     struct Input {
         let viewWillAppear: Driver<Void>
     }
+
     struct Output {
         let goodsItems: Driver<[GoodsItemViewModel]>
     }

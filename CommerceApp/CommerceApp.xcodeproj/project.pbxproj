@@ -44,6 +44,7 @@
 		3F9148CB289300AD0050A02F /* GoodsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148CA289300AD0050A02F /* GoodsCell.swift */; };
 		3F9148CD2893053F0050A02F /* UICollectionViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148CC2893053F0050A02F /* UICollectionViewCell+.swift */; };
 		3F9148CF289308C10050A02F /* Observable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148CE289308C10050A02F /* Observable+.swift */; };
+		3F9148D128930D7C0050A02F /* GoodsItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148D028930D7C0050A02F /* GoodsItemViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		3F9148CA289300AD0050A02F /* GoodsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsCell.swift; sourceTree = "<group>"; };
 		3F9148CC2893053F0050A02F /* UICollectionViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+.swift"; sourceTree = "<group>"; };
 		3F9148CE289308C10050A02F /* Observable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+.swift"; sourceTree = "<group>"; };
+		3F9148D028930D7C0050A02F /* GoodsItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsItemViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 				3F91485128926CFC0050A02F /* HomeNavigator.swift */,
 				3F0F336028923BE600A1C514 /* HomeViewController.swift */,
 				3F91484A28926BAF0050A02F /* HomeViewModel.swift */,
+				3F9148D028930D7C0050A02F /* GoodsItemViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				3F9148CD2893053F0050A02F /* UICollectionViewCell+.swift in Sources */,
 				3F91486E2892795F0050A02F /* AbstractCache.swift in Sources */,
 				3F91485828926D930050A02F /* DefaultLikeNavigator.swift in Sources */,
+				3F9148D128930D7C0050A02F /* GoodsItemViewModel.swift in Sources */,
 				3F9148C82892FF720050A02F /* UIColor+.swift in Sources */,
 				3F91485C28926E9A0050A02F /* GoodsUsecase.swift in Sources */,
 				3F91484928926B740050A02F /* LikeViewController.swift in Sources */,
