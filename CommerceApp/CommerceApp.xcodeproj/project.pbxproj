@@ -50,6 +50,7 @@
 		3F9148DA2894066E0050A02F /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148D92894066E0050A02F /* Int+.swift */; };
 		3F9148DC28940BFD0050A02F /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148DB28940BFD0050A02F /* UIFont+.swift */; };
 		3F9148DE28941A4D0050A02F /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148DD28941A4D0050A02F /* PaddingLabel.swift */; };
+		3F9148E0289455F40050A02F /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148DF289455F40050A02F /* UICollectionView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		3F9148D92894066E0050A02F /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 		3F9148DB28940BFD0050A02F /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		3F9148DD28941A4D0050A02F /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		3F9148DF289455F40050A02F /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				3F9148CE289308C10050A02F /* Observable+.swift */,
+				3F9148DF289455F40050A02F /* UICollectionView+.swift */,
 				3F9148CC2893053F0050A02F /* UICollectionViewCell+.swift */,
 				3F9148C72892FF720050A02F /* UIColor+.swift */,
 				3F9148DB28940BFD0050A02F /* UIFont+.swift */,
@@ -538,6 +541,7 @@
 				3F91486B289279460050A02F /* Cache.swift in Sources */,
 				3F91485628926D6E0050A02F /* DefaultHomeNavigator.swift in Sources */,
 				3F91487A28927ABA0050A02F /* AbstractRepository.swift in Sources */,
+				3F9148E0289455F40050A02F /* UICollectionView+.swift in Sources */,
 				3F914865289277810050A02F /* DefaultGoodsUsecase.swift in Sources */,
 				3F914873289279B80050A02F /* NetworkProvider.swift in Sources */,
 				3F0F335D28923BE600A1C514 /* AppDelegate.swift in Sources */,
