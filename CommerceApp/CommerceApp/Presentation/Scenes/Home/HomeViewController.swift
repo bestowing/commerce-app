@@ -67,11 +67,8 @@ final class HomeViewController: BaseViewController {
             return cell
         }.disposed(by: self.disposeBag)
 
-        output.refreshing.drive { [unowned self] isRefreshing in
-            if !isRefreshing {
-                self.goodsCollectionView.refreshControl?.endRefreshing()
-            }
-        }.disposed(by: self.disposeBag)
+        output.refreshing.drive(self.refreshControl.rx.isRefreshing)
+            .disposed(by: self.disposeBag)
 
         output.events.drive()
             .disposed(by: self.disposeBag)
