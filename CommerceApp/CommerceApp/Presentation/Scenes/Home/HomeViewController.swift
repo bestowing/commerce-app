@@ -15,8 +15,11 @@ final class HomeViewController: BaseViewController {
 
     var viewModel: HomeViewModel!
 
-    private let goodsCollectionView: UICollectionView = {
+    private lazy var goodsCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.estimatedItemSize = CGSize(width: self.view.frame.width, height: 200)
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumLineSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.register(GoodsCell.self, forCellWithReuseIdentifier: GoodsCell.identifier)
         return collectionView
@@ -30,6 +33,7 @@ final class HomeViewController: BaseViewController {
         super.viewDidLoad()
         self.title = "홈"
         self.setSubViews()
+        self.bindViewModel()
     }
 
     private func setSubViews() {
