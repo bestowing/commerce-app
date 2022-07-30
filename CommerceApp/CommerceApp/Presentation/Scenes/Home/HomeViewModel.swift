@@ -32,11 +32,16 @@ final class HomeViewModel: ViewModelType {
     func transform(input: Input) -> Output {
         let refreshIndicator = ActivityIndicator()
 
-        let isEnd = BehaviorSubject<Bool>(value: false)
-        let goodsItems = BehaviorSubject<[GoodsItemViewModel]>(value: [])
+        let isEnd = PublishSubject<Bool>()
+        let goodsItems = PublishSubject<[GoodsItemViewModel]>()
 
-        let initialization = self.homeUsecase.initialization()
-            .asDriverOnErrorJustComplete()
+        let initTrigger = Driver.of(Driver.just(()), input.refresh).merge()
+
+        let initialization = initTrigger.flatMapLatest { [unowned self] _ in
+            self.homeUsecase.initialization()
+                .trackActivity(refreshIndicator)
+                .asDriverOnErrorJustComplete()
+        }
 
         let bannerItems = initialization
             .map { $0.0.map { BannerItemViewModel(with: $0) } }
@@ -79,19 +84,6 @@ final class HomeViewModel: ViewModelType {
             })
             .mapToVoid()
 
-        let refreshEvent = input.refresh
-            .flatMap { [unowned self] in
-                self.homeUsecase.initialization()
-                    .trackActivity(refreshIndicator)
-                    .asDriverOnErrorJustComplete()
-            }
-            .map { $0.1.map { GoodsItemViewModel(with: $0) } }
-            .do(onNext: {
-                isEnd.onNext($0.isEmpty)
-                goodsItems.onNext($0)
-            })
-            .mapToVoid()
-
         let likeEvent: Driver<Void> = input.like
             .flatMap { [unowned self] itemViewModel in
                 if itemViewModel.isLiked {
@@ -103,7 +95,7 @@ final class HomeViewModel: ViewModelType {
             }
 
         let events = Driver.from([
-            intialGoodsItemsEvent, moreLoadedGoodsItems, refreshEvent, likeEvent
+            intialGoodsItemsEvent, moreLoadedGoodsItems, likeEvent
         ]).merge()
 
         let homeSectionModels = Driver.combineLatest(
