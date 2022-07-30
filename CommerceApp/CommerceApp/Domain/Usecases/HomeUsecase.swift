@@ -11,6 +11,7 @@ protocol HomeUsecase {
 
     func initialization() -> Observable<([Banner], [Goods])>
     func pagination(after lastGoodsID: Int) -> Observable<[Goods]>
+    func like(goods: Goods) -> Observable<Void>
+    func unlike(goods: Goods) -> Observable<Void>
 
 }
-

@@ -21,7 +21,8 @@ final class DefaultUsecaseProvider: UsecaseProvider {
 
     func makeHomeUsecase() -> HomeUsecase {
         return DefaultHomeUsecase(
-            network: self.networkProvider.makeHomeNetwork()
+            network: self.networkProvider.makeHomeNetwork(),
+            repository: Repository<Goods>()
         )
     }
 

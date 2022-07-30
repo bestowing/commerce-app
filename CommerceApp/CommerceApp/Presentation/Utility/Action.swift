@@ -16,7 +16,7 @@ final class Action: NSObject {
         super.init()
     }
 
-    @objc func action() {
+    @objc func performAction() {
         _action()
     }
 

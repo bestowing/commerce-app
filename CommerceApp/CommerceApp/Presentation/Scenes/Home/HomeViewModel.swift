@@ -76,8 +76,18 @@ final class HomeViewModel: ViewModelType {
             })
             .mapToVoid()
 
+        let likeEvent: Driver<Void> = input.like
+            .flatMap { [unowned self] itemViewModel in
+                if itemViewModel.isLiked {
+                    return self.homeUsecase.unlike(goods: itemViewModel.goods)
+                        .asDriverOnErrorJustComplete()
+                }
+                return self.homeUsecase.like(goods: itemViewModel.goods)
+                    .asDriverOnErrorJustComplete()
+            }
+
         let events = Driver.from([
-            intialGoodsItemsEvent, moreLoadedGoodsItems, refreshEvent
+            intialGoodsItemsEvent, moreLoadedGoodsItems, refreshEvent, likeEvent
         ]).merge()
 
         return Output(

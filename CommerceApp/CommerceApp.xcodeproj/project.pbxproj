@@ -27,8 +27,6 @@
 		3F91486B289279460050A02F /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91486A289279460050A02F /* Cache.swift */; };
 		3F91486E2892795F0050A02F /* AbstractCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91486D2892795F0050A02F /* AbstractCache.swift */; };
 		3F914873289279B80050A02F /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914872289279B80050A02F /* NetworkProvider.swift */; };
-		3F91487828927AAE0050A02F /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91487728927AAE0050A02F /* RealmRepository.swift */; };
-		3F91487A28927ABA0050A02F /* AbstractRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91487928927ABA0050A02F /* AbstractRepository.swift */; };
 		3F91487D28927C540050A02F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3F91487C28927C540050A02F /* SnapKit */; };
 		3F9148902892829B0050A02F /* RxRealm in Frameworks */ = {isa = PBXBuildFile; productRef = 3F91488F2892829B0050A02F /* RxRealm */; };
 		3F914893289285AB0050A02F /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3F914892289285AB0050A02F /* RxAlamofire */; };
@@ -57,6 +55,15 @@
 		3F9148F4289470AC0050A02F /* GoodsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148F3289470AC0050A02F /* GoodsDTO.swift */; };
 		3F9148F628948AFB0050A02F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148F528948AFB0050A02F /* ActivityIndicator.swift */; };
 		3F9148F82894AD300050A02F /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148F72894AD300050A02F /* Action.swift */; };
+		3F9148FC2894B3A50050A02F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148FB2894B3A50050A02F /* Repository.swift */; };
+		3F9148FE2894B3AF0050A02F /* AbstractRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148FD2894B3AF0050A02F /* AbstractRepository.swift */; };
+		3F9149012894B9110050A02F /* RunLoopThreadScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9149002894B9110050A02F /* RunLoopThreadScheduler.swift */; };
+		3F9149052894BB000050A02F /* DomainConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9149042894BB000050A02F /* DomainConvertibleType.swift */; };
+		3F9149072894BB170050A02F /* RealmRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9149062894BB170050A02F /* RealmRepresentable.swift */; };
+		3F9149092894BB4E0050A02F /* RMGoods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9149082894BB4E0050A02F /* RMGoods.swift */; };
+		3F91490B2894BD930050A02F /* Object+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91490A2894BD930050A02F /* Object+.swift */; };
+		3F91490D2894BE700050A02F /* Observable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91490C2894BE700050A02F /* Observable+Ext.swift */; };
+		3F91490F28951BF30050A02F /* Realm+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91490E28951BF30050A02F /* Realm+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,8 +106,6 @@
 		3F91486A289279460050A02F /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		3F91486D2892795F0050A02F /* AbstractCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractCache.swift; sourceTree = "<group>"; };
 		3F914872289279B80050A02F /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
-		3F91487728927AAE0050A02F /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
-		3F91487928927ABA0050A02F /* AbstractRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractRepository.swift; sourceTree = "<group>"; };
 		3F9148AA28928A1D0050A02F /* CommerceAppViewModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommerceAppViewModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F9148B328928A470050A02F /* HomeViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		3F9148B528928A660050A02F /* LikeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewModelTests.swift; sourceTree = "<group>"; };
@@ -127,6 +132,15 @@
 		3F9148F3289470AC0050A02F /* GoodsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsDTO.swift; sourceTree = "<group>"; };
 		3F9148F528948AFB0050A02F /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		3F9148F72894AD300050A02F /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		3F9148FB2894B3A50050A02F /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		3F9148FD2894B3AF0050A02F /* AbstractRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractRepository.swift; sourceTree = "<group>"; };
+		3F9149002894B9110050A02F /* RunLoopThreadScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunLoopThreadScheduler.swift; sourceTree = "<group>"; };
+		3F9149042894BB000050A02F /* DomainConvertibleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertibleType.swift; sourceTree = "<group>"; };
+		3F9149062894BB170050A02F /* RealmRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepresentable.swift; sourceTree = "<group>"; };
+		3F9149082894BB4E0050A02F /* RMGoods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMGoods.swift; sourceTree = "<group>"; };
+		3F91490A2894BD930050A02F /* Object+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Object+.swift"; sourceTree = "<group>"; };
+		3F91490C2894BE700050A02F /* Observable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Ext.swift"; sourceTree = "<group>"; };
+		3F91490E28951BF30050A02F /* Realm+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +317,8 @@
 		3F914861289272E20050A02F /* RealmPlatform */ = {
 			isa = PBXGroup;
 			children = (
+				3F9149022894BADB0050A02F /* Entities */,
+				3F9148FF2894B9050050A02F /* Utility */,
 				3F91487628927AA50050A02F /* Repository */,
 			);
 			path = RealmPlatform;
@@ -348,8 +364,8 @@
 		3F91487628927AA50050A02F /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				3F91487928927ABA0050A02F /* AbstractRepository.swift */,
-				3F91487728927AAE0050A02F /* RealmRepository.swift */,
+				3F9148FD2894B3AF0050A02F /* AbstractRepository.swift */,
+				3F9148FB2894B3A50050A02F /* Repository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -374,6 +390,7 @@
 		3F9148C62892FF5C0050A02F /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				3F9148F72894AD300050A02F /* Action.swift */,
 				3F9148F528948AFB0050A02F /* ActivityIndicator.swift */,
 				3F9148CE289308C10050A02F /* Observable+.swift */,
 				3F9148DF289455F40050A02F /* UICollectionView+.swift */,
@@ -382,7 +399,6 @@
 				3F9148DB28940BFD0050A02F /* UIFont+.swift */,
 				3F9148D52893C6E20050A02F /* UIImageView+.swift */,
 				3F9148D92894066E0050A02F /* Int+.swift */,
-				3F9148F72894AD300050A02F /* Action.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -404,6 +420,35 @@
 				3F9148EF28946D470050A02F /* HomeDTO.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		3F9148FF2894B9050050A02F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				3F91490A2894BD930050A02F /* Object+.swift */,
+				3F91490C2894BE700050A02F /* Observable+Ext.swift */,
+				3F91490E28951BF30050A02F /* Realm+.swift */,
+				3F9149002894B9110050A02F /* RunLoopThreadScheduler.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		3F9149022894BADB0050A02F /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3F9149032894BAF10050A02F /* Convertion */,
+				3F9149082894BB4E0050A02F /* RMGoods.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		3F9149032894BAF10050A02F /* Convertion */ = {
+			isa = PBXGroup;
+			children = (
+				3F9149042894BB000050A02F /* DomainConvertibleType.swift */,
+				3F9149062894BB170050A02F /* RealmRepresentable.swift */,
+			);
+			path = Convertion;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -548,6 +593,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F9149092894BB4E0050A02F /* RMGoods.swift in Sources */,
 				3F91485F28926EDE0050A02F /* Goods.swift in Sources */,
 				3F9148F228946DE70050A02F /* Banner+.swift in Sources */,
 				3F91484D28926BCB0050A02F /* LikeViewModel.swift in Sources */,
@@ -564,30 +610,36 @@
 				3F9148D62893C6E20050A02F /* UIImageView+.swift in Sources */,
 				3F0F336128923BE600A1C514 /* HomeViewController.swift in Sources */,
 				3F91485228926CFC0050A02F /* HomeNavigator.swift in Sources */,
-				3F91487828927AAE0050A02F /* RealmRepository.swift in Sources */,
 				3F9148CB289300AD0050A02F /* GoodsCell.swift in Sources */,
 				3F9148F4289470AC0050A02F /* GoodsDTO.swift in Sources */,
 				3F91485028926BE70050A02F /* ViewModelType.swift in Sources */,
 				3F91486B289279460050A02F /* Cache.swift in Sources */,
 				3F91485628926D6E0050A02F /* DefaultHomeNavigator.swift in Sources */,
-				3F91487A28927ABA0050A02F /* AbstractRepository.swift in Sources */,
 				3F9148E0289455F40050A02F /* UICollectionView+.swift in Sources */,
 				3F9148EC289468570050A02F /* DefaultHomeUsecase.swift in Sources */,
+				3F91490D2894BE700050A02F /* Observable+Ext.swift in Sources */,
 				3F914873289279B80050A02F /* NetworkProvider.swift in Sources */,
 				3F0F335D28923BE600A1C514 /* AppDelegate.swift in Sources */,
 				3F9148DC28940BFD0050A02F /* UIFont+.swift in Sources */,
 				3F0F335F28923BE600A1C514 /* SceneDelegate.swift in Sources */,
+				3F9148FC2894B3A50050A02F /* Repository.swift in Sources */,
 				3F9148C52892A3820050A02F /* BaseViewController.swift in Sources */,
+				3F91490B2894BD930050A02F /* Object+.swift in Sources */,
 				3F9148CD2893053F0050A02F /* UICollectionViewCell+.swift in Sources */,
 				3F91486E2892795F0050A02F /* AbstractCache.swift in Sources */,
+				3F9149012894B9110050A02F /* RunLoopThreadScheduler.swift in Sources */,
+				3F91490F28951BF30050A02F /* Realm+.swift in Sources */,
 				3F9148F82894AD300050A02F /* Action.swift in Sources */,
 				3F91485828926D930050A02F /* DefaultLikeNavigator.swift in Sources */,
+				3F9149052894BB000050A02F /* DomainConvertibleType.swift in Sources */,
 				3F9148DE28941A4D0050A02F /* PaddingLabel.swift in Sources */,
 				3F9148DA2894066E0050A02F /* Int+.swift in Sources */,
 				3F9148D128930D7C0050A02F /* GoodsItemViewModel.swift in Sources */,
 				3F9148F628948AFB0050A02F /* ActivityIndicator.swift in Sources */,
 				3F9148C82892FF720050A02F /* UIColor+.swift in Sources */,
+				3F9149072894BB170050A02F /* RealmRepresentable.swift in Sources */,
 				3F91484928926B740050A02F /* LikeViewController.swift in Sources */,
+				3F9148FE2894B3AF0050A02F /* AbstractRepository.swift in Sources */,
 				3F9148EE289468970050A02F /* HomeNetwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

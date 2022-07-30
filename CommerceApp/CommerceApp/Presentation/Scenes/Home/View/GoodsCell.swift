@@ -159,7 +159,7 @@ final class GoodsCell: UICollectionViewCell {
 
     func configure(onLiked action: Action) {
         self.likeButton.addTarget(
-            action, action: #selector(action.action), for: .touchUpInside
+            action, action: #selector(action.performAction), for: .touchUpInside
         )
         self.action = action
     }
