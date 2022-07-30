@@ -32,9 +32,13 @@ extension RMGoods: DomainConvertibleType {
 
 extension Goods: RealmRepresentable {
 
+    // MARK: - properties
+
     var uid: String {
         return String(self.id)
     }
+
+    // MARK: - methods
 
     func asRealm() -> RMGoods {
         return RMGoods.build { object in

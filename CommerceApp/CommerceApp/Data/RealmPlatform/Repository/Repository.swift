@@ -13,16 +13,22 @@ import RxSwift
 
 final class Repository<T: RealmRepresentable>: AbstractRepository where T == T.RealmType.DomainType, T.RealmType: Object {
 
+    // MARK: - properties
+
     private var realm: Realm {
         return try! Realm()
     }
 
     private let scheduler: RunLoopThreadScheduler
 
+    // MARK: - init/deinit
+
     init() {
         let name = "Realm.Repository"
         self.scheduler = RunLoopThreadScheduler(threadName: name)
     }
+
+    // MARK: - methods
 
     func queryAll() -> Observable<[T]> {
         return Observable.deferred { [unowned self] in

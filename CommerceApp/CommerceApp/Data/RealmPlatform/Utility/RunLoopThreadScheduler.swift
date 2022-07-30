@@ -10,8 +10,12 @@ import RxSwift
 
 final class RunLoopThreadScheduler: ImmediateSchedulerType {
 
+    // MARK: - properties
+
     private let thread: Thread
     private let target: ThreadTarget
+
+    // MARK: - init/deinit
 
     init(threadName: String) {
         self.target = ThreadTarget()
@@ -21,6 +25,12 @@ final class RunLoopThreadScheduler: ImmediateSchedulerType {
         self.thread.name = threadName
         self.thread.start()
     }
+
+    deinit {
+        thread.cancel()
+    }
+
+    // MARK: - methods
 
     func schedule<StateType>(
         _ state: StateType, action: @escaping (StateType) -> Disposable
@@ -43,10 +53,6 @@ final class RunLoopThreadScheduler: ImmediateSchedulerType {
         }
 
         return Disposables.create(disposable, actionDisposable)
-    }
-
-    deinit {
-        thread.cancel()
     }
 
 }
