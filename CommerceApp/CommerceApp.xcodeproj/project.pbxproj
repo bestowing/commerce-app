@@ -24,8 +24,6 @@
 		3F91485F28926EDE0050A02F /* Goods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91485E28926EDE0050A02F /* Goods.swift */; };
 		3F914867289278C10050A02F /* UsecaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914866289278C10050A02F /* UsecaseProvider.swift */; };
 		3F914869289278E90050A02F /* DefaultUsecaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914868289278E90050A02F /* DefaultUsecaseProvider.swift */; };
-		3F91486B289279460050A02F /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91486A289279460050A02F /* Cache.swift */; };
-		3F91486E2892795F0050A02F /* AbstractCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91486D2892795F0050A02F /* AbstractCache.swift */; };
 		3F914873289279B80050A02F /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914872289279B80050A02F /* NetworkProvider.swift */; };
 		3F91487D28927C540050A02F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3F91487C28927C540050A02F /* SnapKit */; };
 		3F9148902892829B0050A02F /* RxRealm in Frameworks */ = {isa = PBXBuildFile; productRef = 3F91488F2892829B0050A02F /* RxRealm */; };
@@ -108,8 +106,6 @@
 		3F91485E28926EDE0050A02F /* Goods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goods.swift; sourceTree = "<group>"; };
 		3F914866289278C10050A02F /* UsecaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsecaseProvider.swift; sourceTree = "<group>"; };
 		3F914868289278E90050A02F /* DefaultUsecaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUsecaseProvider.swift; sourceTree = "<group>"; };
-		3F91486A289279460050A02F /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
-		3F91486D2892795F0050A02F /* AbstractCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractCache.swift; sourceTree = "<group>"; };
 		3F914872289279B80050A02F /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		3F9148AA28928A1D0050A02F /* CommerceAppViewModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommerceAppViewModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F9148B328928A470050A02F /* HomeViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
@@ -339,7 +335,6 @@
 		3F914862289272F40050A02F /* NetworkPlatform */ = {
 			isa = PBXGroup;
 			children = (
-				3F91486C2892794C0050A02F /* Cache */,
 				3F9148E128945C6D0050A02F /* Entities */,
 				3F91486F2892798D0050A02F /* Network */,
 			);
@@ -353,15 +348,6 @@
 				3F914868289278E90050A02F /* DefaultUsecaseProvider.swift */,
 			);
 			path = Usecases;
-			sourceTree = "<group>";
-		};
-		3F91486C2892794C0050A02F /* Cache */ = {
-			isa = PBXGroup;
-			children = (
-				3F91486D2892795F0050A02F /* AbstractCache.swift */,
-				3F91486A289279460050A02F /* Cache.swift */,
-			);
-			path = Cache;
 			sourceTree = "<group>";
 		};
 		3F91486F2892798D0050A02F /* Network */ = {
@@ -631,7 +617,6 @@
 				3F9148CB289300AD0050A02F /* GoodsCell.swift in Sources */,
 				3F9148F4289470AC0050A02F /* GoodsDTO.swift in Sources */,
 				3F91485028926BE70050A02F /* ViewModelType.swift in Sources */,
-				3F91486B289279460050A02F /* Cache.swift in Sources */,
 				3F91485628926D6E0050A02F /* DefaultHomeNavigator.swift in Sources */,
 				3F9148E0289455F40050A02F /* UICollectionView+.swift in Sources */,
 				3F9148EC289468570050A02F /* DefaultHomeUsecase.swift in Sources */,
@@ -645,7 +630,6 @@
 				3F9148C52892A3820050A02F /* BaseViewController.swift in Sources */,
 				3F91490B2894BD930050A02F /* Object+.swift in Sources */,
 				3F9148CD2893053F0050A02F /* UICollectionViewCell+.swift in Sources */,
-				3F91486E2892795F0050A02F /* AbstractCache.swift in Sources */,
 				3F9149012894B9110050A02F /* RunLoopThreadScheduler.swift in Sources */,
 				3F91490F28951BF30050A02F /* Realm+.swift in Sources */,
 				3F9148F82894AD300050A02F /* Action.swift in Sources */,
