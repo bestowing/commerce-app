@@ -12,11 +12,13 @@ final class DefaultLikeNavigator: LikeNavigator {
     // MARK: - properties
 
     private let navigationController: UINavigationController
+    private let services: UsecaseProvider
 
     // MARK: - init/deinit
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, services: UsecaseProvider) {
         self.navigationController = navigationController
+        self.services = services
     }
 
     deinit {
@@ -27,7 +29,9 @@ final class DefaultLikeNavigator: LikeNavigator {
 
     func toLike() {
         let viewController = LikeViewController()
-        viewController.viewModel = LikeViewModel(navigator: self)
+        viewController.viewModel = LikeViewModel(
+            navigator: self, likeUsecase: self.services.makeLikeUsecase()
+        )
         self.navigationController.pushViewController(viewController, animated: false)
     }
 

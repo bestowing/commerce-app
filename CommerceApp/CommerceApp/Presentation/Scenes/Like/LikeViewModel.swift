@@ -10,11 +10,13 @@ final class LikeViewModel: ViewModelType {
     // MARK: - properties
 
     private let navigator: LikeNavigator
+    private let likeUsecase: LikeUsecase
 
     // MARK: - init/deinit
 
-    init(navigator: LikeNavigator) {
+    init(navigator: LikeNavigator, likeUsecase: LikeUsecase) {
         self.navigator = navigator
+        self.likeUsecase = likeUsecase
     }
 
     deinit {
