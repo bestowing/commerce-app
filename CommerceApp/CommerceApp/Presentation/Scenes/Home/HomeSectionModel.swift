@@ -8,8 +8,8 @@
 import RxDataSources
 
 enum HomeSectionModel {
-    case BannerSection(title: String, items: [SectionItem])
-    case GoodsSection(title: String, items: [SectionItem])
+    case BannerSection(items: [SectionItem])
+    case GoodsSection(items: [SectionItem])
 }
 
 enum SectionItem {
@@ -21,21 +21,25 @@ extension HomeSectionModel: SectionModelType {
 
     typealias Item = SectionItem
 
+    // MARK: - properties
+
     var items: [SectionItem] {
         switch self {
-        case .BannerSection(title: _, items: let items):
+        case .BannerSection(items: let items):
             return items.map { $0 }
-        case .GoodsSection(title: _, items: let items):
+        case .GoodsSection(items: let items):
             return items.map { $0 }
         }
     }
 
+    // MARK: - init/deinit
+
     init(original: HomeSectionModel, items: [Item]) {
         switch original {
-        case let .BannerSection(title: title, items: _):
-            self = .BannerSection(title: title, items: items)
-        case let .GoodsSection(title, _):
-            self = .GoodsSection(title: title, items: items)
+        case .BannerSection(_):
+            self = .BannerSection(items: items)
+        case .GoodsSection(_):
+            self = .GoodsSection(items: items)
         }
     }
 

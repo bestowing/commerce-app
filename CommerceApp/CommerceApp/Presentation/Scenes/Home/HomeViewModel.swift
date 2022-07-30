@@ -129,12 +129,12 @@ final class HomeViewModel: ViewModelType {
         let homeSectionModels = Driver.combineLatest(
             bannerItems
                 .map { HomeSectionModel.GoodsSection(
-                    title: "Banner", items: $0.map { .BannerSectionItem(itemViewModel: $0) }
+                    items: $0.map { .BannerSectionItem(itemViewModel: $0) }
                 )},
             goodsItems
                 .asDriverOnErrorJustComplete()
                 .map { HomeSectionModel.GoodsSection(
-                    title: "Goods", items: $0.map { .GoodsSectionItem(itemViewModel: $0) }
+                    items: $0.map { .GoodsSectionItem(itemViewModel: $0) }
                 )}
         ).map { [$0.0, $0.1] }
 
