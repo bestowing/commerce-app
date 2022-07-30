@@ -64,6 +64,8 @@
 		3F91490B2894BD930050A02F /* Object+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91490A2894BD930050A02F /* Object+.swift */; };
 		3F91490D2894BE700050A02F /* Observable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91490C2894BE700050A02F /* Observable+Ext.swift */; };
 		3F91490F28951BF30050A02F /* Realm+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91490E28951BF30050A02F /* Realm+.swift */; };
+		3F914912289572180050A02F /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 3F914911289572180050A02F /* Differentiator */; };
+		3F914914289572180050A02F /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 3F914913289572180050A02F /* RxDataSources */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,7 +151,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F914893289285AB0050A02F /* RxAlamofire in Frameworks */,
+				3F914912289572180050A02F /* Differentiator in Frameworks */,
 				3F9148902892829B0050A02F /* RxRealm in Frameworks */,
+				3F914914289572180050A02F /* RxDataSources in Frameworks */,
 				3F9148D42893C6790050A02F /* SDWebImage in Frameworks */,
 				3F91487D28927C540050A02F /* SnapKit in Frameworks */,
 			);
@@ -472,6 +476,8 @@
 				3F91488F2892829B0050A02F /* RxRealm */,
 				3F914892289285AB0050A02F /* RxAlamofire */,
 				3F9148D32893C6790050A02F /* SDWebImage */,
+				3F914911289572180050A02F /* Differentiator */,
+				3F914913289572180050A02F /* RxDataSources */,
 			);
 			productName = CommerceApp;
 			productReference = 3F0F335928923BE600A1C514 /* CommerceApp.app */;
@@ -550,6 +556,7 @@
 				3F91488E2892829B0050A02F /* XCRemoteSwiftPackageReference "RxRealm" */,
 				3F914891289285AB0050A02F /* XCRemoteSwiftPackageReference "RxAlamofire" */,
 				3F9148D22893C6780050A02F /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				3F914910289572180050A02F /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = 3F0F335A28923BE600A1C514 /* Products */;
 			projectDirPath = "";
@@ -1006,6 +1013,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		3F914910289572180050A02F /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1028,6 +1043,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3F9148D22893C6780050A02F /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		3F914911289572180050A02F /* Differentiator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F914910289572180050A02F /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
+		};
+		3F914913289572180050A02F /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F914910289572180050A02F /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
