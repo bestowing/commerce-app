@@ -32,7 +32,7 @@ final class HomeViewModel: ViewModelType {
     func transform(input: Input) -> Output {
         let refreshIndicator = ActivityIndicator()
 
-        let isEnd = PublishSubject<Bool>()
+        let isFetchingLimited = PublishSubject<Bool>()
         let goodsItems = PublishSubject<[GoodsItemViewModel]>()
 
         let initTrigger = Driver.of(Driver.just(()), input.refresh).merge()
@@ -60,14 +60,14 @@ final class HomeViewModel: ViewModelType {
                 return viewModels
             }
             .do(onNext: {
-                isEnd.onNext($0.isEmpty)
+                isFetchingLimited.onNext($0.isEmpty)
                 goodsItems.onNext($0)
             })
             .mapToVoid()
 
         let moreLoadedGoodsItems = input.loadMore
-            .withLatestFrom(isEnd.asDriverOnErrorJustComplete())
-            .filter { !$0 }
+            .withLatestFrom(isFetchingLimited.asDriverOnErrorJustComplete())
+            .filter { isEnd in isEnd == false }
             .withLatestFrom(goodsItems.asDriverOnErrorJustComplete())
             .compactMap { $0.last?.goods.id }
             .flatMapLatest { [unowned self] id in
@@ -76,10 +76,10 @@ final class HomeViewModel: ViewModelType {
                     .map { $0.map { GoodsItemViewModel(with: $0) } }
             }
             .withLatestFrom(goodsItems.asDriverOnErrorJustComplete()) { ($0, $1) }
-            .do(onNext: {
-                isEnd.onNext($0.0.isEmpty)
-                if !$0.0.isEmpty {
-                    goodsItems.onNext($0.1 + $0.0)
+            .do(onNext: { (goodsViewModels, newGoodsViewModels) in
+                isFetchingLimited.onNext(newGoodsViewModels.isEmpty)
+                if !newGoodsViewModels.isEmpty {
+                    goodsItems.onNext(goodsViewModels + newGoodsViewModels)
                 }
             })
             .mapToVoid()
