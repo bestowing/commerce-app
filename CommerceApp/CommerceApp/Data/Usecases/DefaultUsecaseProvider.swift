@@ -10,11 +10,13 @@ final class DefaultUsecaseProvider: UsecaseProvider {
     // MARK: - properties
 
     private let networkProvider: NetworkProvider
+    private let goodsRepository: Repository<Goods>
 
     // MARK: - init/deinit
 
     init() {
         self.networkProvider = NetworkProvider()
+        self.goodsRepository = Repository<Goods>()
     }
 
     // MARK: - methods
@@ -22,7 +24,13 @@ final class DefaultUsecaseProvider: UsecaseProvider {
     func makeHomeUsecase() -> HomeUsecase {
         return DefaultHomeUsecase(
             network: self.networkProvider.makeHomeNetwork(),
-            repository: Repository<Goods>()
+            repository: self.goodsRepository
+        )
+    }
+
+    func makeLikeUsecase() -> LikeUsecase {
+        return DefaultLikeUsecase(
+            repository: self.goodsRepository
         )
     }
 

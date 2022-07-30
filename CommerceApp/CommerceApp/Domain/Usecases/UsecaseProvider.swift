@@ -8,5 +8,6 @@
 protocol UsecaseProvider {
 
     func makeHomeUsecase() -> HomeUsecase
+    func makeLikeUsecase() -> LikeUsecase
 
 }

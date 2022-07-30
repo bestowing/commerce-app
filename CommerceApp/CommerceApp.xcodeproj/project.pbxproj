@@ -68,6 +68,8 @@
 		3F914918289585DB0050A02F /* BannerItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914917289585DB0050A02F /* BannerItemViewModel.swift */; };
 		3F91491A2895864C0050A02F /* HomeSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9149192895864C0050A02F /* HomeSectionModel.swift */; };
 		3F91491D2895C3080050A02F /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91491C2895C3080050A02F /* ErrorTracker.swift */; };
+		3F91491F2895CA790050A02F /* LikeUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91491E2895CA790050A02F /* LikeUsecase.swift */; };
+		3F9149212895CAC20050A02F /* DefaultLikeUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9149202895CAC20050A02F /* DefaultLikeUsecase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +149,8 @@
 		3F914917289585DB0050A02F /* BannerItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerItemViewModel.swift; sourceTree = "<group>"; };
 		3F9149192895864C0050A02F /* HomeSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionModel.swift; sourceTree = "<group>"; };
 		3F91491C2895C3080050A02F /* ErrorTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
+		3F91491E2895CA790050A02F /* LikeUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeUsecase.swift; sourceTree = "<group>"; };
+		3F9149202895CAC20050A02F /* DefaultLikeUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLikeUsecase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +304,7 @@
 			children = (
 				3F914866289278C10050A02F /* UsecaseProvider.swift */,
 				3F9148E72894671C0050A02F /* HomeUsecase.swift */,
+				3F91491E2895CA790050A02F /* LikeUsecase.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -346,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				3F9148EB289468570050A02F /* DefaultHomeUsecase.swift */,
+				3F9149202895CAC20050A02F /* DefaultLikeUsecase.swift */,
 				3F914868289278E90050A02F /* DefaultUsecaseProvider.swift */,
 			);
 			path = Usecases;
@@ -610,6 +616,7 @@
 				3F91485F28926EDE0050A02F /* Goods.swift in Sources */,
 				3F9148F228946DE70050A02F /* Banner+.swift in Sources */,
 				3F91484D28926BCB0050A02F /* LikeViewModel.swift in Sources */,
+				3F91491F2895CA790050A02F /* LikeUsecase.swift in Sources */,
 				3F9148EA2894678C0050A02F /* Banner.swift in Sources */,
 				3F9148CF289308C10050A02F /* Observable+.swift in Sources */,
 				3F914869289278E90050A02F /* DefaultUsecaseProvider.swift in Sources */,
@@ -639,6 +646,7 @@
 				3F914916289583AA0050A02F /* BannerCell.swift in Sources */,
 				3F0F335F28923BE600A1C514 /* SceneDelegate.swift in Sources */,
 				3F9148FC2894B3A50050A02F /* Repository.swift in Sources */,
+				3F9149212895CAC20050A02F /* DefaultLikeUsecase.swift in Sources */,
 				3F9148C52892A3820050A02F /* BaseViewController.swift in Sources */,
 				3F91490B2894BD930050A02F /* Object+.swift in Sources */,
 				3F9148CD2893053F0050A02F /* UICollectionViewCell+.swift in Sources */,
