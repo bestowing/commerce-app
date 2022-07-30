@@ -9,6 +9,8 @@ import UIKit
 
 final class DefaultLikeNavigator: LikeNavigator {
 
+    // MARK: - properties
+
     private let navigationController: UINavigationController
 
     // MARK: - init/deinit

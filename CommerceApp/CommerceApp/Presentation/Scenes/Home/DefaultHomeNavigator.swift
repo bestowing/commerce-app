@@ -9,6 +9,8 @@ import UIKit
 
 final class DefaultHomeNavigator: HomeNavigator {
 
+    // MARK: - properties
+
     private let navigationController: UINavigationController
     private let services: UsecaseProvider
 

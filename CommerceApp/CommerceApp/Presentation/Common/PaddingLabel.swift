@@ -9,12 +9,18 @@ import UIKit
 
 final class PaddingLabel: UILabel {
 
+    // MARK: - properties
+
     private var edgeInsets: UIEdgeInsets = UIEdgeInsets()
+
+    // MARK: - init/deinit
 
     convenience init(padding: UIEdgeInsets) {
         self.init()
         self.edgeInsets = padding
     }
+
+    // MARK: - methods
 
     override func drawText(in rect: CGRect) {
         super.drawText(in: rect.inset(by: self.edgeInsets))

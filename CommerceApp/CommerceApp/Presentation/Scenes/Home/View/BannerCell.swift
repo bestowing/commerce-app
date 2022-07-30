@@ -37,6 +37,8 @@ final class BannerCell: UICollectionViewCell {
         }
     }
 
+    // MARK: - methods
+
     func bind(_ viewModel: BannerItemViewModel) {
         self.bannerImageView.setImage(
             with: URL(string: viewModel.banner.image), placeholderImage: nil
