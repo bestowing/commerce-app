@@ -49,38 +49,6 @@ final class Repository<T: RealmRepresentable>: AbstractRepository where T == T.R
         .subscribe(on: self.scheduler)
     }
 
-    func inserted() -> Observable<[T]> {
-        return Observable.deferred { [unowned self] in
-            let objects = self.realm.objects(T.RealmType.self)
-
-            return Observable.arrayWithChangeset(from: objects)
-                .compactMap { array, changes -> [T.RealmType]? in
-                    guard let changes = changes
-                    else { return nil }
-                    return changes.inserted.map { array[$0] }
-                }
-                .mapToDomain()
-                .debug()
-        }
-        .subscribe(on: self.scheduler)
-    }
-
-    func deleted() -> Observable<[T]> {
-        return Observable.deferred { [unowned self] in
-            let objects = self.realm.objects(T.RealmType.self)
-
-            return Observable.arrayWithChangeset(from: objects)
-                .compactMap { array, changes -> [T.RealmType]? in
-                    guard let changes = changes
-                    else { return nil }
-                    return changes.inserted.map { array[$0] }
-                }
-                .mapToDomain()
-                .debug()
-        }
-        .subscribe(on: self.scheduler)
-    }
-
     func save(entity: T) -> Observable<Void> {
         return Observable.deferred { [unowned self] in
             return self.realm.rx.save(entity: entity)

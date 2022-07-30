@@ -53,11 +53,3 @@ extension GoodsItemViewModel: Equatable {
     }
 
 }
-
-extension GoodsItemViewModel: HomeSectionItemViewModel {
-
-    var identifier: String { "GoodsCell" }
-
-    static var identifier: String { "GoodsCell" }
-
-}

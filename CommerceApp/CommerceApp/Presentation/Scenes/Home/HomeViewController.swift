@@ -20,16 +20,27 @@ final class HomeViewController: BaseViewController {
     private let refreshControl = UIRefreshControl()
 
     private lazy var dataSource = RxCollectionViewSectionedReloadDataSource<HomeSectionModel>(configureCell: { dataSource, collectionView, indexPath, item in
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: item.identifier, for: indexPath) as? HomeSectionCell else { return UICollectionViewCell() }
-        cell.configure(with: item)
-        cell.configure(onTouched: Action(
-            action: { [unowned self] in
-                guard let goodsItemVM = item as? GoodsItemViewModel
-                else { return }
-                self.like.onNext(goodsItemVM)
-            }
-        ))
-        return cell
+        switch dataSource[indexPath] {
+        case let .BannerSectionItem(itemViewModel):
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: BannerCell.identifier, for: indexPath
+            ) as? BannerCell
+            else { return UICollectionViewCell() }
+            cell.bind(itemViewModel)
+            return cell
+        case let .GoodsSectionItem(itemViewModel):
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: GoodsCell.identifier, for: indexPath
+            ) as? GoodsCell
+            else { return UICollectionViewCell() }
+            cell.bind(onTouched: Action(
+                action: { [unowned self] in
+                    self.like.onNext(itemViewModel)
+                }
+            ))
+            cell.bind(itemViewModel)
+            return cell
+        }
     })
 
     private lazy var homeCollectionView: UICollectionView = {
@@ -82,8 +93,8 @@ final class HomeViewController: BaseViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isUserInteractionEnabled = true
         collectionView.refreshControl = self.refreshControl
-        collectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerItemViewModel.identifier)
-        collectionView.register(GoodsCell.self, forCellWithReuseIdentifier: GoodsItemViewModel.identifier)
+        collectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.identifier)
+        collectionView.register(GoodsCell.self, forCellWithReuseIdentifier: GoodsCell.identifier)
         return collectionView
     }()
 

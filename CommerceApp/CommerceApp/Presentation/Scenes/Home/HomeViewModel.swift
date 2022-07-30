@@ -31,6 +31,7 @@ final class HomeViewModel: ViewModelType {
 
     func transform(input: Input) -> Output {
         let refreshIndicator = ActivityIndicator()
+        let errorTacker = ErrorTracker()
 
         let isFetchingLimited = PublishSubject<Bool>()
         let goodsItems = PublishSubject<[GoodsItemViewModel]>()
@@ -52,10 +53,11 @@ final class HomeViewModel: ViewModelType {
                 .observeInitialLikes()
                 .asDriverOnErrorJustComplete()
             ) { viewModels, likes -> [GoodsItemViewModel] in
+                var viewModels = viewModels
                 likes.forEach { goods in
-                    guard var viewModel = viewModels.first(where: { $0.goods == goods })
-                    else { return }
-                    viewModel.isLiked = true
+                    if let index = viewModels.firstIndex(where: { $0.goods == goods }) {
+                        viewModels[index].isLiked = true
+                    }
                 }
                 return viewModels
             }
@@ -76,7 +78,7 @@ final class HomeViewModel: ViewModelType {
                     .map { $0.map { GoodsItemViewModel(with: $0) } }
             }
             .withLatestFrom(goodsItems.asDriverOnErrorJustComplete()) { ($0, $1) }
-            .do(onNext: { (goodsViewModels, newGoodsViewModels) in
+            .do(onNext: { (newGoodsViewModels, goodsViewModels) in
                 isFetchingLimited.onNext(newGoodsViewModels.isEmpty)
                 if !newGoodsViewModels.isEmpty {
                     goodsItems.onNext(goodsViewModels + newGoodsViewModels)
@@ -84,30 +86,60 @@ final class HomeViewModel: ViewModelType {
             })
             .mapToVoid()
 
-        let likeEvent: Driver<Void> = input.like
+        let likeEvent = input.like
+            .filter { $0.isLiked == false }
             .flatMap { [unowned self] itemViewModel in
-                if itemViewModel.isLiked {
-                    return self.homeUsecase.unlike(goods: itemViewModel.goods)
-                        .asDriverOnErrorJustComplete()
-                }
-                return self.homeUsecase.like(goods: itemViewModel.goods)
+                self.homeUsecase.like(goods: itemViewModel.goods)
+                    .trackError(errorTacker)
                     .asDriverOnErrorJustComplete()
+                    .map { itemViewModel }
             }
+            .withLatestFrom(goodsItems.asDriverOnErrorJustComplete()) { ($0, $1) }
+            .do(onNext: { (newLikedGoods, goodsItemViewModels) in
+                var goodsItemViewModels = goodsItemViewModels
+                guard let index = goodsItemViewModels.firstIndex(of: newLikedGoods)
+                else { return }
+                goodsItemViewModels[index].isLiked = true
+                goodsItems.onNext(goodsItemViewModels)
+            })
+            .mapToVoid()
+
+        let unlikeEvent = input.like
+            .filter { $0.isLiked }
+            .flatMap { [unowned self] itemViewModel in
+                return self.homeUsecase.unlike(goods: itemViewModel.goods)
+                    .trackError(errorTacker)
+                    .asDriverOnErrorJustComplete()
+                    .map { itemViewModel }
+            }
+            .withLatestFrom(goodsItems.asDriverOnErrorJustComplete()) { ($0, $1) }
+            .do(onNext: { (newUnlikedGoods, goodsItemViewModels) in
+                var goodsItemViewModels = goodsItemViewModels
+                guard let index = goodsItemViewModels.firstIndex(of: newUnlikedGoods)
+                else { return }
+                goodsItemViewModels[index].isLiked = false
+                goodsItems.onNext(goodsItemViewModels)
+            })
+            .mapToVoid()
 
         let events = Driver.from([
-            intialGoodsItemsEvent, moreLoadedGoodsItems, likeEvent
+            intialGoodsItemsEvent, moreLoadedGoodsItems, likeEvent, unlikeEvent
         ]).merge()
 
         let homeSectionModels = Driver.combineLatest(
             bannerItems
-                .map { HomeSectionModel(items: $0) },
+                .map { HomeSectionModel.GoodsSection(
+                    title: "Banner", items: $0.map { .BannerSectionItem(itemViewModel: $0) }
+                )},
             goodsItems
                 .asDriverOnErrorJustComplete()
-                .map { HomeSectionModel(items: $0) }
+                .map { HomeSectionModel.GoodsSection(
+                    title: "Goods", items: $0.map { .GoodsSectionItem(itemViewModel: $0) }
+                )}
         ).map { [$0.0, $0.1] }
 
         return Output(
-            homeSectionModels: homeSectionModels.debug(),
+            homeSectionModels: homeSectionModels,
             isRefreshing: refreshIndicator.asDriver(),
             events: events
         )

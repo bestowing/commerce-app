@@ -37,21 +37,10 @@ final class BannerCell: UICollectionViewCell {
         }
     }
 
-    private func bind(_ viewModel: BannerItemViewModel) {
+    func bind(_ viewModel: BannerItemViewModel) {
         self.bannerImageView.setImage(
             with: URL(string: viewModel.banner.image), placeholderImage: nil
         )
     }
-
-}
-
-extension BannerCell: HomeSectionCell {
-
-    func configure(with viewModel: HomeSectionItemViewModel) {
-        guard let viewModel = viewModel as? BannerItemViewModel else { return }
-        self.bind(viewModel)
-    }
-    
-    func configure(onTouched action: Action) {}
 
 }

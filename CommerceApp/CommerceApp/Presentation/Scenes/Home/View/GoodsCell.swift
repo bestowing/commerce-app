@@ -157,7 +157,14 @@ final class GoodsCell: UICollectionViewCell {
         }
     }
 
-    private func bind(_ viewModel: GoodsItemViewModel) {
+    func bind(onTouched action: Action) {
+        self.likeButton.addTarget(
+            action, action: #selector(action.performAction), for: .touchUpInside
+        )
+        self.action = action
+    }
+
+    func bind(_ viewModel: GoodsItemViewModel) {
         self.goodsImageView.setGoodsImage(with: viewModel.goods.image)
         self.likeButton.tintColor = viewModel.isLiked ? UIColor.accentColor : .white
         self.likeButton.setBackgroundImage(
@@ -174,22 +181,6 @@ final class GoodsCell: UICollectionViewCell {
             self.badgeLabel.removeFromSuperview()
         }
         self.sellCountLabel.text = viewModel.sellCountString
-    }
-
-}
-
-extension GoodsCell: HomeSectionCell {
-
-    func configure(with viewModel: HomeSectionItemViewModel) {
-        guard let viewModel = viewModel as? GoodsItemViewModel else { return }
-        self.bind(viewModel)
-    }
-
-    func configure(onTouched action: Action) {
-        self.likeButton.addTarget(
-            action, action: #selector(action.performAction), for: .touchUpInside
-        )
-        self.action = action
     }
 
 }

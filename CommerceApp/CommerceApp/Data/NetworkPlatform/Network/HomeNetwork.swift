@@ -31,7 +31,6 @@ final class HomeNetwork {
     func fetchHomeDTO() -> Observable<(HomeDTO)> {
         return RxAlamofire
             .data(.get, self.endPoints.homeDTO)
-            .debug()
             .map { data -> HomeDTO in
                 return try JSONDecoder().decode(HomeDTO.self, from: data)
             }
@@ -40,7 +39,6 @@ final class HomeNetwork {
     func fetchGoodsDTO(after lastGoodsID: Int) -> Observable<GoodsDTO> {
         return RxAlamofire
             .data(.get, self.endPoints.goodsDTO(lastGoodsID))
-            .debug()
             .map { data -> GoodsDTO in
                 return try JSONDecoder().decode(GoodsDTO.self, from: data)
             }

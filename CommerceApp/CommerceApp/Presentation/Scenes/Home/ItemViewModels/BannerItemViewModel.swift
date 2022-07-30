@@ -14,11 +14,3 @@ struct BannerItemViewModel {
     }
 
 }
-
-extension BannerItemViewModel: HomeSectionItemViewModel {
-
-    var identifier: String { "BannerCell" }
-
-    static var identifier: String { "BannerCell" }
-
-}

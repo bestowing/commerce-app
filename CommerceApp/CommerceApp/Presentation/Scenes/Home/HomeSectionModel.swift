@@ -6,34 +6,37 @@
 //
 
 import RxDataSources
-import UIKit
 
-protocol HomeSectionItemViewModel {
-
-    var identifier: String { get }
-
+enum HomeSectionModel {
+    case BannerSection(title: String, items: [SectionItem])
+    case GoodsSection(title: String, items: [SectionItem])
 }
 
-protocol HomeSectionCell: UICollectionViewCell {
-
-    func configure(with viewModel: HomeSectionItemViewModel)
-    func configure(onTouched action: Action)
-
-}
-
-struct HomeSectionModel {
-
-    var items: [Item]
-
+enum SectionItem {
+    case BannerSectionItem(itemViewModel: BannerItemViewModel)
+    case GoodsSectionItem(itemViewModel: GoodsItemViewModel)
 }
 
 extension HomeSectionModel: SectionModelType {
 
-    typealias Item = HomeSectionItemViewModel
+    typealias Item = SectionItem
+
+    var items: [SectionItem] {
+        switch self {
+        case .BannerSection(title: _, items: let items):
+            return items.map { $0 }
+        case .GoodsSection(title: _, items: let items):
+            return items.map { $0 }
+        }
+    }
 
     init(original: HomeSectionModel, items: [Item]) {
-        self = original
-        self.items = items
+        switch original {
+        case let .BannerSection(title: title, items: _):
+            self = .BannerSection(title: title, items: items)
+        case let .GoodsSection(title, _):
+            self = .GoodsSection(title: title, items: items)
+        }
     }
 
 }

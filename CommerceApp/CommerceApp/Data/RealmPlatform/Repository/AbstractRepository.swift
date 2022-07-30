@@ -12,8 +12,6 @@ protocol AbstractRepository {
     associatedtype T
 
     func queryAll() -> Observable<[T]>
-    func inserted() -> Observable<[T]>
-    func deleted() -> Observable<[T]>
     func save(entity: T) -> Observable<Void>
     func delete(entity: T) -> Observable<Void>
 
