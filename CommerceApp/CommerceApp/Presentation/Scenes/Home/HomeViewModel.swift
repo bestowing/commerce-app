@@ -98,6 +98,7 @@ extension HomeViewModel {
     struct Input {
         let loadMore: Driver<Void>
         let refresh: Driver<Void>
+        let like: Driver<GoodsItemViewModel>
     }
 
     struct Output {

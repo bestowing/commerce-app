@@ -56,6 +56,7 @@
 		3F9148F228946DE70050A02F /* Banner+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148F128946DE70050A02F /* Banner+.swift */; };
 		3F9148F4289470AC0050A02F /* GoodsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148F3289470AC0050A02F /* GoodsDTO.swift */; };
 		3F9148F628948AFB0050A02F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148F528948AFB0050A02F /* ActivityIndicator.swift */; };
+		3F9148F82894AD300050A02F /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148F72894AD300050A02F /* Action.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		3F9148F128946DE70050A02F /* Banner+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Banner+.swift"; sourceTree = "<group>"; };
 		3F9148F3289470AC0050A02F /* GoodsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsDTO.swift; sourceTree = "<group>"; };
 		3F9148F528948AFB0050A02F /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		3F9148F72894AD300050A02F /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +382,7 @@
 				3F9148DB28940BFD0050A02F /* UIFont+.swift */,
 				3F9148D52893C6E20050A02F /* UIImageView+.swift */,
 				3F9148D92894066E0050A02F /* Int+.swift */,
+				3F9148F72894AD300050A02F /* Action.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				3F9148C52892A3820050A02F /* BaseViewController.swift in Sources */,
 				3F9148CD2893053F0050A02F /* UICollectionViewCell+.swift in Sources */,
 				3F91486E2892795F0050A02F /* AbstractCache.swift in Sources */,
+				3F9148F82894AD300050A02F /* Action.swift in Sources */,
 				3F91485828926D930050A02F /* DefaultLikeNavigator.swift in Sources */,
 				3F9148DE28941A4D0050A02F /* PaddingLabel.swift in Sources */,
 				3F9148DA2894066E0050A02F /* Int+.swift in Sources */,
