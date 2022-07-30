@@ -41,4 +41,16 @@ final class DefaultHomeUsecase<Repository>: HomeUsecase where Repository: Abstra
         return self.repository.delete(entity: goods)
     }
 
+    func observeInitialLikes() -> Observable<[Goods]> {
+        return self.repository.queryAll()
+    }
+
+    func observeLikesAdded() -> Observable<[Goods]> {
+        return self.repository.inserted()
+    }
+
+    func observeLikesRemoved() -> Observable<[Goods]> {
+        return self.repository.deleted()
+    }
+
 }

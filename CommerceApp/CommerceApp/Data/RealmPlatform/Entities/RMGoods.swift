@@ -9,7 +9,7 @@ import RealmSwift
 
 final class RMGoods: Object {
 
-    @Persisted(primaryKey: true) var id: Int
+    @Persisted(primaryKey: true) var uid: String
     @Persisted var name: String
     @Persisted var image: String
     @Persisted var isNew: Bool
@@ -23,7 +23,7 @@ extension RMGoods: DomainConvertibleType {
 
     func asDomain() -> Goods {
         return Goods(
-            id: self.id, name: self.name, image: self.image, isNew: self.isNew,
+            id: Int(self.uid)!, name: self.name, image: self.image, isNew: self.isNew,
             sellCount: self.sellCount, actualPrice: self.actualPrice, price: self.price
         )
     }
@@ -38,7 +38,7 @@ extension Goods: RealmRepresentable {
 
     func asRealm() -> RMGoods {
         return RMGoods.build { object in
-            object.id = self.id
+            object.uid = String(self.id)
             object.name = self.name
             object.image = self.image
             object.isNew = self.isNew

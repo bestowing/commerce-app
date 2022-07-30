@@ -13,5 +13,8 @@ protocol HomeUsecase {
     func pagination(after lastGoodsID: Int) -> Observable<[Goods]>
     func like(goods: Goods) -> Observable<Void>
     func unlike(goods: Goods) -> Observable<Void>
+    func observeInitialLikes() -> Observable<[Goods]>
+    func observeLikesAdded() -> Observable<[Goods]>
+    func observeLikesRemoved() -> Observable<[Goods]>
 
 }
