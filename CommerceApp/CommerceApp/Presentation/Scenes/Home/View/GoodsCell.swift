@@ -118,7 +118,7 @@ final class GoodsCell: UICollectionViewCell {
             $0.size.equalTo(30)
         }
         self.goodsPriceStack.snp.makeConstraints {
-            $0.top.equalTo(self.goodsImageView).offset(5)
+            $0.top.equalTo(self.goodsImageView).offset(2)
             $0.leading.equalTo(self.goodsImageView.snp.trailing).offset(13)
             $0.trailing.lessThanOrEqualToSuperview().offset(-10)
         }
@@ -157,14 +157,7 @@ final class GoodsCell: UICollectionViewCell {
         }
     }
 
-    func configure(onLiked action: Action) {
-        self.likeButton.addTarget(
-            action, action: #selector(action.performAction), for: .touchUpInside
-        )
-        self.action = action
-    }
-
-    func bind(_ viewModel: GoodsItemViewModel) {
+    private func bind(_ viewModel: GoodsItemViewModel) {
         self.goodsImageView.setGoodsImage(with: viewModel.goods.image)
         self.likeButton.tintColor = viewModel.isLiked ? UIColor.accentColor : .white
         self.likeButton.setBackgroundImage(
@@ -185,16 +178,18 @@ final class GoodsCell: UICollectionViewCell {
 
 }
 
-// MARK: - EX: UIImageView
+extension GoodsCell: HomeSectionCell {
 
-fileprivate extension UIImageView {
+    func configure(with viewModel: HomeSectionItemViewModel) {
+        guard let viewModel = viewModel as? GoodsItemViewModel else { return }
+        self.bind(viewModel)
+    }
 
-    func setGoodsImage(with urlString: String) {
-        let url = URL(string: urlString)
-        self.setImage(
-            with: url,
-            placeholderImage: UIImage(systemName: "questionmark")
+    func configure(onTouched action: Action) {
+        self.likeButton.addTarget(
+            action, action: #selector(action.performAction), for: .touchUpInside
         )
+        self.action = action
     }
 
 }

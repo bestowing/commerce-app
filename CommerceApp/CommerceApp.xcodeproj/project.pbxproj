@@ -66,6 +66,9 @@
 		3F91490F28951BF30050A02F /* Realm+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91490E28951BF30050A02F /* Realm+.swift */; };
 		3F914912289572180050A02F /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 3F914911289572180050A02F /* Differentiator */; };
 		3F914914289572180050A02F /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 3F914913289572180050A02F /* RxDataSources */; };
+		3F914916289583AA0050A02F /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914915289583A90050A02F /* BannerCell.swift */; };
+		3F914918289585DB0050A02F /* BannerItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914917289585DB0050A02F /* BannerItemViewModel.swift */; };
+		3F91491A2895864C0050A02F /* HomeSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9149192895864C0050A02F /* HomeSectionModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +146,9 @@
 		3F91490A2894BD930050A02F /* Object+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Object+.swift"; sourceTree = "<group>"; };
 		3F91490C2894BE700050A02F /* Observable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Ext.swift"; sourceTree = "<group>"; };
 		3F91490E28951BF30050A02F /* Realm+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+.swift"; sourceTree = "<group>"; };
+		3F914915289583A90050A02F /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
+		3F914917289585DB0050A02F /* BannerItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerItemViewModel.swift; sourceTree = "<group>"; };
+		3F9149192895864C0050A02F /* HomeSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,7 +257,9 @@
 			isa = PBXGroup;
 			children = (
 				3F9148C92893007A0050A02F /* View */,
+				3F914917289585DB0050A02F /* BannerItemViewModel.swift */,
 				3F91485528926D6E0050A02F /* DefaultHomeNavigator.swift */,
+				3F9149192895864C0050A02F /* HomeSectionModel.swift */,
 				3F91485128926CFC0050A02F /* HomeNavigator.swift */,
 				3F0F336028923BE600A1C514 /* HomeViewController.swift */,
 				3F91484A28926BAF0050A02F /* HomeViewModel.swift */,
@@ -410,6 +418,7 @@
 		3F9148C92893007A0050A02F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3F914915289583A90050A02F /* BannerCell.swift */,
 				3F9148CA289300AD0050A02F /* GoodsCell.swift */,
 			);
 			path = View;
@@ -609,12 +618,14 @@
 				3F914869289278E90050A02F /* DefaultUsecaseProvider.swift in Sources */,
 				3F9148E82894671D0050A02F /* HomeUsecase.swift in Sources */,
 				3F914843289268CE0050A02F /* Application.swift in Sources */,
+				3F91491A2895864C0050A02F /* HomeSectionModel.swift in Sources */,
 				3F91485428926D170050A02F /* LikeNavigator.swift in Sources */,
 				3F9148E328945C800050A02F /* Goods+.swift in Sources */,
 				3F914867289278C10050A02F /* UsecaseProvider.swift in Sources */,
 				3F9148F028946D470050A02F /* HomeDTO.swift in Sources */,
 				3F91484B28926BAF0050A02F /* HomeViewModel.swift in Sources */,
 				3F9148D62893C6E20050A02F /* UIImageView+.swift in Sources */,
+				3F914918289585DB0050A02F /* BannerItemViewModel.swift in Sources */,
 				3F0F336128923BE600A1C514 /* HomeViewController.swift in Sources */,
 				3F91485228926CFC0050A02F /* HomeNavigator.swift in Sources */,
 				3F9148CB289300AD0050A02F /* GoodsCell.swift in Sources */,
@@ -628,6 +639,7 @@
 				3F914873289279B80050A02F /* NetworkProvider.swift in Sources */,
 				3F0F335D28923BE600A1C514 /* AppDelegate.swift in Sources */,
 				3F9148DC28940BFD0050A02F /* UIFont+.swift in Sources */,
+				3F914916289583AA0050A02F /* BannerCell.swift in Sources */,
 				3F0F335F28923BE600A1C514 /* SceneDelegate.swift in Sources */,
 				3F9148FC2894B3A50050A02F /* Repository.swift in Sources */,
 				3F9148C52892A3820050A02F /* BaseViewController.swift in Sources */,

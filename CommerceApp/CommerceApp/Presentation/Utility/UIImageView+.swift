@@ -18,4 +18,12 @@ extension UIImageView {
         self.sd_setImage(with: url)
     }
 
+    func setGoodsImage(with urlString: String) {
+        let url = URL(string: urlString)
+        self.setImage(
+            with: url,
+            placeholderImage: UIImage(systemName: "questionmark")
+        )
+    }
+
 }

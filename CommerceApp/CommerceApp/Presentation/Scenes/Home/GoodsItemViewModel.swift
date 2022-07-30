@@ -5,7 +5,7 @@
 //  Created by 이청수 on 2022/07/29.
 //
 
-final class GoodsItemViewModel {
+struct GoodsItemViewModel {
 
     // MARK: - properties
 
@@ -33,7 +33,7 @@ final class GoodsItemViewModel {
 
     // MARK: - init/deinit
 
-    convenience init(with goods: Goods) {
+    init(with goods: Goods) {
         self.init(with: goods, isLiked: false)
     }
 
@@ -49,7 +49,15 @@ final class GoodsItemViewModel {
 extension GoodsItemViewModel: Equatable {
 
     static func ==(lhs: GoodsItemViewModel, rhs: GoodsItemViewModel) -> Bool {
-        return lhs.goods == rhs.goods
+        return lhs.goods == rhs.goods && lhs.isLiked == rhs.isLiked
     }
+
+}
+
+extension GoodsItemViewModel: HomeSectionItemViewModel {
+
+    var identifier: String { "GoodsCell" }
+
+    static var identifier: String { "GoodsCell" }
 
 }

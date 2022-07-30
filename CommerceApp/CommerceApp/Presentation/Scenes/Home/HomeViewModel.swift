@@ -38,8 +38,22 @@ final class HomeViewModel: ViewModelType {
         let initialization = self.homeUsecase.initialization()
             .asDriverOnErrorJustComplete()
 
+        let bannerItems = initialization
+            .map { $0.0.map { BannerItemViewModel(with: $0) } }
+
         let intialGoodsItemsEvent = initialization
             .map { $0.1.map { GoodsItemViewModel(with: $0) } }
+            .withLatestFrom(self.homeUsecase
+                .observeInitialLikes()
+                .asDriverOnErrorJustComplete()
+            ) { viewModels, likes -> [GoodsItemViewModel] in
+                likes.forEach { goods in
+                    guard var viewModel = viewModels.first(where: { $0.goods == goods })
+                    else { return }
+                    viewModel.isLiked = true
+                }
+                return viewModels
+            }
             .do(onNext: {
                 isEnd.onNext($0.isEmpty)
                 goodsItems.onNext($0)
@@ -59,7 +73,9 @@ final class HomeViewModel: ViewModelType {
             .withLatestFrom(goodsItems.asDriverOnErrorJustComplete()) { ($0, $1) }
             .do(onNext: {
                 isEnd.onNext($0.0.isEmpty)
-                goodsItems.onNext($0.1 + $0.0)
+                if !$0.0.isEmpty {
+                    goodsItems.onNext($0.1 + $0.0)
+                }
             })
             .mapToVoid()
 
@@ -90,11 +106,17 @@ final class HomeViewModel: ViewModelType {
             intialGoodsItemsEvent, moreLoadedGoodsItems, refreshEvent, likeEvent
         ]).merge()
 
+        let homeSectionModels = Driver.combineLatest(
+            bannerItems
+                .map { HomeSectionModel(items: $0) },
+            goodsItems
+                .asDriverOnErrorJustComplete()
+                .map { HomeSectionModel(items: $0) }
+        ).map { [$0.0, $0.1] }
+
         return Output(
-            goodsItems: goodsItems
-                .distinctUntilChanged()
-                .asDriverOnErrorJustComplete(),
-            refreshing: refreshIndicator.asDriver(),
+            homeSectionModels: homeSectionModels.debug(),
+            isRefreshing: refreshIndicator.asDriver(),
             events: events
         )
     }
@@ -112,8 +134,8 @@ extension HomeViewModel {
     }
 
     struct Output {
-        let goodsItems: Driver<[GoodsItemViewModel]>
-        let refreshing: Driver<Bool>
+        let homeSectionModels: Driver<[HomeSectionModel]>
+        let isRefreshing: Driver<Bool>
         let events: Driver<Void>
     }
 
