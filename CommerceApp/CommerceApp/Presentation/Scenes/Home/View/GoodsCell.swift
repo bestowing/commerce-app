@@ -136,6 +136,7 @@ class GoodsCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.goodsImageView.sd_cancelCurrentImageLoad()
+        self.goodsImageView.image = nil
         if self.discountRateLabel.superview == nil {
             self.goodsPriceStack.insertArrangedSubview(self.discountRateLabel, at: 0)
         }
@@ -214,4 +215,10 @@ final class LikeEnabledGoodsCell: GoodsCell {
             viewModel.isLiked ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart"), for: .normal
         )
     }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.likeButton.setImage(nil, for: .normal)
+    }
+
 }
