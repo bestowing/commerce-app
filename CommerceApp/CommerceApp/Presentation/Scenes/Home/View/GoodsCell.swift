@@ -8,24 +8,16 @@
 import SnapKit
 import UIKit
 
-final class GoodsCell: UICollectionViewCell {
+class GoodsCell: UICollectionViewCell {
 
     // MARK: - properties
 
-    private let goodsImageView: UIImageView = {
+    fileprivate let goodsImageView: UIImageView = {
         // TODO: placeholder 이미지 바꾸기
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 7.0
         imageView.layer.masksToBounds = true
         return imageView
-    }()
-
-    private let likeButton: UIButton = {
-        let button = UIButton()
-        button.tintColor = .white
-        button.isUserInteractionEnabled = true
-        button.contentMode = .scaleAspectFill
-        return button
     }()
 
     private lazy var goodsPriceStack: UIStackView = {
@@ -87,8 +79,6 @@ final class GoodsCell: UICollectionViewCell {
         return label
     }()
 
-    private var action: Action?
-
     // MARK: - init/deinit
 
     required init?(coder: NSCoder) {
@@ -103,7 +93,6 @@ final class GoodsCell: UICollectionViewCell {
 
     private func layoutViews() {
         self.contentView.addSubview(self.goodsImageView)
-        self.contentView.addSubview(self.likeButton)
         self.contentView.addSubview(self.goodsPriceStack)
         self.contentView.addSubview(self.goodsNameLabel)
         self.contentView.addSubview(self.secondaryInfoStack)
@@ -111,11 +100,6 @@ final class GoodsCell: UICollectionViewCell {
             $0.top.leading.equalToSuperview().offset(10)
             $0.bottom.lessThanOrEqualToSuperview().offset(-10)
             $0.size.equalTo(80)
-        }
-        self.likeButton.snp.makeConstraints {
-            $0.top.equalTo(self.goodsImageView).offset(5)
-            $0.trailing.equalTo(self.goodsImageView).offset(-5)
-            $0.size.equalTo(30)
         }
         self.goodsPriceStack.snp.makeConstraints {
             $0.top.equalTo(self.goodsImageView).offset(2)
@@ -157,19 +141,8 @@ final class GoodsCell: UICollectionViewCell {
         }
     }
 
-    func bind(onTouched action: Action) {
-        self.likeButton.addTarget(
-            action, action: #selector(action.performAction), for: .touchUpInside
-        )
-        self.action = action
-    }
-
     func bind(_ viewModel: GoodsItemViewModel) {
         self.goodsImageView.setGoodsImage(with: viewModel.goods.image)
-        self.likeButton.tintColor = viewModel.isLiked ? UIColor.accentColor : .white
-        self.likeButton.setBackgroundImage(
-            viewModel.isLiked ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart"), for: .normal
-        )
         if let discountRateString = viewModel.discountRateString {
             self.discountRateLabel.text = discountRateString
         } else {
@@ -183,4 +156,57 @@ final class GoodsCell: UICollectionViewCell {
         self.sellCountLabel.text = viewModel.sellCountString
     }
 
+}
+
+final class LikeEnabledGoodsCell: GoodsCell {
+
+    // MARK: - properties
+
+    private let likeButton: UIButton = {
+        let button = UIButton()
+        button.tintColor = .white
+        button.isUserInteractionEnabled = true
+        button.contentMode = .scaleAspectFill
+        return button
+    }()
+
+    private var action: Action?
+
+    // MARK: - init/deinit
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.layoutViews()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.layoutViews()
+    }
+
+    private func layoutViews() {
+        self.contentView.addSubview(self.likeButton)
+        self.likeButton.snp.makeConstraints {
+            $0.top.equalTo(self.goodsImageView).offset(5)
+            $0.trailing.equalTo(self.goodsImageView).offset(-5)
+            $0.size.equalTo(30)
+        }
+    }
+
+    // MARK: - methods
+
+    func bind(onTouched action: Action) {
+        self.likeButton.addTarget(
+            action, action: #selector(action.performAction), for: .touchUpInside
+        )
+        self.action = action
+    }
+
+    override func bind(_ viewModel: GoodsItemViewModel) {
+        super.bind(viewModel)
+        self.likeButton.tintColor = viewModel.isLiked ? UIColor.accentColor : .white
+        self.likeButton.setBackgroundImage(
+            viewModel.isLiked ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart"), for: .normal
+        )
+    }
 }

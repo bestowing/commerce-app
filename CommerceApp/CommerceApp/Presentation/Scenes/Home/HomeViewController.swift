@@ -30,8 +30,9 @@ final class HomeViewController: BaseViewController {
             return cell
         case let .GoodsSectionItem(itemViewModel):
             guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: GoodsCell.identifier, for: indexPath
-            ) as? GoodsCell
+                withReuseIdentifier: LikeEnabledGoodsCell.identifier,
+                for: indexPath
+            ) as? LikeEnabledGoodsCell
             else { return UICollectionViewCell() }
             cell.bind(onTouched: Action(
                 action: { [unowned self] in
@@ -93,8 +94,12 @@ final class HomeViewController: BaseViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isUserInteractionEnabled = true
         collectionView.refreshControl = self.refreshControl
-        collectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.identifier)
-        collectionView.register(GoodsCell.self, forCellWithReuseIdentifier: GoodsCell.identifier)
+        collectionView.register(
+            BannerCell.self, forCellWithReuseIdentifier: BannerCell.identifier
+        )
+        collectionView.register(
+            LikeEnabledGoodsCell.self, forCellWithReuseIdentifier: LikeEnabledGoodsCell.identifier
+        )
         return collectionView
     }()
 
