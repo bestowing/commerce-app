@@ -92,13 +92,14 @@ class GoodsCell: UICollectionViewCell {
     }
 
     private func layoutViews() {
+        self.contentView.backgroundColor = .systemBackground
         self.contentView.addSubview(self.goodsImageView)
         self.contentView.addSubview(self.goodsPriceStack)
         self.contentView.addSubview(self.goodsNameLabel)
         self.contentView.addSubview(self.secondaryInfoStack)
         self.goodsImageView.snp.makeConstraints {
-            $0.top.leading.equalToSuperview().offset(10)
-            $0.bottom.lessThanOrEqualToSuperview().offset(-10)
+            $0.top.leading.equalToSuperview().offset(20)
+            $0.bottom.lessThanOrEqualToSuperview().offset(-25)
             $0.size.equalTo(80)
         }
         self.goodsPriceStack.snp.makeConstraints {
@@ -113,7 +114,7 @@ class GoodsCell: UICollectionViewCell {
         }
         self.secondaryInfoStack.snp.makeConstraints {
             $0.top.equalTo(self.goodsNameLabel.snp.bottom).offset(20)
-            $0.bottom.equalToSuperview().offset(-10)
+            $0.bottom.equalToSuperview().offset(-25)
             $0.leading.equalTo(self.goodsNameLabel)
             $0.trailing.lessThanOrEqualToSuperview().offset(-10)
         }
@@ -133,6 +134,7 @@ class GoodsCell: UICollectionViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
+        self.goodsImageView.sd_cancelCurrentImageLoad()
         if self.discountRateLabel.superview == nil {
             self.goodsPriceStack.insertArrangedSubview(self.discountRateLabel, at: 0)
         }

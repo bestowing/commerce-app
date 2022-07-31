@@ -26,9 +26,9 @@ extension HomeSectionModel: SectionModelType {
     var items: [SectionItem] {
         switch self {
         case .BannerSection(items: let items):
-            return items.map { $0 }
+            return items
         case .GoodsSection(items: let items):
-            return items.map { $0 }
+            return items
         }
     }
 

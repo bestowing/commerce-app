@@ -20,7 +20,7 @@ final class HomeViewController: BaseViewController {
     private let refreshControl = UIRefreshControl()
 
     private lazy var dataSource = RxCollectionViewSectionedReloadDataSource<HomeSectionModel>(configureCell: { dataSource, collectionView, indexPath, item in
-        switch dataSource[indexPath] {
+        switch item {
         case let .BannerSectionItem(itemViewModel):
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: BannerCell.identifier, for: indexPath
@@ -51,22 +51,18 @@ final class HomeViewController: BaseViewController {
                 return {
                     let itemSize = NSCollectionLayoutSize(
                         widthDimension: .fractionalWidth(1.0),
-                        heightDimension: .fractionalWidth(0.8)
+                        heightDimension: .fractionalWidth(0.7)
                     )
                     let item = NSCollectionLayoutItem(layoutSize: itemSize)
                     let groupSize = NSCollectionLayoutSize(
                         widthDimension: .fractionalWidth(1.0),
-                        heightDimension: .fractionalWidth(0.8)
+                        heightDimension: .fractionalWidth(0.7)
                     )
                     let group = NSCollectionLayoutGroup.horizontal(
                         layoutSize: groupSize, subitems: [item]
                     )
                     let section = NSCollectionLayoutSection(group: group)
-                    section.interGroupSpacing = 10.0
-                    section.orthogonalScrollingBehavior = .continuous
-                    section.contentInsets = NSDirectionalEdgeInsets(
-                        top: 0, leading: 0, bottom: 20, trailing: 0
-                    )
+                    section.orthogonalScrollingBehavior = .paging
                     return section
                 }()
             case 1:
@@ -84,13 +80,22 @@ final class HomeViewController: BaseViewController {
                         layoutSize: groupSize, subitems: [item]
                     )
                     let section = NSCollectionLayoutSection(group: group)
-                    section.interGroupSpacing = 20.0
+                    section.interGroupSpacing = 1
+                    let decorationView = NSCollectionLayoutDecorationItem.background(elementKind: GoodsSectionBackgroundView.identifier)
+                    section.decorationItems = [decorationView]
                     return section
                 }()
             default:
                 return nil
             }
         }
+        layout.register(
+            GoodsSectionBackgroundView.self,
+            forDecorationViewOfKind: GoodsSectionBackgroundView.identifier
+        )
+        let layoutConfiguration = UICollectionViewCompositionalLayoutConfiguration()
+        layoutConfiguration.interSectionSpacing = 5
+        layout.configuration = layoutConfiguration
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isUserInteractionEnabled = true
         collectionView.refreshControl = self.refreshControl
@@ -137,8 +142,7 @@ final class HomeViewController: BaseViewController {
 
         output.homeSectionModels.drive(self.homeCollectionView.rx.items(
             dataSource: self.dataSource)
-        )
-            .disposed(by: self.disposeBag)
+        ).disposed(by: self.disposeBag)
 
         output.isRefreshing.drive(self.refreshControl.rx.isRefreshing)
             .disposed(by: self.disposeBag)

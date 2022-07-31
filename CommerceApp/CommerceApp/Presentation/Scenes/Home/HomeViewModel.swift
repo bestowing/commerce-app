@@ -128,7 +128,7 @@ final class HomeViewModel: ViewModelType {
 
         let homeSectionModels = Driver.combineLatest(
             bannerItems
-                .map { HomeSectionModel.GoodsSection(
+                .map { HomeSectionModel.BannerSection(
                     items: $0.map { .BannerSectionItem(itemViewModel: $0) }
                 )},
             goodsItems
