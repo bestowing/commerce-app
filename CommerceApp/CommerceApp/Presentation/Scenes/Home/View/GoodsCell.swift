@@ -98,25 +98,26 @@ class GoodsCell: UICollectionViewCell {
         self.contentView.addSubview(self.goodsNameLabel)
         self.contentView.addSubview(self.secondaryInfoStack)
         self.goodsImageView.snp.makeConstraints {
-            $0.top.leading.equalToSuperview().offset(20)
+            $0.top.equalToSuperview().offset(20)
+            $0.leading.equalToSuperview().offset(15)
             $0.bottom.lessThanOrEqualToSuperview().offset(-25)
             $0.size.equalTo(80)
         }
         self.goodsPriceStack.snp.makeConstraints {
             $0.top.equalTo(self.goodsImageView).offset(2)
             $0.leading.equalTo(self.goodsImageView.snp.trailing).offset(13)
-            $0.trailing.lessThanOrEqualToSuperview().offset(-10)
+            $0.trailing.lessThanOrEqualToSuperview().offset(-15)
         }
         self.goodsNameLabel.snp.makeConstraints {
             $0.top.equalTo(self.goodsPriceStack.snp.bottom).offset(10)
             $0.leading.equalTo(self.goodsPriceStack)
-            $0.trailing.lessThanOrEqualToSuperview().offset(-10)
+            $0.trailing.lessThanOrEqualToSuperview().offset(-15)
         }
         self.secondaryInfoStack.snp.makeConstraints {
             $0.top.equalTo(self.goodsNameLabel.snp.bottom).offset(20)
             $0.bottom.equalToSuperview().offset(-25)
             $0.leading.equalTo(self.goodsNameLabel)
-            $0.trailing.lessThanOrEqualToSuperview().offset(-10)
+            $0.trailing.lessThanOrEqualToSuperview().offset(-15)
         }
     }
 
