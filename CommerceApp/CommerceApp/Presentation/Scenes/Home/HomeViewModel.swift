@@ -60,15 +60,32 @@ final class HomeViewModel: ViewModelType {
                     .asDriverOnErrorJustComplete()
             }
 
-        let addedGoods = Driver.of(initializedGoods, moreLoadedGoods).merge()
-
-        let likesOfAddedGoods = addedGoods
+        let likesOfInitialGoods = initializedGoods
             .flatMap { [unowned self] goods in
                 self.homeUsecase.getLikesGoods(in: goods)
                     .asDriverOnErrorJustComplete()
             }
 
-        let addedGoodsItemsEvent = addedGoods
+        let initializedGoodsItemsEvent = initializedGoods
+            .withLatestFrom(likesOfInitialGoods) { goods, likes -> [GoodsItemViewModel] in
+                let viewModels = goods.map {
+                    GoodsItemViewModel(with: $0, isLiked: likes.contains($0))
+                }
+                return viewModels
+            }
+            .do(onNext: { newGoodsViewModels in
+                isFetchingLimited.onNext(newGoodsViewModels.isEmpty)
+                goodsItems.onNext(newGoodsViewModels)
+            })
+            .mapToVoid()
+
+        let likesOfAddedGoods = moreLoadedGoods
+            .flatMap { [unowned self] goods in
+                self.homeUsecase.getLikesGoods(in: goods)
+                    .asDriverOnErrorJustComplete()
+            }
+
+        let addedGoodsItemsEvent = moreLoadedGoods
             .withLatestFrom(likesOfAddedGoods) { goods, likes -> [GoodsItemViewModel] in
                 let viewModels = goods.map {
                     GoodsItemViewModel(with: $0, isLiked: likes.contains($0))
@@ -121,7 +138,7 @@ final class HomeViewModel: ViewModelType {
             .mapToVoid()
 
         let events = Driver.from([
-            addedGoodsItemsEvent, likeEvent, unlikeEvent
+            initializedGoodsItemsEvent, addedGoodsItemsEvent, likeEvent, unlikeEvent
         ]).merge()
 
         let homeSectionModels = Driver.combineLatest(
