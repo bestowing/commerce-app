@@ -8,8 +8,21 @@
 import RxDataSources
 
 enum HomeSectionModel {
+
     case BannerSection(items: [SectionItem])
     case GoodsSection(items: [SectionItem])
+
+    static func section(from sectionIndex: Int) -> HomeSectionModel? {
+        switch sectionIndex {
+        case 0:
+            return .BannerSection(items: [])
+        case 1:
+            return .GoodsSection(items: [])
+        default:
+            return nil
+        }
+    }
+
 }
 
 enum SectionItem {
