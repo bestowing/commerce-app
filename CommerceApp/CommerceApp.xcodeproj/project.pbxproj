@@ -74,6 +74,20 @@
 		3F91492D28966F4B0050A02F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3F91492C28966F4B0050A02F /* SDWebImage */; };
 		3F91493028966F8D0050A02F /* SDWebImageWebPCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 3F91492F28966F8D0050A02F /* SDWebImageWebPCoder */; };
 		3F914932289694380050A02F /* PageIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914931289694380050A02F /* PageIndicatorView.swift */; };
+		3FB5854828971B5C006154C8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91484A28926BAF0050A02F /* HomeViewModel.swift */; };
+		3FB5854928971BE3006154C8 /* HomeUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148E72894671C0050A02F /* HomeUsecase.swift */; };
+		3FB5854A28971BE3006154C8 /* HomeNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91485128926CFC0050A02F /* HomeNavigator.swift */; };
+		3FB5855428971F26006154C8 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 3FB5855328971F26006154C8 /* RxTest */; };
+		3FB5855528971FC1006154C8 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148E92894678C0050A02F /* Banner.swift */; };
+		3FB5855628971FC1006154C8 /* Goods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91485E28926EDE0050A02F /* Goods.swift */; };
+		3FB5855728971FC2006154C8 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91484F28926BE70050A02F /* ViewModelType.swift */; };
+		3FB5855828971FC2006154C8 /* BannerItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914917289585DB0050A02F /* BannerItemViewModel.swift */; };
+		3FB5855928971FC2006154C8 /* GoodsItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148D028930D7C0050A02F /* GoodsItemViewModel.swift */; };
+		3FB5855A289720DD006154C8 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148F528948AFB0050A02F /* ActivityIndicator.swift */; };
+		3FB5855B289720DD006154C8 /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91491C2895C3080050A02F /* ErrorTracker.swift */; };
+		3FB5855C289720DD006154C8 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148D92894066E0050A02F /* Int+.swift */; };
+		3FB5855D289720DD006154C8 /* Observable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148CE289308C10050A02F /* Observable+.swift */; };
+		3FB5855E289720F5006154C8 /* HomeSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9149192895864C0050A02F /* HomeSectionModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +193,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FB5855428971F26006154C8 /* RxTest in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +214,7 @@
 				3F9148AB28928A1D0050A02F /* CommerceAppViewModelTests */,
 				3F9148BC28928AE50050A02F /* CommerceAppUsecaseTests */,
 				3F0F335A28923BE600A1C514 /* Products */,
+				3FB5855028971EAC006154C8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -477,6 +493,13 @@
 			path = ItemViewModels;
 			sourceTree = "<group>";
 		};
+		3FB5855028971EAC006154C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -521,6 +544,9 @@
 				3F9148AF28928A1D0050A02F /* PBXTargetDependency */,
 			);
 			name = CommerceAppViewModelTests;
+			packageProductDependencies = (
+				3FB5855328971F26006154C8 /* RxTest */,
+			);
 			productName = CommerceAppViewModelTests;
 			productReference = 3F9148AA28928A1D0050A02F /* CommerceAppViewModelTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -582,6 +608,7 @@
 				3F9148D22893C6780050A02F /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				3F914910289572180050A02F /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				3F91492E28966F8D0050A02F /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */,
+				3FB5854B28971CD9006154C8 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 3F0F335A28923BE600A1C514 /* Products */;
 			projectDirPath = "";
@@ -686,6 +713,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FB5855E289720F5006154C8 /* HomeSectionModel.swift in Sources */,
+				3FB5855A289720DD006154C8 /* ActivityIndicator.swift in Sources */,
+				3FB5855B289720DD006154C8 /* ErrorTracker.swift in Sources */,
+				3FB5855C289720DD006154C8 /* Int+.swift in Sources */,
+				3FB5855D289720DD006154C8 /* Observable+.swift in Sources */,
+				3FB5855528971FC1006154C8 /* Banner.swift in Sources */,
+				3FB5855628971FC1006154C8 /* Goods.swift in Sources */,
+				3FB5855728971FC2006154C8 /* ViewModelType.swift in Sources */,
+				3FB5855828971FC2006154C8 /* BannerItemViewModel.swift in Sources */,
+				3FB5855928971FC2006154C8 /* GoodsItemViewModel.swift in Sources */,
+				3FB5854928971BE3006154C8 /* HomeUsecase.swift in Sources */,
+				3FB5854A28971BE3006154C8 /* HomeNavigator.swift in Sources */,
+				3FB5854828971B5C006154C8 /* HomeViewModel.swift in Sources */,
 				3F9148B428928A470050A02F /* HomeViewModelTests.swift in Sources */,
 				3F9148B628928A660050A02F /* LikeViewModelTests.swift in Sources */,
 			);
@@ -1060,6 +1100,14 @@
 				minimumVersion = 0.9.0;
 			};
 		};
+		3FB5854B28971CD9006154C8 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1102,6 +1150,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3F91492E28966F8D0050A02F /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */;
 			productName = SDWebImageWebPCoder;
+		};
+		3FB5855328971F26006154C8 /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3FB5854B28971CD9006154C8 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
