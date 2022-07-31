@@ -38,7 +38,7 @@
 		3F9148CF289308C10050A02F /* Observable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148CE289308C10050A02F /* Observable+.swift */; };
 		3F9148D128930D7C0050A02F /* GoodsItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148D028930D7C0050A02F /* GoodsItemViewModel.swift */; };
 		3F9148D42893C6790050A02F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3F9148D32893C6790050A02F /* SDWebImage */; };
-		3F9148D62893C6E20050A02F /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148D52893C6E20050A02F /* UIImageView+.swift */; };
+		3F9148D62893C6E20050A02F /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148D52893C6E20050A02F /* UIImage+.swift */; };
 		3F9148DA2894066E0050A02F /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148D92894066E0050A02F /* Int+.swift */; };
 		3F9148DC28940BFD0050A02F /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148DB28940BFD0050A02F /* UIFont+.swift */; };
 		3F9148DE28941A4D0050A02F /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148DD28941A4D0050A02F /* PaddingLabel.swift */; };
@@ -71,6 +71,8 @@
 		3F91491F2895CA790050A02F /* LikeUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91491E2895CA790050A02F /* LikeUsecase.swift */; };
 		3F9149212895CAC20050A02F /* DefaultLikeUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9149202895CAC20050A02F /* DefaultLikeUsecase.swift */; };
 		3F914925289662E20050A02F /* GoodsSectionBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914924289662E20050A02F /* GoodsSectionBackgroundView.swift */; };
+		3F91492D28966F4B0050A02F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3F91492C28966F4B0050A02F /* SDWebImage */; };
+		3F91493028966F8D0050A02F /* SDWebImageWebPCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 3F91492F28966F8D0050A02F /* SDWebImageWebPCoder */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,7 +124,7 @@
 		3F9148CC2893053F0050A02F /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
 		3F9148CE289308C10050A02F /* Observable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+.swift"; sourceTree = "<group>"; };
 		3F9148D028930D7C0050A02F /* GoodsItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsItemViewModel.swift; sourceTree = "<group>"; };
-		3F9148D52893C6E20050A02F /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		3F9148D52893C6E20050A02F /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		3F9148D92894066E0050A02F /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 		3F9148DB28940BFD0050A02F /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		3F9148DD28941A4D0050A02F /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
@@ -161,10 +163,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F914893289285AB0050A02F /* RxAlamofire in Frameworks */,
+				3F91492D28966F4B0050A02F /* SDWebImage in Frameworks */,
 				3F914912289572180050A02F /* Differentiator in Frameworks */,
 				3F9148902892829B0050A02F /* RxRealm in Frameworks */,
 				3F914914289572180050A02F /* RxDataSources in Frameworks */,
 				3F9148D42893C6790050A02F /* SDWebImage in Frameworks */,
+				3F91493028966F8D0050A02F /* SDWebImageWebPCoder in Frameworks */,
 				3F91487D28927C540050A02F /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,7 +410,7 @@
 				3F9148CC2893053F0050A02F /* NSObject+.swift */,
 				3F9148C72892FF720050A02F /* UIColor+.swift */,
 				3F9148DB28940BFD0050A02F /* UIFont+.swift */,
-				3F9148D52893C6E20050A02F /* UIImageView+.swift */,
+				3F9148D52893C6E20050A02F /* UIImage+.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -493,6 +497,8 @@
 				3F9148D32893C6790050A02F /* SDWebImage */,
 				3F914911289572180050A02F /* Differentiator */,
 				3F914913289572180050A02F /* RxDataSources */,
+				3F91492C28966F4B0050A02F /* SDWebImage */,
+				3F91492F28966F8D0050A02F /* SDWebImageWebPCoder */,
 			);
 			productName = CommerceApp;
 			productReference = 3F0F335928923BE600A1C514 /* CommerceApp.app */;
@@ -572,6 +578,7 @@
 				3F914891289285AB0050A02F /* XCRemoteSwiftPackageReference "RxAlamofire" */,
 				3F9148D22893C6780050A02F /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				3F914910289572180050A02F /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				3F91492E28966F8D0050A02F /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */,
 			);
 			productRefGroup = 3F0F335A28923BE600A1C514 /* Products */;
 			projectDirPath = "";
@@ -632,7 +639,7 @@
 				3F914867289278C10050A02F /* UsecaseProvider.swift in Sources */,
 				3F9148F028946D470050A02F /* HomeDTO.swift in Sources */,
 				3F91484B28926BAF0050A02F /* HomeViewModel.swift in Sources */,
-				3F9148D62893C6E20050A02F /* UIImageView+.swift in Sources */,
+				3F9148D62893C6E20050A02F /* UIImage+.swift in Sources */,
 				3F914918289585DB0050A02F /* BannerItemViewModel.swift in Sources */,
 				3F0F336128923BE600A1C514 /* HomeViewController.swift in Sources */,
 				3F91485228926CFC0050A02F /* HomeNavigator.swift in Sources */,
@@ -1041,6 +1048,14 @@
 				kind = branch;
 			};
 		};
+		3F91492E28966F8D0050A02F /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageWebPCoder.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1073,6 +1088,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3F914910289572180050A02F /* XCRemoteSwiftPackageReference "RxDataSources" */;
 			productName = RxDataSources;
+		};
+		3F91492C28966F4B0050A02F /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F9148D22893C6780050A02F /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		3F91492F28966F8D0050A02F /* SDWebImageWebPCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F91492E28966F8D0050A02F /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */;
+			productName = SDWebImageWebPCoder;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

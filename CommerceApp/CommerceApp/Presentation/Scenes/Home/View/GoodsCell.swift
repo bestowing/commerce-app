@@ -5,6 +5,7 @@
 //  Created by 이청수 on 2022/07/29.
 //
 
+import SDWebImage
 import SnapKit
 import UIKit
 
@@ -12,9 +13,9 @@ class GoodsCell: UICollectionViewCell {
 
     // MARK: - properties
 
-    fileprivate let goodsImageView: UIImageView = {
+    fileprivate let goodsImageView: SDAnimatedImageView = {
         // TODO: placeholder 이미지 바꾸기
-        let imageView = UIImageView()
+        let imageView = SDAnimatedImageView()
         imageView.layer.cornerRadius = 7.0
         imageView.layer.masksToBounds = true
         return imageView
@@ -145,7 +146,9 @@ class GoodsCell: UICollectionViewCell {
     }
 
     func bind(_ viewModel: GoodsItemViewModel) {
-        self.goodsImageView.setGoodsImage(with: viewModel.goods.image)
+        self.goodsImageView.sd_setImage(
+            with: URL(string: viewModel.goods.image)
+        )
         if let discountRateString = viewModel.discountRateString {
             self.discountRateLabel.text = discountRateString
         } else {

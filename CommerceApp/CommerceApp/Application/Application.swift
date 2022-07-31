@@ -5,6 +5,7 @@
 //  Created by 이청수 on 2022/07/28.
 //
 
+import SDWebImage
 import UIKit
 
 final class Application {
@@ -19,6 +20,10 @@ final class Application {
 
     private init() {
         self.usecaseProvider = DefaultUsecaseProvider()
+        if #available(iOS 14.0, *) {
+            let webP = SDImageAWebPCoder.shared
+            SDImageCodersManager.shared.addCoder(webP)
+        }
     }
 
     // MARK: - methods

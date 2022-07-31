@@ -40,8 +40,9 @@ final class BannerCell: UICollectionViewCell {
     // MARK: - methods
 
     func bind(_ viewModel: BannerItemViewModel) {
-        self.bannerImageView.setImage(
-            with: URL(string: viewModel.banner.image), placeholderImage: nil
+        self.bannerImageView.sd_setImage(
+            with: URL(string: viewModel.banner.image),
+            placeholderImage: UIImage.defaultPlaceHolderImage
         )
     }
 
