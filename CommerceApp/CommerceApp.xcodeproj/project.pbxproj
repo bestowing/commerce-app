@@ -73,6 +73,7 @@
 		3F914925289662E20050A02F /* GoodsSectionBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914924289662E20050A02F /* GoodsSectionBackgroundView.swift */; };
 		3F91492D28966F4B0050A02F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3F91492C28966F4B0050A02F /* SDWebImage */; };
 		3F91493028966F8D0050A02F /* SDWebImageWebPCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 3F91492F28966F8D0050A02F /* SDWebImageWebPCoder */; };
+		3F914932289694380050A02F /* PageIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914931289694380050A02F /* PageIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,7 @@
 		3F91491E2895CA790050A02F /* LikeUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeUsecase.swift; sourceTree = "<group>"; };
 		3F9149202895CAC20050A02F /* DefaultLikeUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLikeUsecase.swift; sourceTree = "<group>"; };
 		3F914924289662E20050A02F /* GoodsSectionBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsSectionBackgroundView.swift; sourceTree = "<group>"; };
+		3F914931289694380050A02F /* PageIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -419,6 +421,7 @@
 			isa = PBXGroup;
 			children = (
 				3F914915289583A90050A02F /* BannerCell.swift */,
+				3F914931289694380050A02F /* PageIndicatorView.swift */,
 				3F9148CA289300AD0050A02F /* GoodsCell.swift */,
 				3F914924289662E20050A02F /* GoodsSectionBackgroundView.swift */,
 			);
@@ -632,6 +635,7 @@
 				3F914869289278E90050A02F /* DefaultUsecaseProvider.swift in Sources */,
 				3F9148E82894671D0050A02F /* HomeUsecase.swift in Sources */,
 				3F914843289268CE0050A02F /* Application.swift in Sources */,
+				3F914932289694380050A02F /* PageIndicatorView.swift in Sources */,
 				3F91491A2895864C0050A02F /* HomeSectionModel.swift in Sources */,
 				3F91485428926D170050A02F /* LikeNavigator.swift in Sources */,
 				3F91491D2895C3080050A02F /* ErrorTracker.swift in Sources */,

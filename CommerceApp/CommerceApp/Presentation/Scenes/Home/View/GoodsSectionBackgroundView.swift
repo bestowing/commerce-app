@@ -9,6 +9,8 @@ import UIKit
 
 final class GoodsSectionBackgroundView: UICollectionReusableView {
 
+    // MARK: - init/deinit
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.layoutViews()

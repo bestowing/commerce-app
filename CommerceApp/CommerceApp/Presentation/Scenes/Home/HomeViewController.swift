@@ -16,7 +16,9 @@ final class HomeViewController: BaseViewController {
 
     var viewModel: HomeViewModel!
 
-    private let like = PublishSubject<GoodsItemViewModel>()
+    private let likeGoodsViewModelSubject = PublishSubject<GoodsItemViewModel>()
+    private let pagingInfoSubject = PublishSubject<PagingInfo>()
+
     private let refreshControl = UIRefreshControl()
 
     private lazy var dataSource = RxCollectionViewSectionedReloadDataSource<HomeSectionModel>(configureCell: { dataSource, collectionView, indexPath, item in
@@ -36,7 +38,7 @@ final class HomeViewController: BaseViewController {
             else { return UICollectionViewCell() }
             cell.bind(onTouched: Action(
                 action: { [unowned self] in
-                    self.like.onNext(itemViewModel)
+                    self.likeGoodsViewModelSubject.onNext(itemViewModel)
                 }
             ))
             cell.bind(itemViewModel)
@@ -63,6 +65,24 @@ final class HomeViewController: BaseViewController {
                     )
                     let section = NSCollectionLayoutSection(group: group)
                     section.orthogonalScrollingBehavior = .paging
+                    let indicatorSize = NSCollectionLayoutSize(
+                        widthDimension: .estimated(60), heightDimension: .estimated(30)
+                    )
+                    let itemAnchor = NSCollectionLayoutAnchor(
+                        edges: [.bottom, .trailing], absoluteOffset: CGPoint(x: -15, y: -10)
+                    )
+                    let indicator = NSCollectionLayoutBoundarySupplementaryItem(
+                        layoutSize: indicatorSize, elementKind: PageIndicatorView.identifier, containerAnchor: itemAnchor
+                    )
+                    indicator.pinToVisibleBounds = true
+                    indicator.zIndex = 2
+                    section.boundarySupplementaryItems = [indicator]
+                    section.visibleItemsInvalidationHandler = { [unowned self] (_, offset, _) in
+                        let page = Int(round(offset.x / self.view.bounds.width))
+                        self.pagingInfoSubject.onNext(
+                            PagingInfo(section: sectionIndex, currentPage: page)
+                        )
+                    }
                     return section
                 }()
             case 1:
@@ -96,6 +116,7 @@ final class HomeViewController: BaseViewController {
         let layoutConfiguration = UICollectionViewCompositionalLayoutConfiguration()
         layoutConfiguration.interSectionSpacing = 5
         layout.configuration = layoutConfiguration
+
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isUserInteractionEnabled = true
         collectionView.refreshControl = self.refreshControl
@@ -104,6 +125,11 @@ final class HomeViewController: BaseViewController {
         )
         collectionView.register(
             LikeEnabledGoodsCell.self, forCellWithReuseIdentifier: LikeEnabledGoodsCell.identifier
+        )
+        collectionView.register(
+            PageIndicatorView.self,
+            forSupplementaryViewOfKind: PageIndicatorView.identifier,
+            withReuseIdentifier: PageIndicatorView.identifier
         )
         return collectionView
     }()
@@ -129,6 +155,18 @@ final class HomeViewController: BaseViewController {
     private func bindViewModel() {
         assert(self.viewModel != nil)
 
+        self.dataSource.configureSupplementaryView = { [unowned self] dataSource, collectionView, kind, indexPath in
+            guard let indicator = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind, withReuseIdentifier: PageIndicatorView.identifier, for: indexPath
+            ) as? PageIndicatorView
+            else { return UICollectionReusableView() }
+            let totalCount = self.dataSource[indexPath.section].items.count
+            indicator.bind(
+                currentPage: self.pagingInfoSubject, section: indexPath.section, totalCount: totalCount
+            )
+            return indicator
+        }
+
         let input = HomeViewModel.Input(
             loadMore: self.homeCollectionView
                 .loadMore()
@@ -136,7 +174,7 @@ final class HomeViewController: BaseViewController {
             refresh: self.refreshControl.rx
                 .controlEvent(.valueChanged)
                 .asDriverOnErrorJustComplete(),
-            like: self.like.asDriverOnErrorJustComplete()
+            like: self.likeGoodsViewModelSubject.asDriverOnErrorJustComplete()
         )
         let output = self.viewModel.transform(input: input)
 
