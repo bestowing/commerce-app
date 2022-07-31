@@ -45,7 +45,8 @@ final class Application {
         )
         likeNavigationController.tabBarItem = likeButton
         let likeNavigator = DefaultLikeNavigator(
-            navigationController: likeNavigationController
+            navigationController: likeNavigationController,
+            services: self.usecaseProvider
         )
 
         let tabBarController = UITabBarController()

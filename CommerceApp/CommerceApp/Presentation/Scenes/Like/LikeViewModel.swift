@@ -5,6 +5,9 @@
 //  Created by 이청수 on 2022/07/28.
 //
 
+import Foundation
+import RxCocoa
+
 final class LikeViewModel: ViewModelType {
 
     // MARK: - properties
@@ -26,7 +29,17 @@ final class LikeViewModel: ViewModelType {
     // MARK: - methods
 
     func transform(input: Input) -> Output {
-        return Output()
+        let errorTacker = ErrorTracker()
+
+        let goodsItemViewModels = self.likeUsecase.likeGoods()
+            .map { $0.map { GoodsItemViewModel(with: $0) } }
+            .trackError(errorTacker)
+            .asDriverOnErrorJustComplete()
+
+        return Output(
+            goodsItemViewModels: goodsItemViewModels,
+            error: errorTacker.asDriver()
+        )
     }
 
 }
@@ -36,6 +49,9 @@ final class LikeViewModel: ViewModelType {
 extension LikeViewModel {
 
     struct Input {}
-    struct Output {}
+    struct Output {
+        let goodsItemViewModels: Driver<[GoodsItemViewModel]>
+        let error: Driver<Error>
+    }
 
 }
