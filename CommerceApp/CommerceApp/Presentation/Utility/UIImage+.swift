@@ -11,6 +11,7 @@ import UIKit
 extension UIImage {
 
     static var defaultPlaceHolderImage: UIImage? {
+        // TODO: placeholder 이미지 바꾸기
         return UIImage(systemName: "questionmark")
     }
 

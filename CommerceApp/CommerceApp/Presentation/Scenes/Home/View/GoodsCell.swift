@@ -14,7 +14,6 @@ class GoodsCell: UICollectionViewCell {
     // MARK: - properties
 
     fileprivate let goodsImageView: SDAnimatedImageView = {
-        // TODO: placeholder 이미지 바꾸기
         let imageView = SDAnimatedImageView()
         imageView.layer.cornerRadius = 7.0
         imageView.layer.masksToBounds = true

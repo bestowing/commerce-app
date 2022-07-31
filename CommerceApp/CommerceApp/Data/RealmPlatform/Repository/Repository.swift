@@ -40,19 +40,13 @@ final class Repository<T: RealmRepresentable>: AbstractRepository where T == T.R
         .subscribe(on: self.scheduler)
     }
 
-    func initialization() -> Observable<[T]> {
+    func query(with predicate: NSPredicate) -> Observable<[T]> {
         return Observable.deferred { [unowned self] in
-            let objects = self.realm.objects(T.RealmType.self)
-
-            return Observable.arrayWithChangeset(from: objects)
-                .compactMap { array, changes -> [T.RealmType]? in
-                    guard changes == nil
-                    else { return nil }
-                    return array
-                }
+            let objects = realm.objects(T.RealmType.self)
+                .filter(predicate)
+            return Observable.array(from: objects)
                 .mapToDomain()
         }
-        .subscribe(on: self.scheduler)
     }
 
     func save(entity: T) -> Observable<Void> {
