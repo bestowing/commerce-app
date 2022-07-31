@@ -88,6 +88,9 @@
 		3FB5855C289720DD006154C8 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148D92894066E0050A02F /* Int+.swift */; };
 		3FB5855D289720DD006154C8 /* Observable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9148CE289308C10050A02F /* Observable+.swift */; };
 		3FB5855E289720F5006154C8 /* HomeSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9149192895864C0050A02F /* HomeSectionModel.swift */; };
+		3FB5855F289721D0006154C8 /* LikeUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91491E2895CA790050A02F /* LikeUsecase.swift */; };
+		3FB58560289721D0006154C8 /* LikeNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91485328926D170050A02F /* LikeNavigator.swift */; };
+		3FB58561289721D0006154C8 /* LikeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91484C28926BCB0050A02F /* LikeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -713,6 +716,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FB5855F289721D0006154C8 /* LikeUsecase.swift in Sources */,
+				3FB58560289721D0006154C8 /* LikeNavigator.swift in Sources */,
+				3FB58561289721D0006154C8 /* LikeViewModel.swift in Sources */,
 				3FB5855E289720F5006154C8 /* HomeSectionModel.swift in Sources */,
 				3FB5855A289720DD006154C8 /* ActivityIndicator.swift in Sources */,
 				3FB5855B289720DD006154C8 /* ErrorTracker.swift in Sources */,
