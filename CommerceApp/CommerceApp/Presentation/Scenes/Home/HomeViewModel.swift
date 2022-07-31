@@ -34,7 +34,7 @@ final class HomeViewModel: ViewModelType {
         let errorTacker = ErrorTracker()
 
         let isFetchingLimited = PublishSubject<Bool>()
-        let goodsItems = BehaviorSubject<[GoodsItemViewModel]>(value: [])
+        let goodsItems = PublishSubject<[GoodsItemViewModel]>()
 
         let initTrigger = Driver.of(Driver.just(()), input.refresh).merge()
 
@@ -61,13 +61,14 @@ final class HomeViewModel: ViewModelType {
             }
 
         let likesOfInitialGoods = initializedGoods
-            .flatMap { [unowned self] goods in
+            .flatMapLatest { [unowned self] goods in
                 self.homeUsecase.getLikesGoods(in: goods)
                     .asDriverOnErrorJustComplete()
             }
 
-        let initializedGoodsItemsEvent = initializedGoods
-            .withLatestFrom(likesOfInitialGoods) { goods, likes -> [GoodsItemViewModel] in
+        let initializedGoodsItemsEvent = likesOfInitialGoods
+            .withLatestFrom(initializedGoods) { ($0, $1) }
+            .map { likes, goods -> [GoodsItemViewModel] in
                 let viewModels = goods.map {
                     GoodsItemViewModel(with: $0, isLiked: likes.contains($0))
                 }
@@ -85,8 +86,8 @@ final class HomeViewModel: ViewModelType {
                     .asDriverOnErrorJustComplete()
             }
 
-        let addedGoodsItemsEvent = moreLoadedGoods
-            .withLatestFrom(likesOfAddedGoods) { goods, likes -> [GoodsItemViewModel] in
+        let addedGoodsItemsEvent = likesOfAddedGoods
+            .withLatestFrom(moreLoadedGoods) { likes, goods -> [GoodsItemViewModel] in
                 let viewModels = goods.map {
                     GoodsItemViewModel(with: $0, isLiked: likes.contains($0))
                 }

@@ -33,11 +33,7 @@ struct GoodsItemViewModel {
 
     // MARK: - init/deinit
 
-    init(with goods: Goods) {
-        self.init(with: goods, isLiked: false)
-    }
-
-    init(with goods: Goods, isLiked: Bool) {
+    init(with goods: Goods, isLiked: Bool = false) {
         self.goods = goods
         self.isLiked = isLiked
     }
