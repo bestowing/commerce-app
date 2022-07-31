@@ -47,20 +47,21 @@ final class Repository<T: RealmRepresentable>: AbstractRepository where T == T.R
             return Observable.array(from: objects)
                 .mapToDomain()
         }
+        .subscribe(on: self.scheduler)
     }
 
     func save(entity: T) -> Observable<Void> {
         return Observable.deferred { [unowned self] in
             return self.realm.rx.save(entity: entity)
         }
-        .subscribe(on: scheduler)
+        .subscribe(on: self.scheduler)
     }
 
     func delete(entity: T) -> Observable<Void> {
         return Observable.deferred { [unowned self] in
             return self.realm.rx.delete(entity: entity)
         }
-        .subscribe(on: scheduler)
+        .subscribe(on: self.scheduler)
     }
 
 }
