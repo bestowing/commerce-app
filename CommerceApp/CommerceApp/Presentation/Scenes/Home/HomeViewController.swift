@@ -61,6 +61,7 @@ final class HomeViewController: BaseViewController {
                 section: indexPath.section,
                 totalCount: totalCount
             )
+            indicatorView.layer.zPosition = 1000
             return indicatorView
         }
     )
@@ -97,6 +98,7 @@ final class HomeViewController: BaseViewController {
         let collectionView = UICollectionView(
             frame: .zero, collectionViewLayout: self.homeLayout
         )
+        collectionView.backgroundColor = .systemBackground
         collectionView.isUserInteractionEnabled = true
         collectionView.refreshControl = self.refreshControl
         collectionView.register(
@@ -188,8 +190,8 @@ extension HomeViewController {
         let indicatorView = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: indicatorSize, elementKind: PageIndicatorView.identifier, containerAnchor: itemAnchor
         )
-        indicatorView.pinToVisibleBounds = true
         indicatorView.zIndex = 2
+        indicatorView.pinToVisibleBounds = true
         section.boundarySupplementaryItems = [indicatorView]
         return section
     }

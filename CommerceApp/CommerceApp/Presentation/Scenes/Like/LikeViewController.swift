@@ -19,6 +19,7 @@ final class LikeViewController: BaseViewController {
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = CGSize(width: self.view.frame.width, height: 130.0)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .systemBackground
         collectionView.register(GoodsCell.self, forCellWithReuseIdentifier: GoodsCell.identifier)
         return collectionView
     }()

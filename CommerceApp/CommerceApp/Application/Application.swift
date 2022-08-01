@@ -6,6 +6,7 @@
 //
 
 import SDWebImage
+import SDWebImageWebPCoder
 import UIKit
 
 final class Application {
@@ -22,6 +23,9 @@ final class Application {
         self.usecaseProvider = DefaultUsecaseProvider()
         if #available(iOS 14.0, *) {
             let webP = SDImageAWebPCoder.shared
+            SDImageCodersManager.shared.addCoder(webP)
+        } else {
+            let webP = SDImageWebPCoder.shared
             SDImageCodersManager.shared.addCoder(webP)
         }
     }

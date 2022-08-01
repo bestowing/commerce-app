@@ -12,6 +12,7 @@
 		3F0F336128923BE600A1C514 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F336028923BE600A1C514 /* HomeViewController.swift */; };
 		3F0F336628923BE700A1C514 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F0F336528923BE700A1C514 /* Assets.xcassets */; };
 		3F0F336928923BE700A1C514 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0F336728923BE700A1C514 /* LaunchScreen.storyboard */; };
+		3F91378E28980D900018B099 /* SDWebImageWebPCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 3F91378D28980D900018B099 /* SDWebImageWebPCoder */; };
 		3F914843289268CE0050A02F /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F914842289268CE0050A02F /* Application.swift */; };
 		3F91484928926B740050A02F /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91484828926B740050A02F /* LikeViewController.swift */; };
 		3F91484B28926BAF0050A02F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91484A28926BAF0050A02F /* HomeViewModel.swift */; };
@@ -187,6 +188,7 @@
 				3F914912289572180050A02F /* Differentiator in Frameworks */,
 				3F9148902892829B0050A02F /* RxRealm in Frameworks */,
 				3F914914289572180050A02F /* RxDataSources in Frameworks */,
+				3F91378E28980D900018B099 /* SDWebImageWebPCoder in Frameworks */,
 				3F9148D42893C6790050A02F /* SDWebImage in Frameworks */,
 				3F91493028966F8D0050A02F /* SDWebImageWebPCoder in Frameworks */,
 				3F91487D28927C540050A02F /* SnapKit in Frameworks */,
@@ -530,6 +532,7 @@
 				3F914913289572180050A02F /* RxDataSources */,
 				3F91492C28966F4B0050A02F /* SDWebImage */,
 				3F91492F28966F8D0050A02F /* SDWebImageWebPCoder */,
+				3F91378D28980D900018B099 /* SDWebImageWebPCoder */,
 			);
 			productName = CommerceApp;
 			productReference = 3F0F335928923BE600A1C514 /* CommerceApp.app */;
@@ -1129,6 +1132,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3F91378D28980D900018B099 /* SDWebImageWebPCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F91492E28966F8D0050A02F /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */;
+			productName = SDWebImageWebPCoder;
+		};
 		3F91487C28927C540050A02F /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3F91487B28927C540050A02F /* XCRemoteSwiftPackageReference "SnapKit" */;
