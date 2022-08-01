@@ -69,5 +69,8 @@ final class LikeViewController: BaseViewController {
 
         output.isLoading.drive(self.activityIndicator.rx.isAnimating)
             .disposed(by: self.disposeBag)
+
+        output.event.drive()
+            .disposed(by: self.disposeBag)
     }
 }

@@ -8,5 +8,6 @@
 protocol LikeNavigator {
 
     func toLike()
+    func toErrorAlert(error: Error)
 
 }

@@ -41,10 +41,16 @@ final class LikeViewModel: ViewModelType {
                     .asDriverOnErrorJustComplete()
             }
 
+        let isLoading = activityIndicator.asDriver()
+
+        let errorEvent = errorTacker.asDriver()
+            .do(onNext: self.navigator.toErrorAlert)
+            .mapToVoid()
+
         return Output(
             goodsItemViewModels: goodsItemViewModels,
-            isLoading: activityIndicator.asDriver(),
-            error: errorTacker.asDriver()
+            isLoading: isLoading,
+            event: errorEvent
         )
     }
 
@@ -60,7 +66,7 @@ extension LikeViewModel {
     struct Output {
         let goodsItemViewModels: Driver<[GoodsItemViewModel]>
         let isLoading: Driver<Bool>
-        let error: Driver<Error>
+        let event: Driver<Void>
     }
 
 }
