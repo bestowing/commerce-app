@@ -41,6 +41,7 @@ final class HomeViewModel: ViewModelType {
         let initialization = initTrigger.flatMapLatest { [unowned self] _ in
             self.homeUsecase.initialization()
                 .trackActivity(refreshIndicator)
+                .trackError(errorTacker)
                 .asDriverOnErrorJustComplete()
         }
 
@@ -57,12 +58,14 @@ final class HomeViewModel: ViewModelType {
             .compactMap { $0.last?.goods.id }
             .flatMapLatest { [unowned self] id in
                 self.homeUsecase.pagination(after: id)
+                    .trackError(errorTacker)
                     .asDriverOnErrorJustComplete()
             }
 
         let likesOfInitialGoods = initializedGoods
             .flatMapLatest { [unowned self] goods in
                 self.homeUsecase.getLikesGoods(in: goods)
+                    .trackError(errorTacker)
                     .asDriverOnErrorJustComplete()
             }
 
@@ -83,6 +86,7 @@ final class HomeViewModel: ViewModelType {
         let likesOfAddedGoods = moreLoadedGoods
             .flatMap { [unowned self] goods in
                 self.homeUsecase.getLikesGoods(in: goods)
+                    .trackError(errorTacker)
                     .asDriverOnErrorJustComplete()
             }
 
@@ -138,8 +142,12 @@ final class HomeViewModel: ViewModelType {
             })
             .mapToVoid()
 
+        let errorEvent = errorTacker.asDriver()
+            .do(onNext: self.navigator.toErrorAlert)
+            .mapToVoid()
+
         let events = Driver.from([
-            initializedGoodsItemsEvent, addedGoodsItemsEvent, likeEvent, unlikeEvent
+            initializedGoodsItemsEvent, addedGoodsItemsEvent, likeEvent, unlikeEvent, errorEvent
         ]).merge()
 
         let homeSectionModels = Driver.combineLatest(

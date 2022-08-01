@@ -14,6 +14,8 @@ final class DefaultHomeNavigator: HomeNavigator {
     private let navigationController: UINavigationController
     private let services: UsecaseProvider
 
+    private weak var presentingViewController: UIViewController?
+
     // MARK: - init/deinit
 
     init(navigationController: UINavigationController, services: UsecaseProvider) {
@@ -33,6 +35,16 @@ final class DefaultHomeNavigator: HomeNavigator {
             navigator: self, homeUsecase: self.services.makeHomeUsecase()
         )
         self.navigationController.pushViewController(viewController, animated: false)
+        self.presentingViewController = viewController
+    }
+
+    func toErrorAlert(error: Error) {
+        let alert = UIAlertController(title: "오류⚠️",
+                                      message: "문제가 발생했습니다😢\n앱을 재실행해주세요",
+                                      preferredStyle: UIAlertController.Style.alert)
+        let confirm = UIAlertAction(title: "닫기", style: .default)
+        alert.addAction(confirm)
+        self.presentingViewController?.present(alert, animated: true)
     }
 
 }

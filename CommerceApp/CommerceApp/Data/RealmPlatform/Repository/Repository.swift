@@ -33,7 +33,6 @@ final class Repository<T: RealmRepresentable>: AbstractRepository where T == T.R
     func queryAll() -> Observable<[T]> {
         return Observable.deferred { [unowned self] in
             let objects = self.realm.objects(T.RealmType.self)
-
             return Observable.array(from: objects)
                 .mapToDomain()
         }
