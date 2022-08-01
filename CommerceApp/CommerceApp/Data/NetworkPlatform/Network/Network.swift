@@ -28,7 +28,7 @@ final class Network {
 
     // MARK: - methods
 
-    func fetchHomeDTO() -> Observable<(HomeDTO)> {
+    func fetchHomeDTO() -> Observable<HomeDTO> {
         return RxAlamofire
             .data(.get, self.endPoints.homeDTO)
             .map { data -> HomeDTO in
