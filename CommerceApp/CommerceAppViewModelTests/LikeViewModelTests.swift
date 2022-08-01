@@ -123,6 +123,7 @@ extension LikeViewModelTests {
 
     final class MockLikeNavigator: LikeNavigator {
         func toLike() {}
+        func toErrorAlert(error: Error) {}
     }
 
     final class MockLikeUsecase: LikeUsecase {

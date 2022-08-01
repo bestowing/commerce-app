@@ -240,6 +240,7 @@ extension HomeViewModelTests {
 
     final class MockHomeNavigator: HomeNavigator {
         func toHome() {}
+        func toErrorAlert(error: Error) {}
     }
 
     final class MockHomeUsecase: HomeUsecase {
