@@ -32,62 +32,36 @@ final class LikeViewModelTests: QuickSpec {
         }
 
         describe("좋아요 뷰모델은") {
-            context("유즈케이스에서 좋아요한 제품을 0개 방출한다면") {
-                it("빈 배열을 방출해야 한다") {
-                    let testGoods: [Goods] = []
-                    let expectedItemViewModels: [GoodsItemViewModel] = []
-                    mockLikeUsecase.likeGoodsStream = scheduler.createHotObservable([
-                        .next(250, testGoods)
-                    ]).asObservable()
-                    let testViewDidLoadTrigger = scheduler.createHotObservable([
-                        .next(240, ())
-                    ]).asDriverOnErrorJustComplete()
-                    let input = LikeViewModel.Input(
-                        viewDidLoad: testViewDidLoadTrigger
-                    )
-                    let output = viewModel.transform(input: input)
-                    
-                    let testableObserver = scheduler.createObserver([GoodsItemViewModel].self)
-                    output.goodsItemViewModels
-                        .drive(testableObserver)
-                        .disposed(by: disposeBag)
-                    
-                    scheduler.start()
-                    XCTAssertEqual(testableObserver.events, [
-                        .next(250, expectedItemViewModels)
-                    ])
+            context("뷰가 로드되었을때") {
+                context("유즈케이스에서 좋아요한 제품을 0개 방출한다면") {
+                    it("빈 배열을 방출해야 한다") {
+                        let testGoods: [Goods] = []
+                        let expectedItemViewModels: [GoodsItemViewModel] = []
+                        mockLikeUsecase.likeGoodsStream = scheduler.createHotObservable([
+                            .next(250, testGoods)
+                        ]).asObservable()
+                        let testViewDidLoadTrigger = scheduler.createHotObservable([
+                            .next(240, ())
+                        ]).asDriverOnErrorJustComplete()
+                        let input = LikeViewModel.Input(
+                            viewDidLoad: testViewDidLoadTrigger
+                        )
+                        let output = viewModel.transform(input: input)
+                        
+                        let testableObserver = scheduler.createObserver([GoodsItemViewModel].self)
+                        output.goodsItemViewModels
+                            .drive(testableObserver)
+                            .disposed(by: disposeBag)
+                        
+                        scheduler.start()
+                        XCTAssertEqual(testableObserver.events, [
+                            .next(250, expectedItemViewModels)
+                        ])
+                    }
                 }
-            }
-            context("유즈케이스에서 좋아요한 제품을 1개 방출한다면") {
-                it("좋아요한 1개 제품을 방출해야 한다") {
-                    let testGoods = [Goods(id: 0, name: "", image: "", isNew: false, sellCount: 0, actualPrice: 0, price: 0)]
-                    let expectedItemViewModels = testGoods.map { GoodsItemViewModel(with: $0) }
-                    mockLikeUsecase.likeGoodsStream = scheduler.createHotObservable([
-                        .next(250, testGoods)
-                    ]).asObservable()
-                    let testViewDidLoadTrigger = scheduler.createHotObservable([
-                        .next(240, ())
-                    ]).asDriverOnErrorJustComplete()
-                    let input = LikeViewModel.Input(
-                        viewDidLoad: testViewDidLoadTrigger
-                    )
-                    let output = viewModel.transform(input: input)
-
-                    let testableObserver = scheduler.createObserver([GoodsItemViewModel].self)
-                    output.goodsItemViewModels
-                        .drive(testableObserver)
-                        .disposed(by: disposeBag)
-                    
-                    scheduler.start()
-                    XCTAssertEqual(testableObserver.events, [
-                        .next(250, expectedItemViewModels)
-                    ])
-                }
-                context("유즈케이스에서 좋아요한 제품을 10개 방출한다면") {
-                    it("좋아요한 10개 제품을 방출해야 한다") {
-                        let testGoods = (0..<10).map {
-                            Goods(id: $0, name: "", image: "", isNew: false, sellCount: 0, actualPrice: 0, price: 0)
-                        }
+                context("유즈케이스에서 좋아요한 제품을 1개 방출한다면") {
+                    it("좋아요한 1개 제품을 방출해야 한다") {
+                        let testGoods = [Goods(id: 0, name: "", image: "", isNew: false, sellCount: 0, actualPrice: 0, price: 0)]
                         let expectedItemViewModels = testGoods.map { GoodsItemViewModel(with: $0) }
                         mockLikeUsecase.likeGoodsStream = scheduler.createHotObservable([
                             .next(250, testGoods)
@@ -104,11 +78,39 @@ final class LikeViewModelTests: QuickSpec {
                         output.goodsItemViewModels
                             .drive(testableObserver)
                             .disposed(by: disposeBag)
-
+                        
                         scheduler.start()
                         XCTAssertEqual(testableObserver.events, [
                             .next(250, expectedItemViewModels)
                         ])
+                    }
+                    context("유즈케이스에서 좋아요한 제품을 10개 방출한다면") {
+                        it("좋아요한 10개 제품을 방출해야 한다") {
+                            let testGoods = (0..<10).map {
+                                Goods(id: $0, name: "", image: "", isNew: false, sellCount: 0, actualPrice: 0, price: 0)
+                            }
+                            let expectedItemViewModels = testGoods.map { GoodsItemViewModel(with: $0) }
+                            mockLikeUsecase.likeGoodsStream = scheduler.createHotObservable([
+                                .next(250, testGoods)
+                            ]).asObservable()
+                            let testViewDidLoadTrigger = scheduler.createHotObservable([
+                                .next(240, ())
+                            ]).asDriverOnErrorJustComplete()
+                            let input = LikeViewModel.Input(
+                                viewDidLoad: testViewDidLoadTrigger
+                            )
+                            let output = viewModel.transform(input: input)
+
+                            let testableObserver = scheduler.createObserver([GoodsItemViewModel].self)
+                            output.goodsItemViewModels
+                                .drive(testableObserver)
+                                .disposed(by: disposeBag)
+
+                            scheduler.start()
+                            XCTAssertEqual(testableObserver.events, [
+                                .next(250, expectedItemViewModels)
+                            ])
+                        }
                     }
                 }
             }
