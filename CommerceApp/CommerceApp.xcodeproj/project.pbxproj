@@ -313,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				3F9148C42892A3820050A02F /* BaseViewController.swift */,
+				3F9148CA289300AD0050A02F /* GoodsCell.swift */,
 				3F9148DD28941A4D0050A02F /* PaddingLabel.swift */,
 				3F91484F28926BE70050A02F /* ViewModelType.swift */,
 			);
@@ -443,7 +444,6 @@
 			children = (
 				3F914915289583A90050A02F /* BannerCell.swift */,
 				3F914931289694380050A02F /* PageIndicatorView.swift */,
-				3F9148CA289300AD0050A02F /* GoodsCell.swift */,
 				3F914924289662E20050A02F /* GoodsSectionBackgroundView.swift */,
 			);
 			path = View;
