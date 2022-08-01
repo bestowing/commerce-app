@@ -29,11 +29,13 @@ final class LikeViewModel: ViewModelType {
     // MARK: - methods
 
     func transform(input: Input) -> Output {
+        let activityIndicator = ActivityIndicator()
         let errorTacker = ErrorTracker()
 
         let goodsItemViewModels = input.viewDidLoad
             .flatMap { [unowned self] in
                 self.likeUsecase.likeGoods()
+                    .trackActivity(activityIndicator)
                     .trackError(errorTacker)
                     .map { $0.map { GoodsItemViewModel(with: $0) } }
                     .asDriverOnErrorJustComplete()
@@ -41,6 +43,7 @@ final class LikeViewModel: ViewModelType {
 
         return Output(
             goodsItemViewModels: goodsItemViewModels,
+            isLoading: activityIndicator.asDriver(),
             error: errorTacker.asDriver()
         )
     }
@@ -56,6 +59,7 @@ extension LikeViewModel {
     }
     struct Output {
         let goodsItemViewModels: Driver<[GoodsItemViewModel]>
+        let isLoading: Driver<Bool>
         let error: Driver<Error>
     }
 

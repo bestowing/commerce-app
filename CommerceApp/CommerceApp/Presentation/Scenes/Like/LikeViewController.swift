@@ -23,6 +23,11 @@ final class LikeViewController: BaseViewController {
         return collectionView
     }()
 
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicatorView = UIActivityIndicatorView()
+        return indicatorView
+    }()
+
     private let disposeBag = DisposeBag()
 
     // MARK: - methods
@@ -36,8 +41,13 @@ final class LikeViewController: BaseViewController {
 
     private func setSubViews() {
         self.view.addSubview(self.likeGoodsCollectionView)
+        self.view.addSubview(self.activityIndicator)
         self.likeGoodsCollectionView.snp.makeConstraints {
             $0.edges.equalTo(self.view.safeAreaLayoutGuide)
+        }
+        self.activityIndicator.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.size.equalTo(100)
         }
     }
 
@@ -57,5 +67,7 @@ final class LikeViewController: BaseViewController {
             return cell
         }.disposed(by: self.disposeBag)
 
+        output.isLoading.drive(self.activityIndicator.rx.isAnimating)
+            .disposed(by: self.disposeBag)
     }
 }
