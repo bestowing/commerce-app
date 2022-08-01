@@ -91,6 +91,7 @@
 		3FB5855F289721D0006154C8 /* LikeUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91491E2895CA790050A02F /* LikeUsecase.swift */; };
 		3FB58560289721D0006154C8 /* LikeNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91485328926D170050A02F /* LikeNavigator.swift */; };
 		3FB58561289721D0006154C8 /* LikeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91484C28926BCB0050A02F /* LikeViewModel.swift */; };
+		3FB585662897A523006154C8 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 3FB585652897A523006154C8 /* Quick */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,6 +197,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FB585662897A523006154C8 /* Quick in Frameworks */,
 				3FB5855428971F26006154C8 /* RxTest in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -549,6 +551,7 @@
 			name = CommerceAppViewModelTests;
 			packageProductDependencies = (
 				3FB5855328971F26006154C8 /* RxTest */,
+				3FB585652897A523006154C8 /* Quick */,
 			);
 			productName = CommerceAppViewModelTests;
 			productReference = 3F9148AA28928A1D0050A02F /* CommerceAppViewModelTests.xctest */;
@@ -612,6 +615,7 @@
 				3F914910289572180050A02F /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				3F91492E28966F8D0050A02F /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */,
 				3FB5854B28971CD9006154C8 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				3FB585622897A46D006154C8 /* XCRemoteSwiftPackageReference "Quick" */,
 			);
 			productRefGroup = 3F0F335A28923BE600A1C514 /* Products */;
 			projectDirPath = "";
@@ -1114,6 +1118,14 @@
 				version = 6.5.0;
 			};
 		};
+		3FB585622897A46D006154C8 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1161,6 +1173,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3FB5854B28971CD9006154C8 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxTest;
+		};
+		3FB585652897A523006154C8 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3FB585622897A46D006154C8 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
