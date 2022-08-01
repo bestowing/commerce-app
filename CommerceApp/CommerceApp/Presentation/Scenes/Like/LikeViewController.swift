@@ -28,10 +28,10 @@ final class LikeViewController: BaseViewController {
     // MARK: - methods
 
     override func viewDidLoad() {
-        super.viewDidLoad()
         self.title = "좋아요"
         self.setSubViews()
         self.bindViewModel()
+        super.viewDidLoad()
     }
 
     private func setSubViews() {
@@ -44,7 +44,9 @@ final class LikeViewController: BaseViewController {
     private func bindViewModel() {
         assert(self.viewModel != nil)
 
-        let input = LikeViewModel.Input()
+        let input = LikeViewModel.Input(
+            viewDidLoad: self.viewDidLoadTrigger.asDriverOnErrorJustComplete()
+        )
         let output = self.viewModel.transform(input: input)
 
         output.goodsItemViewModels.drive(self.likeGoodsCollectionView.rx.items) { collectionView, index, viewModel in

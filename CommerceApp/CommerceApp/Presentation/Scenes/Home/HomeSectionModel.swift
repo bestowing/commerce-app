@@ -7,7 +7,7 @@
 
 import RxDataSources
 
-enum HomeSectionModel {
+enum HomeSectionModel: Equatable {
 
     case BannerSection(items: [SectionItem])
     case GoodsSection(items: [SectionItem])
@@ -25,7 +25,7 @@ enum HomeSectionModel {
 
 }
 
-enum SectionItem {
+enum SectionItem: Equatable {
     case BannerSectionItem(itemViewModel: BannerItemViewModel)
     case GoodsSectionItem(itemViewModel: GoodsItemViewModel)
 }

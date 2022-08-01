@@ -36,7 +36,7 @@ final class HomeViewModel: ViewModelType {
         let isFetchingLimited = PublishSubject<Bool>()
         let goodsItems = PublishSubject<[GoodsItemViewModel]>()
 
-        let initTrigger = Driver.of(Driver.just(()), input.refresh).merge()
+        let initTrigger = Driver.of(input.viewDidLoad, input.refresh).merge()
 
         let initialization = initTrigger.flatMapLatest { [unowned self] _ in
             self.homeUsecase.initialization()
@@ -168,6 +168,7 @@ final class HomeViewModel: ViewModelType {
 extension HomeViewModel {
 
     struct Input {
+        let viewDidLoad: Driver<Void>
         let loadMore: Driver<Void>
         let refresh: Driver<Void>
         let like: Driver<GoodsItemViewModel>

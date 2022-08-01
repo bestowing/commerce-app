@@ -31,10 +31,13 @@ final class LikeViewModel: ViewModelType {
     func transform(input: Input) -> Output {
         let errorTacker = ErrorTracker()
 
-        let goodsItemViewModels = self.likeUsecase.likeGoods()
-            .map { $0.map { GoodsItemViewModel(with: $0) } }
-            .trackError(errorTacker)
-            .asDriverOnErrorJustComplete()
+        let goodsItemViewModels = input.viewDidLoad
+            .flatMap { [unowned self] in
+                self.likeUsecase.likeGoods()
+                    .trackError(errorTacker)
+                    .map { $0.map { GoodsItemViewModel(with: $0) } }
+                    .asDriverOnErrorJustComplete()
+            }
 
         return Output(
             goodsItemViewModels: goodsItemViewModels,
@@ -48,7 +51,9 @@ final class LikeViewModel: ViewModelType {
 
 extension LikeViewModel {
 
-    struct Input {}
+    struct Input {
+        let viewDidLoad: Driver<Void>
+    }
     struct Output {
         let goodsItemViewModels: Driver<[GoodsItemViewModel]>
         let error: Driver<Error>

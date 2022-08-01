@@ -120,10 +120,10 @@ final class HomeViewController: BaseViewController {
     // MARK: - methods
 
     override func viewDidLoad() {
-        super.viewDidLoad()
         self.title = "홈"
         self.setSubViews()
         self.bindViewModel()
+        super.viewDidLoad()
     }
 
     private func setSubViews() {
@@ -137,6 +137,8 @@ final class HomeViewController: BaseViewController {
         assert(self.viewModel != nil)
 
         let input = HomeViewModel.Input(
+            viewDidLoad: self.viewDidLoadTrigger
+                .asDriverOnErrorJustComplete(),
             loadMore: self.homeCollectionView
                 .loadMore()
                 .asDriverOnErrorJustComplete(),
