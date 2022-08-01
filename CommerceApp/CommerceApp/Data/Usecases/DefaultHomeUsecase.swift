@@ -12,12 +12,12 @@ final class DefaultHomeUsecase<Repository>: HomeUsecase where Repository: Abstra
 
     // MARK: - properties
 
-    private let network: HomeNetwork
+    private let network: Network
     private let repository: Repository
 
     // MARK: - init/deinit
 
-    init(network: HomeNetwork, repository: Repository) {
+    init(network: Network, repository: Repository) {
         self.network = network
         self.repository = repository
     }

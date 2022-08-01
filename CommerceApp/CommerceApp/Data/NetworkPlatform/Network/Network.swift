@@ -1,5 +1,5 @@
 //
-//  HomeNetwork.swift
+//  Network.swift
 //  CommerceApp
 //
 //  Created by 이청수 on 2022/07/30.
@@ -9,7 +9,7 @@ import Foundation
 import RxAlamofire
 import RxSwift
 
-final class HomeNetwork {
+final class Network {
 
     struct EndPoint {
         let homeDTO: String

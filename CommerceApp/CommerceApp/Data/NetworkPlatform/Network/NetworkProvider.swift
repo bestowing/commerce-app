@@ -19,14 +19,14 @@ final class NetworkProvider {
 
     // MARK: - methods
 
-    func makeHomeNetwork() -> HomeNetwork {
+    func makeHomeNetwork() -> Network {
         let homeNetworkAPI = self.apiEndPoint + "/home"
-        let endPoints = HomeNetwork.EndPoint(
+        let endPoints = Network.EndPoint(
             homeDTO: homeNetworkAPI, goodsDTO: { lastGoodsID in
                 return homeNetworkAPI + "/goods?lastId=\(lastGoodsID)"
             }
         )
-        return HomeNetwork(endPoints: endPoints)
+        return Network(endPoints: endPoints)
     }
 
 }
