@@ -16,13 +16,13 @@
 
 ## 오픈소스 라이센스
 
-- Alamofire
-- RxAlamofire
-- Quick
-- RealmSwift
-- RxRealm
-- RxSwift
-- RxDataSource
-- SnapKit
-- SDWebImage
-- SDWebImageWebPCoder
+- [Alamofire (MIT)](https://github.com/Alamofire/Alamofire/blob/master/LICENSE)
+- [RxAlamofire (MIT)](https://github.com/RxSwiftCommunity/RxAlamofire/blob/main/LICENSE.md)
+- [Quick (Apache 2.0)](https://github.com/Quick/Quick/blob/main/LICENSE)
+- [RealmSwift (Apache 2.0)](https://github.com/realm/realm-swift/blob/master/LICENSE)
+- [RxRealm (MIT)](https://github.com/RxSwiftCommunity/RxRealm/blob/main/LICENSE)
+- [RxSwift (MIT)](https://github.com/ReactiveX/RxSwift/blob/main/LICENSE.md)
+- [RxDataSource (MIT)](https://github.com/RxSwiftCommunity/RxDataSources/blob/main/LICENSE.md)
+- [SnapKit (MIT)](https://github.com/SnapKit/SnapKit/blob/develop/LICENSE)
+- [SDWebImage (MIT)](https://github.com/SDWebImage/SDWebImage/blob/master/LICENSE)
+- [SDWebImageWebPCoder (MIT)](https://github.com/SDWebImage/SDWebImageWebPCoder/blob/master/LICENSE)
