@@ -11,7 +11,7 @@
 - iPhone 12 Pro Max Simulator, iOS 14.2
 
 ## 클래스 다이어그램
-![CommerceApp](https://user-images.githubusercontent.com/59321616/182595120-f49e9b4b-d6cd-4af7-b807-41ec00ed43f7.png)
+![CommerceApp drawio](https://user-images.githubusercontent.com/59321616/182595619-e07ca5e9-8607-4c67-af16-3c80208a16b4.png)
 
 ## 오픈소스 라이센스
 
