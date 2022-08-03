@@ -10,9 +10,8 @@
 - iPhone 11 Pro Simulator, iOS 13.0
 - iPhone 12 Pro Max Simulator, iOS 14.2
 
-## 구조
-
-![CommerceApp (1)](https://user-images.githubusercontent.com/59321616/182173549-3769d426-ee64-47fa-8f05-e7d3f666e07c.jpg)
+## 클래스 다이어그램
+![CommerceApp](https://user-images.githubusercontent.com/59321616/182595120-f49e9b4b-d6cd-4af7-b807-41ec00ed43f7.png)
 
 ## 오픈소스 라이센스
 
